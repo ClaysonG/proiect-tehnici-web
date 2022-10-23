@@ -40,6 +40,7 @@
                     <li id="home-link">
                         <a href="index.html">pagina principala
                             <i class="fa-solid fa-caret-down"></i>
+                            <i class="fa-solid fa-caret-up"></i>
                             <ul class="sub-links home-links">
                                 <li>
                                     <a href="#search" class="scroll-link">cautare</a>
@@ -62,6 +63,7 @@
                     <li id="account-link">
                         <a href="account.html">contul meu
                             <i class="fa-solid fa-caret-down"></i>
+                            <i class="fa-solid fa-caret-up"></i>
                             <ul class="sub-links account-links">
                                 <li>
                                     <a href="favorites.html">anunturi salvate</a>
@@ -91,18 +93,18 @@
                         <a href="index.html" id="sidebar-home-link">pagina principala
                             <ul class="sub-links home-links">
                                 <li>
-                                    <a href="#search" id="sidebar-search-link" class="scroll-link">cautare</a>
+                                    <a href="#search" id="sidebar-home-sub-link" class="scroll-link">cautare</a>
                                 </li>
                                 <li>
-                                    <a href="#about" id="sidebar-about-link" class="scroll-link">despre
+                                    <a href="#about" id="sidebar-home-sub-link" class="scroll-link">despre
                                         noi</a>
                                 </li>
                                 <li>
-                                    <a href="#products" id="sidebar-products-link" class="scroll-link">anunturi
+                                    <a href="#products" id="sidebar-home-sub-link" class="scroll-link">anunturi
                                         populare</a>
                                 </li>
                                 <li>
-                                    <a href="#news" id="sidebar-news-link" class="scroll-link">noutati</a>
+                                    <a href="#news" id="sidebar-home-sub-link" class="scroll-link">noutati</a>
                                 </li>
                             </ul>
                         </a>
@@ -194,13 +196,15 @@
         </section>
         <!-- end of search -->
         <!-- about us -->
-        <section class="section about bg-grey" id="about">
+        <section class="section about" id="about">
             <div class="section-center about-center">
                 <!-- about img -->
                 <article class="about-img">
                     <figure>
                         <img src="./resources/images/about-img.jpg" alt="about img" class="hero-photo">
-                        <figcaption>Gaseste masina dorita</figcaption>
+                        <figcaption>
+                            <a href="products.html">Gaseste masina dorita</a>
+                        </figcaption>
                     </figure>
                 </article>
                 <!-- about info -->
@@ -222,27 +226,25 @@
         </section>
         <!-- end of about us -->
         <!-- popular listings -->
-        <section class="section products" id="products">
+        <section class="section products bg-grey" id="products">
+            <!-- section title -->
+            <div class="section-title products-title">
+                <h2>anunturi populare</h2>
+                <div class="underline"></div>
+            </div>
+            <!-- end of section title -->
             <div class="section-center products-center">
-                <!-- section title -->
-                <div class="section-title products-title">
-                    <h2>anunturi populare</h2>
-                    <div class="underline"></div>
-                </div>
-                <!-- end of section title -->
                 <!-- single product -->
                 <article class="product-card">
-                    <div class="product-img-container">
-                        <figure>
-                            <img src="./resources/images/product-1.jpg" alt="product" class="product-img">
-                            <figcaption>bmw seria 3 2018</figcaption>
-                        </figure>
-                        <span>
+                    <a href="products.html">
+                        <div class="product-img-container">
+                            <figure>
+                                <img src="./resources/images/product-1.jpg" alt="product" class="product-img">
+                                <figcaption>bmw seria 3 2018</figcaption>
+                            </figure>
                             <i class="fa-solid fa-heart"></i>
-                        </span>
-                    </div>
-                    <div class="product-footer">
-                        <p>
+                        </div>
+                        <div class="product-footer">
                             <span>
                                 <i class="fa-solid fa-gauge-high"></i>
                                 200 cp
@@ -255,23 +257,21 @@
                                 <i class="fa-solid fa-road"></i>
                                 19.000 km
                             </span>
-                        </p>
-                    </div>
+                        </div>
+                    </a>
                 </article>
                 <!-- end of single product -->
                 <!-- single product -->
                 <article class="product-card">
-                    <div class="product-img-container">
-                        <figure>
-                            <img src="./resources/images/product-2.jpg" alt="product" class="product-img">
-                            <figcaption>corvette 2019</figcaption>
-                        </figure>
-                        <span>
+                    <a href="products.html">
+                        <div class="product-img-container">
+                            <figure>
+                                <img src="./resources/images/product-2.jpg" alt="product" class="product-img">
+                                <figcaption>corvette 2019</figcaption>
+                            </figure>
                             <i class="fa-solid fa-heart"></i>
-                        </span>
-                    </div>
-                    <div class="product-footer">
-                        <p>
+                        </div>
+                        <div class="product-footer">
                             <span>
                                 <i class="fa-solid fa-gauge-high"></i>
                                 200 cp
@@ -284,23 +284,21 @@
                                 <i class="fa-solid fa-road"></i>
                                 19.000 km
                             </span>
-                        </p>
-                    </div>
+                        </div>
+                    </a>
                 </article>
                 <!-- end of single product -->
                 <!-- single product -->
                 <article class="product-card">
-                    <div class="product-img-container">
-                        <figure>
-                            <img src="./resources/images/product-3.jpg" alt="product" class="product-img">
-                            <figcaption>audi s5 2020</figcaption>
-                        </figure>
-                        <span>
+                    <a href="products.html">
+                        <div class="product-img-container">
+                            <figure>
+                                <img src="./resources/images/product-3.jpg" alt="product" class="product-img">
+                                <figcaption>audi s5 2020</figcaption>
+                            </figure>
                             <i class="fa-solid fa-heart"></i>
-                        </span>
-                    </div>
-                    <div class="product-footer">
-                        <p>
+                        </div>
+                        <div class="product-footer">
                             <span>
                                 <i class="fa-solid fa-gauge-high"></i>
                                 200 cp
@@ -313,23 +311,21 @@
                                 <i class="fa-solid fa-road"></i>
                                 19.000 km
                             </span>
-                        </p>
-                    </div>
+                        </div>
+                    </a>
                 </article>
                 <!-- end of single product -->
                 <!-- single product -->
                 <article class="product-card">
-                    <div class="product-img-container">
-                        <figure>
-                            <img src="./resources/images/product-4.jpg" alt="product" class="product-img">
-                            <figcaption>range rover 2021</figcaption>
-                        </figure>
-                        <span>
+                    <a href="products.html">
+                        <div class="product-img-container">
+                            <figure>
+                                <img src="./resources/images/product-4.jpg" alt="product" class="product-img">
+                                <figcaption>range rover 2021</figcaption>
+                            </figure>
                             <i class="fa-solid fa-heart"></i>
-                        </span>
-                    </div>
-                    <div class="product-footer">
-                        <p>
+                        </div>
+                        <div class="product-footer">
                             <span>
                                 <i class="fa-solid fa-gauge-high"></i>
                                 200 cp
@@ -342,23 +338,21 @@
                                 <i class="fa-solid fa-road"></i>
                                 19.000 km
                             </span>
-                        </p>
-                    </div>
+                        </div>
+                    </a>
                 </article>
                 <!-- end of single product -->
                 <!-- single product -->
                 <article class="product-card">
-                    <div class="product-img-container">
-                        <figure>
-                            <img src="./resources/images/product-5.jpg" alt="product" class="product-img">
-                            <figcaption>ford gt 2017</figcaption>
-                        </figure>
-                        <span>
+                    <a href="products.html">
+                        <div class="product-img-container">
+                            <figure>
+                                <img src="./resources/images/product-5.jpg" alt="product" class="product-img">
+                                <figcaption>toyota supra 2017</figcaption>
+                            </figure>
                             <i class="fa-solid fa-heart"></i>
-                        </span>
-                    </div>
-                    <div class="product-footer">
-                        <p>
+                        </div>
+                        <div class="product-footer">
                             <span>
                                 <i class="fa-solid fa-gauge-high"></i>
                                 200 cp
@@ -371,101 +365,335 @@
                                 <i class="fa-solid fa-road"></i>
                                 19.000 km
                             </span>
-                        </p>
-                    </div>
+                        </div>
+                    </a>
+                </article>
+                <!-- end of single product -->
+                <!-- single product -->
+                <article class="product-card">
+                    <a href="products.html">
+                        <div class="product-img-container">
+                            <figure>
+                                <img src="./resources/images/product-6.jpg" alt="product" class="product-img">
+                                <figcaption>jeep wrangler 2020</figcaption>
+                            </figure>
+                            <i class="fa-solid fa-heart"></i>
+                        </div>
+                        <div class="product-footer">
+                            <span>
+                                <i class="fa-solid fa-gauge-high"></i>
+                                200 cp
+                            </span>
+                            <span>
+                                <i class="fa-solid fa-gas-pump"></i>
+                                diesel
+                            </span>
+                            <span>
+                                <i class="fa-solid fa-road"></i>
+                                19.000 km
+                            </span>
+                        </div>
+                    </a>
                 </article>
                 <!-- end of single product -->
             </div>
         </section>
         <!-- end of popular listings -->
         <!-- news -->
-        <section class="section news bg-grey" id="news">
+        <section class="section news" id="news">
+            <!-- section title -->
+            <div class="section-title news-title">
+                <h2>noutati</h2>
+                <div class="underline"></div>
+            </div>
+            <!-- end of section title -->
             <div class="section-center news-center">
-                <!-- section title -->
-                <div class="section-title about-title">
-                    <h2>noutati</h2>
-                    <div class="underline"></div>
-                </div>
-                <!-- end of section title -->
                 <section class="section showcases" id="showcases">
                     <!-- section title -->
-                    <div class="section-title about-title">
+                    <div class="section-title showcases-title">
                         <h3>ultimele aparitii</h3>
                     </div>
                     <!-- end of section title -->
-                    <div class="section-center showcases-center">
+                    <div class="showcases-center">
                         <!-- single news -->
-                        <article class="news-card">
-                            <figure>
-                                <img src="./resources/images/news-1.jpg" alt="product" class="product-img">
-                                <figcaption>
-                                    <a href="https://www.youtube.com/embed/qHLxQjk4O04" target="news-frame-1">
-                                        mercedes s 2022
-                                    </a>
-                                </figcaption>
-                            </figure>
+                        <article class="news-card news-card-1">
+                            <div class="product-img-container news-img-container">
+                                <figure>
+                                    <img src="./resources/images/news-1.jpg" alt="product" class="product-img">
+                                    <figcaption>
+                                        <a href="https://www.youtube.com/embed/qHLxQjk4O04" target="news-frame-1"
+                                            class="news-link">
+                                            mercedes s 2022
+                                        </a>
+                                    </figcaption>
+                                </figure>
+                            </div>
                             <details>
-                                <summary>noul mercedes s</summary>
-                                <iframe src="https://www.youtube.com/embed/qHLxQjk4O04" frameborder="0"
-                                    name="news-frame-1"></iframe>
-                                <p>La fel ca un prieten bun, Clasa S are grija de toti. Fie ca sunt pasageri sau
-                                    pietoni. Noul model Clasa S se concentreaza asupra elementelor esentiale.</p>
-                                <a href="https://www.mercedes-benz.ro" target="_blank">mai multe detalii aici</a>
-                                <a href="./resources/images/news-1.jpg" download="mercedes">descarca galerie</a>
+                                <summary id="news-summary-1">noul mercedes s</summary>
+                                <div class="news-content">
+                                    <iframe src="https://www.youtube.com/embed/qHLxQjk4O04" title="Mercedes S"
+                                        frameborder="0" name="news-frame-1"></iframe>
+                                    <p>La fel ca un prieten bun, Clasa S are grija de toti. Fie ca sunt pasageri sau
+                                        pietoni. Noul model Clasa S se concentreaza asupra elementelor esentiale.</p>
+                                    <div class="news-footer">
+                                        <a href="https://www.mercedes-benz.ro" target="_blank">mai multe detalii
+                                            aici</a>
+                                        <a href="./resources/images/news-1.jpg" download="mercedes">descarca galerie</a>
+                                    </div>
+                                </div>
                             </details>
                         </article>
                         <!-- end of single news -->
                         <!-- single news -->
-                        <article class="news-card">
-                            <figure>
-                                <img src="./resources/images/news-2.jpg" alt="product" class="product-img">
-                                <figcaption>
-                                    <a href="https://www.youtube.com/embed/6JnuEBRDtvA" target="news-frame-2">
-                                        bmw seria 5 2022
-                                    </a>
-                                </figcaption>
-                            </figure>
+                        <article class="news-card news-card-2">
+                            <div class="product-img-container news-img-container">
+                                <figure>
+                                    <img src="./resources/images/news-2.jpg" alt="product" class="product-img">
+                                    <figcaption>
+                                        <a href="https://www.youtube.com/embed/6JnuEBRDtvA" target="news-frame-2"
+                                            class="news-link">
+                                            bmw seria 5 2022
+                                        </a>
+                                    </figcaption>
+                                </figure>
+                            </div>
                             <details>
-                                <summary>bmw lanseaza noul seria 5</summary>
-                                <iframe src="https://www.youtube.com/embed/6JnuEBRDtvA" frameborder="0"
-                                    name="news-frame-2"></iframe>
-                                <p>BMW Seria 5 Sedan este un sedan modern din clasa business. De la prima vedere, acesta
-                                    ofera sportivitate eleganta care este exprimata prin silueta dinamica şi designul
-                                    minimalist.</p>
-                                <a href="https://www.bmw.ro" target="_blank">mai multe detalii aici</a>
-                                <a href="./resources/images/news-2.jpg" download="bmw">descarca galerie</a>
+                                <summary id="news-summary-2">bmw lanseaza noul seria 5</summary>
+                                <div class="news-content">
+                                    <iframe src="https://www.youtube.com/embed/6JnuEBRDtvA" title="BMW Seria 5"
+                                        frameborder="0" name="news-frame-2"></iframe>
+                                    <p>BMW Seria 5 Sedan este un sedan modern din clasa business. De la prima vedere,
+                                        acesta
+                                        ofera sportivitate eleganta care este exprimata prin silueta dinamica şi
+                                        designul
+                                        minimalist.</p>
+                                    <div class="news-footer">
+                                        <a href="https://www.bmw.ro" target="_blank">mai multe detalii aici</a>
+                                        <a href="./resources/images/news-2.jpg" download="bmw">descarca galerie</a>
+                                    </div>
+                                </div>
                             </details>
                         </article>
                         <!-- end of single news -->
                         <!-- single news -->
-                        <article class="news-card">
-                            <figure>
-                                <img src="./resources/images/news-3.jpg" alt="product" class="product-img">
-                                <figcaption>
-                                    <a href="https://www.youtube.com/embed/_LzrQst0sIU" target="news-frame-3">
-                                        audi s5 2022
-                                    </a>
-                                </figcaption>
-                            </figure>
+                        <article class="news-card news-card-3">
+                            <div class="product-img-container news-img-container">
+                                <figure>
+                                    <img src="./resources/images/news-3.jpg" alt="product" class="product-img">
+                                    <figcaption>
+                                        <a href="https://www.youtube.com/embed/_LzrQst0sIU" target="news-frame-3"
+                                            class="news-link">
+                                            audi s5 2022
+                                        </a>
+                                    </figcaption>
+                                </figure>
+                            </div>
                             <details>
-                                <summary>audi surprinde cu ultimul s5</summary>
-                                <iframe src="https://www.youtube.com/embed/_LzrQst0sIU" frameborder="0"
-                                    name="news-frame-3"></iframe>
-                                <p>Cu motorul sau puternic, Audi S5 Cabriolet TFSI asigura parametri dinamici
-                                    impresionanti, agilitate si călătorii de neuitat - la nivel de automobil sport
-                                    autentic.</p>
-                                <a href="https://www.audi.ro" target="_blank">mai multe detalii aici</a>
-                                <a href="./resources/images/news-3.jpg" download="audi">descarca galerie</a>
+                                <summary id="news-summary-3">audi surprinde cu ultimul s5</summary>
+                                <div class="news-content">
+                                    <iframe src="https://www.youtube.com/embed/_LzrQst0sIU" title="Audi S5"
+                                        frameborder="0" name="news-frame-3"></iframe>
+                                    <p>Cu motorul sau puternic, Audi S5 Cabriolet TFSI asigura parametri dinamici
+                                        impresionanti, agilitate si călătorii de neuitat - la nivel de automobil sport
+                                        autentic.</p>
+                                    <div class="news-footer">
+                                        <a href="https://www.audi.ro" target="_blank">mai multe detalii aici</a>
+                                        <a href="./resources/images/news-3.jpg" download="audi">descarca galerie</a>
+                                    </div>
+                                </div>
                             </details>
                         </article>
                         <!-- end of single news -->
                     </div>
                 </section>
+                <section class="section articles" id="articles">
+                    <!-- section title -->
+                    <div class="section-title articles-title">
+                        <h3>stiri</h3>
+                    </div>
+                    <!-- end of section title -->
+                    <div class="articles-center">
+                        <!-- single article -->
+                        <article class="article-card article-card-1">
+                            <div class="product-img-container article-img-container">
+                                <figure>
+                                    <img src="./resources/images/article-1.jpg" alt="product" class="product-img">
+                                    <figcaption>
+                                        <p class="news-link">citeste mai multe</p>
+                                    </figcaption>
+                                </figure>
+                            </div>
+                            <details>
+                                <summary id="article-summary-1">totul despre nissan <span class="uppercase">gtr
+                                </summary>
+                                <div class="news-content">
+                                    <p>Nissan GT-R (R35) este o mașină sport coupe proiectată de Nissan Motor ,
+                                        moștenitorul Skyline GT-R (R34) . În 2001, Nissan a început dezvoltarea
+                                        următoarei generații GT-R prezentând primul concept despre ceea ce ar fi cea mai
+                                        puternică mașină de producție japoneză construită vreodată la Tokyo . În 2005 a
+                                        fost expus al doilea prototip, iar doi ani mai târziu a fost prezentată
+                                        versiunea gata de comercializare.
+                                    </p>
+                                </div>
+                            </details>
+                        </article>
+                        <!-- end of single article -->
+                        <!-- single article -->
+                        <article class="article-card article-card-2">
+                            <div class="product-img-container article-img-container">
+                                <figure>
+                                    <img src="./resources/images/article-2.jpg" alt="product" class="product-img">
+                                    <figcaption>
+                                        <p class="news-link">citeste mai multe</p>
+                                    </figcaption>
+                                </figure>
+                            </div>
+                            <details>
+                                <summary id="article-summary-2">cum putem reduce consumul</summary>
+                                <div class="news-content">
+                                    <p>Pare ca de zeci de ani ne concentram pe economia de carburant, asta fiind un
+                                        lucru bun. Intrebarea urmatoare este, cum obtinem kilometraj mai mare cu
+                                        cantitate de carburant mai mica? Daca vrei sa stii cum sa economisesti la
+                                        consumul de carburant, urmareste sa incerci schimbari in obiceiurile tale cu
+                                        privire la consum.</p>
+                                </div>
+                            </details>
+                        </article>
+                        <!-- end of single article -->
+                        <!-- single article -->
+                        <article class="article-card article-card-3">
+                            <div class="product-img-container article-img-container">
+                                <figure>
+                                    <img src="./resources/images/article-3.jpg" alt="product" class="product-img">
+                                    <figcaption>
+                                        <p class="news-link">citeste mai multe</p>
+                                    </figcaption>
+                                </figure>
+                            </div>
+                            <details>
+                                <summary id="article-summary-3">petrol vs electric</summary>
+                                <div class="news-content">
+                                    <p>Benzina sau motorina este la inceput petrol, care se gaseste la aproximativ 1.800
+                                        metri sub suprafața pământului. O mare cantitate de petrol se extrage folosind
+                                        sondele de petrol. Sondele nu functioneaza de la sine si în majoritatea
+                                        cazurilor folosesc electricitate. În medie, este nevoie de 9.960 kilowați/oră de
+                                        electricitate în fiecare lună pentru a alimenta o singura sonda.</p>
+                                </div>
+                            </details>
+                        </article>
+                        <!-- end of single article -->
+                    </div>
+                </section>
+                <section class="section presentations" id="presentations">
+                    <!-- section title -->
+                    <div class="section-title presentations-title">
+                        <h3>prezentari</h3>
+                    </div>
+                    <!-- end of section title -->
+                    <div class="presentations-center">
+                        <article class="presentation">
+                            <iframe src="https://www.youtube.com/embed/Tm4rkRpoapw" title="Prezentare Auto"
+                                frameborder="0" name="presentation-frame"></iframe>
+                            <div class="presentation-links">
+                                <a href="https://www.youtube.com/embed/Tm4rkRpoapw" target="presentation-frame"
+                                    class="presentation-link">
+                                    amg one
+                                </a>
+                                <a href="https://www.youtube.com/embed/-kMF1W00thU" target="presentation-frame"
+                                    class="presentation-link">
+                                    bmw i7
+                                </a>
+                                <a href="https://www.youtube.com/embed/_ZHAYPkQtp8" target="presentation-frame"
+                                    class="presentation-link">
+                                    audi a8
+                                </a>
+                            </div>
+                        </article>
+                    </div>
+                </section>
             </div>
         </section>
         <!-- end of news -->
+        <!-- top makes -->
+        <section class="section top-makes bg-grey">
+            <!-- section title -->
+            <div class="section-title top-makes-title">
+                <h2>cele mai cautate marci</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="section-center top-makes-center">
+                <table>
+                    <caption>cele mai cautate marci si modele din 2022</caption>
+                    <thead>
+                        <tr>
+                            <th>mercedes-benz</th>
+                            <th>bmw</th>
+                            <th>audi</th>
+                            <th>ford</th>
+                            <th>skoda</th>
+                            <th>renault</th>
+                            <th>volkswagen</th>
+                            <th>land rover</th>
+                            <th>seat</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>c class</td>
+                            <td>x5</td>
+                            <td>a4</td>
+                            <td>focus</td>
+                            <td>fabia</td>
+                            <td>clio</td>
+                            <td>golf</td>
+                            <td>discovery</td>
+                            <td>leon</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>gle</td>
+                            <td>seria 3</td>
+                            <td>s3</td>
+                            <td>puma</td>
+                            <td>octavia</td>
+                            <td>symbol</td>
+                            <td>polo</td>
+                            <td>defender</td>
+                            <td>ibiza</td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>glc</td>
+                            <td>i3</td>
+                            <td>q4</td>
+                            <td>ranger</td>
+                            <td>superb</td>
+                            <td>kadjar</td>
+                            <td>passat</td>
+                            <td>freelander</td>
+                            <td>toledo</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="9">pe acestea si pe multe altele le gasiti in <a href="products.html">lista
+                                    noastra
+                                    de
+                                    anunturi</a>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+            <!-- end of section title -->
+        </section>
+        <!-- end of top makes -->
+        <!-- floating button (back to top) -->
+        <button id="backToTopBtn" title="Inapoi Sus"><i class="fa-solid fa-arrow-up"></i></button>
     </main>
-    <footer class="section footer">
+    <footer class="footer">
         <!-- footer links -->
         <ul class="footer-links">
             <!-- single link -->
@@ -512,24 +740,24 @@
             <!-- end of single link -->
         </ul>
         <!-- footer icons -->
-        <ul class="footer-icons">
+        <ul class="social-icons">
             <!-- single icon -->
             <li>
-                <a href="https://www.facebook.com" target="_blank" class="footer-icon">
+                <a href="https://www.facebook.com" target="_blank" class="social-icon">
                     <i class="fab fa-facebook"></i>
                 </a>
             </li>
             <!-- end of single icon -->
             <!-- single icon -->
             <li>
-                <a href="https://www.linkedin.com" target="_blank" class="footer-icon">
+                <a href="https://www.linkedin.com" target="_blank" class="social-icon">
                     <i class="fab fa-linkedin"></i>
                 </a>
             </li>
             <!-- end of single icon -->
             <!-- single icon -->
             <li>
-                <a href="https://www.instagram.com" target="_blank" class="footer-icon">
+                <a href="https://www.instagram.com" target="_blank" class="social-icon">
                     <i class="fab fa-instagram"></i>
                 </a>
             </li>
@@ -538,11 +766,16 @@
         <!-- end of footer icons -->
         <!-- contact -->
         <section class="section contact">
+            <!-- section title -->
+            <div class="section-title contact-title">
+                <h3>contact</h3>
+            </div>
+            <!-- end of section title -->
             <div class="contact-center">
                 <article class="contact-info">
                     <a href="tel:0740910910">suna acum</a>
                     <a href="https://wa.me/740910910" target="_blank">trimite mesaj</a>
-                    <a href="mailto:victordavid2506@gmail.com">sau lasa-ne un mail</a>
+                    <a href="mailto:victordavid2506@gmail.com">sau mail</a>
                     <a href="https://goo.gl/maps/DmRvEzVhuAUhQu7w7" target="_blank">ne gasesti aici</a>
                 </article>
             </div>
@@ -550,10 +783,10 @@
         <!-- end of contact -->
         <small class="copyright">
             copyright &copy; anunturi masini <span id="date"></span>. toate drepturile rezervate.
-            site creat la data de <time datetime="2022-10-16">16 Octombrie 2022</time>
+            site creat la data de <time datetime="2022-10-16">16 Octombrie 2022.</time>
         </small>
     </footer>
-    <script src="./resources/js/app.js"></script>
+    <script type="module" src="./resources/js/app.js"></script>
 </body>
 
 </html>
