@@ -8,6 +8,7 @@
     <title>Anunturi Auto</title>
     <!-- styles css -->
     <link rel="stylesheet" href="./resources/css/styles.css">
+    <link rel="stylesheet" href="./resources/css/sass-styles.css">
     <!-- meta tags -->
     <meta name="author" content="Victor David">
     <meta name="keywords" content="anunturi auto, vanzari auto, masini de vanzare, oferte auto">
@@ -32,7 +33,12 @@
                 <div class="nav-header">
                     <h1 class="nav-logo">anunturi auto</h1>
                     <button class="nav-btn" id="nav-btn">
-                        <i class="fas fa-bars"></i>
+                        <div class="nav-btn-bars">
+                            <div class="nav-btn-bar bar-1"></div>
+                            <div class="nav-btn-bar bar-2"></div>
+                            <div class="nav-btn-bar bar-3"></div>
+                        </div>
+                        <!-- <i class="fas fa-bars"></i> -->
                     </button>
                 </div>
                 <!-- nav links -->
@@ -229,13 +235,13 @@
         <section class="section products bg-grey" id="products">
             <!-- section title -->
             <div class="section-title products-title">
-                <h2>anunturi populare</h2>
+                <h2>anunturi <br class="word-break"> populare</h2>
                 <div class="underline"></div>
             </div>
             <!-- end of section title -->
             <div class="section-center products-center">
                 <!-- single product -->
-                <article class="product-card">
+                <article class="product-card fade">
                     <a href="products.html">
                         <div class="product-img-container">
                             <figure>
@@ -262,7 +268,7 @@
                 </article>
                 <!-- end of single product -->
                 <!-- single product -->
-                <article class="product-card">
+                <article class="product-card fade">
                     <a href="products.html">
                         <div class="product-img-container">
                             <figure>
@@ -289,7 +295,7 @@
                 </article>
                 <!-- end of single product -->
                 <!-- single product -->
-                <article class="product-card">
+                <article class="product-card fade">
                     <a href="products.html">
                         <div class="product-img-container">
                             <figure>
@@ -316,7 +322,7 @@
                 </article>
                 <!-- end of single product -->
                 <!-- single product -->
-                <article class="product-card">
+                <article class="product-card fade">
                     <a href="products.html">
                         <div class="product-img-container">
                             <figure>
@@ -343,7 +349,7 @@
                 </article>
                 <!-- end of single product -->
                 <!-- single product -->
-                <article class="product-card">
+                <article class="product-card fade">
                     <a href="products.html">
                         <div class="product-img-container">
                             <figure>
@@ -370,7 +376,7 @@
                 </article>
                 <!-- end of single product -->
                 <!-- single product -->
-                <article class="product-card">
+                <article class="product-card fade">
                     <a href="products.html">
                         <div class="product-img-container">
                             <figure>
@@ -396,6 +402,20 @@
                     </a>
                 </article>
                 <!-- end of single product -->
+                <!-- slideshow -->
+                <!-- next and previous buttons -->
+                <a class="prev">&#10094;</a>
+                <a class="next">&#10095;</a>
+                <!-- dots -->
+                <div class="dots">
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+                <!-- end of slideshow -->
             </div>
         </section>
         <!-- end of popular listings -->
@@ -615,12 +635,13 @@
         </section>
         <!-- end of news -->
         <!-- top makes -->
-        <section class="section top-makes bg-grey">
+        <section class="section top-makes bg-grey" id="top-makes">
             <!-- section title -->
             <div class="section-title top-makes-title">
                 <h2>cele mai cautate marci</h2>
                 <div class="underline"></div>
             </div>
+            <!-- end of section title -->
             <div class="section-center top-makes-center">
                 <table>
                     <caption>cele mai cautate marci si modele din 2022</caption>
@@ -653,7 +674,7 @@
                     <tbody>
                         <tr>
                             <td>gle</td>
-                            <td>seria 3</td>
+                            <td>m2</td>
                             <td>s3</td>
                             <td>puma</td>
                             <td>octavia</td>
@@ -690,6 +711,110 @@
             <!-- end of section title -->
         </section>
         <!-- end of top makes -->
+        <!-- events (admin) -->
+        <section class="section events admin" id="events">
+            <!-- section title -->
+            <div class="section-title events-title">
+                <h2><br class="word-break">calendar</h2>
+                <div class="underline"></div>
+            </div>
+            <!-- end of section title -->
+            <div class="section-center events-center">
+                <ul>
+                    <li>
+                        <span>30.10.2022 - Audit site </span>
+                    </li>
+                    <li>
+                        <span>15.11.2022 - Sedinta generala </span>
+                    </li>
+                    <li>
+                        <span>05.12.2022 - Schema monetizare </span>
+                    </li>
+                    <li>
+                        <span>25.01.2023 - Lansare pachete de promovare </span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <!-- end of events (admin) -->
+        <!-- online users (admin) -->
+        <section class="section online-users admin bg-grey" id="online-users">
+            <!-- section title -->
+            <div class="section-title online-users-title">
+                <h2>utilizatori <br class="word-break"> online</h2>
+                <div class="underline"></div>
+            </div>
+            <!-- end of section title -->
+            <div class="section-center online-users-center">
+                <ul>
+                    <li>
+                        <span>Stefan</span>
+                    </li>
+                    <li>
+                        <span>Alex</span>
+                    </li>
+                    <li>
+                        <span>Ioana</span>
+                    </li>
+                    <li>
+                        <span>Luca</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <!-- end of online users (admin) -->
+        <!-- statistics (admin) -->
+        <section class="section statistics admin" id="statistics">
+            <!-- section title -->
+            <div class="section-title statistics-title">
+                <h2><br class="word-break">statistici</h2>
+                <div class="underline"></div>
+            </div>
+            <!-- end of section title -->
+            <div class="section-center statistics-center">
+                <ul>
+                    <li>
+                        <span>Anunturi listate: 1.000</span>
+                    </li>
+                    <li>
+                        <span>Utilizatori inregistrati: 100</span>
+                    </li>
+                    <li>
+                        <span>Numar total de vizionari: 10.000</span>
+                    </li>
+                    <li>
+                        <span>Durata medie a unei sesiuni: 3 min</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <!-- end of statistics (admin) -->
+        <!-- server info (admin) -->
+        <section class="section server-info admin bg-grey" id="server-info">
+            <!-- section title -->
+            <div class="section-title server-info-title">
+                <h2><br class="word-break">date server</h2>
+                <div class="underline"></div>
+            </div>
+            <!-- end of section title -->
+            <div class="section-center server-info-center">
+                <ul>
+                    <li>
+                        <span>Conexiuni active: 2.000</span>
+                    </li>
+                    <li>
+                        <span>Utilizatori inregistrati: 100</span>
+                    </li>
+                    <li>
+                        <span>Numar total de vizionari: 10.000</span>
+                    </li>
+                    <li>
+                        <span>Durata medie a unei sesiuni: 3 min</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <!-- end of server info (admin) -->
         <!-- floating button (back to top) -->
         <button id="backToTopBtn" title="Inapoi Sus"><i class="fa-solid fa-arrow-up"></i></button>
     </main>
