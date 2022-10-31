@@ -12,6 +12,15 @@ function showSlides(n) {
   let i;
   const slides = document.getElementsByClassName("product-card");
   const dots = document.getElementsByClassName("dot");
+
+  if (!slides || !dots) {
+    return;
+  }
+
+  if (slides.length === 0 || dots.length === 0) {
+    return;
+  }
+
   if (n > slides.length) {
     slideIndex = 1;
   }
@@ -32,6 +41,10 @@ function handleSlideshow() {
   const prev = document.querySelector(".prev");
   const next = document.querySelector(".next");
   const dots = document.querySelectorAll(".dot");
+
+  if (!prev || !next || !dots) {
+    return;
+  }
 
   prev.addEventListener("click", function () {
     plusSlides(-1);

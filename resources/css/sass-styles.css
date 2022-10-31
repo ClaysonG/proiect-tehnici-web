@@ -143,7 +143,7 @@ Navbar
   }
   .nav-links {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: auto 1fr 1fr 1fr;
     justify-items: center;
     justify-self: end;
     column-gap: 2rem;
@@ -219,6 +219,7 @@ Sidebar
 .sidebar-links {
   position: relative;
   text-align: center;
+  margin-top: 4rem;
 }
 .sidebar-links a {
   font-size: 2rem;
@@ -240,6 +241,7 @@ Sidebar
   padding: 0;
   background: none;
   box-shadow: none;
+  margin-top: -1.5rem;
 }
 .sidebar-links .sub-links a {
   font-size: 0.8rem;
@@ -247,11 +249,6 @@ Sidebar
 }
 .sidebar-links li {
   padding: 0;
-}
-
-#sidebar-home-link,
-#sidebar-account-link {
-  margin-bottom: 0.5rem;
 }
 
 .social-icons {
@@ -284,4 +281,97 @@ Sidebar
 }
 .close-btn:hover {
   color: #e66b6b;
+}
+
+/*
+========================= 
+404 
+=========================
+*/
+.not-found {
+  height: 100vh;
+}
+
+.not-found-title {
+  text-align: left;
+  margin-bottom: 2rem;
+}
+.not-found-title .underline {
+  margin-left: 0;
+}
+
+.not-found-center {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: grid;
+  gap: 3rem 2rem;
+  width: 100%;
+}
+.not-found-center a {
+  color: hsl(42deg, 78%, 60%);
+  transition: all 0.3s linear;
+}
+.not-found-center a:hover {
+  color: hsl(42deg, 63%, 48%);
+}
+
+.not-found-info {
+  margin: 0 2rem;
+}
+
+.not-found-img {
+  position: relative;
+  justify-self: center;
+  margin: 2rem 2rem 0 2rem;
+}
+
+@media screen and (min-width: 992px) {
+  .not-found-center {
+    grid-template-columns: 1fr 1fr;
+  }
+  .not-found-img {
+    position: relative;
+    margin-top: 0;
+  }
+  .not-found-info {
+    align-self: center;
+    margin: 0;
+  }
+}
+/*
+========================= 
+About (page)
+=========================
+*/
+.about-page {
+  height: 100vh;
+}
+
+.about-page-center {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: grid;
+  gap: 3rem 2rem;
+  width: 100%;
+}
+
+.about-page-info {
+  margin: 0 2rem;
+}
+
+.about-page-img {
+  position: relative;
+  justify-self: center;
+  margin: 4rem 2rem 0 2rem;
+}
+
+@media screen and (min-width: 992px) {
+  .about-page-info {
+    margin: 0;
+  }
+  .about-page-img {
+    margin-top: 0;
+  }
 }

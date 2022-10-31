@@ -8,10 +8,10 @@ function smoothScroll() {
     link.addEventListener("click", (e) => {
       e.preventDefault();
 
-      const id = e.target.getAttribute("href").slice(1);
+      const id = e.target.getAttribute("href").slice(1).substring(1);
       const element = document.getElementById(id);
 
-      let position = element.offsetTop - 80;
+      let position = element?.offsetTop - 80;
 
       window.scrollTo({
         left: 0,
@@ -23,9 +23,11 @@ function smoothScroll() {
 }
 
 function showScrollToTopBtn() {
+  const sidebar = document.querySelector(".show-sidebar");
   if (
-    document.body.scrollTop > 100 ||
-    document.documentElement.scrollTop > 100
+    (document.body.scrollTop > 100 ||
+      document.documentElement.scrollTop > 100) &&
+    !sidebar
   ) {
     backToTopBtn.style.opacity = 1;
   } else {

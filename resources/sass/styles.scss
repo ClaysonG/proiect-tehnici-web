@@ -6,6 +6,7 @@ Variables
 
 /* dark shades of primary color*/
 $clr-primary-3: hsl(43, 72%, 37%);
+$clr-primary-4: hsl(42, 63%, 48%);
 /* primary/main color */
 $clr-primary-5: hsl(42, 78%, 60%);
 /* lighter shades of primary color */
@@ -131,53 +132,53 @@ Navbar
 
 @keyframes bar-slide {
     0% {
-      background: $clr-primary-3;
-      transform: translateX(150%);
-      opacity: 0;
+        background: $clr-primary-3;
+        transform: translateX(150%);
+        opacity: 0;
     }
     50% {
-      height: 0.175rem;
+        height: 0.175rem;
     }
     100% {
-      background: $clr-primary-5;
-      transform: translateX(0);
-      opacity: 1;
+        background: $clr-primary-5;
+        transform: translateX(0);
+        opacity: 1;
     }
 }
 
 @media screen and (min-width: 768px) {
     .nav {
-      background: $clr-primary-10;
+        background: $clr-primary-10;
     }
 
     .nav-btn {
-      display: none;
+        display: none;
     }
 
     .nav-links {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      justify-items: center;
-      justify-self: end;
-      column-gap: 2rem;
+        display: grid;
+        grid-template-columns: auto 1fr 1fr 1fr;
+        justify-items: center;
+        justify-self: end;
+        column-gap: 2rem;
 
-      a {
-        text-transform: capitalize;
-        color: $clr-grey-1;
-        font-weight: bold;
-        letter-spacing: $spacing;
-        transition: $transition;
+        a {
+            text-transform: capitalize;
+            color: $clr-grey-1;
+            font-weight: bold;
+            letter-spacing: $spacing;
+            transition: $transition;
 
-        &:hover {
-            color: $clr-primary-5;
+            &:hover {
+                color: $clr-primary-5;
+            }
         }
-      }
     }
 
     .nav-center {
-      display: grid;
-      grid-template-columns: auto 1fr;
-      align-items: center;
+        display: grid;
+        grid-template-columns: auto 1fr;
+        align-items: center;
     }
 
     #home-link {
@@ -251,6 +252,7 @@ Sidebar
 .sidebar-links {
     position: relative;
     text-align: center;
+    margin-top: 4rem;
 
     a {
         font-size: 2rem;
@@ -274,6 +276,7 @@ Sidebar
         padding: 0;
         background: none;
         box-shadow: none;
+        margin-top: -1.5rem;
 
         a {
             font-size: 0.8rem;
@@ -286,10 +289,10 @@ Sidebar
     }
 }
 
-#sidebar-home-link,
-#sidebar-account-link {
-    margin-bottom: 0.5rem;
-}
+// #sidebar-home-link,
+// #sidebar-account-link {
+//     margin-bottom: 0.5rem;
+// }
 
 .social-icons {
     display: grid;
@@ -322,5 +325,107 @@ Sidebar
 
     &:hover {
         color: #e66b6b;
+    }
+}
+
+/*
+========================= 
+404 
+=========================
+*/
+
+.not-found {
+    height: 100vh;
+}
+
+.not-found-title {
+    text-align: left;
+    margin-bottom: 2rem;
+
+    .underline {
+        margin-left: 0;
+    }
+}
+
+.not-found-center {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: grid;
+    gap: 3rem 2rem;
+    width: 100%;
+
+    a {
+        color: $clr-primary-5;
+        transition: $transition;
+
+        &:hover {
+            color: $clr-primary-4;
+        }
+    }
+}
+
+.not-found-info {
+    margin: 0 2rem;
+}
+
+.not-found-img {
+    position: relative;
+    justify-self: center;
+    margin: 2rem 2rem 0 2rem;
+}
+
+@media screen and (min-width: 992px) {
+    .not-found-center {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .not-found-img {
+        position: relative;
+        margin-top: 0;
+    }
+
+    .not-found-info {
+        align-self: center;
+        margin: 0;
+    }
+}
+
+/*
+========================= 
+About (page)
+=========================
+*/
+
+.about-page {
+    height: 100vh;
+}
+
+.about-page-center {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: grid;
+    gap: 3rem 2rem;
+    width: 100%;
+}
+
+.about-page-info {
+    margin: 0 2rem;
+}
+
+.about-page-img {
+    position: relative;
+    justify-self: center;
+    margin: 4rem 2rem 0 2rem;
+}
+
+@media screen and (min-width: 992px) {
+    .about-page-info {
+        margin: 0;
+    }
+
+    .about-page-img {
+        margin-top: 0;
     }
 }

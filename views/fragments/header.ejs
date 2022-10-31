@@ -1,0 +1,139 @@
+<!-- navbar -->
+<nav class="nav" id="nav">
+    <div class="nav-center">
+        <!-- nav header -->
+        <div class="nav-header">
+            <h1 class="nav-logo">anunturi auto</h1>
+            <button class="nav-btn" id="nav-btn">
+                <div class="nav-btn-bars">
+                    <div class="nav-btn-bar bar-1"></div>
+                    <div class="nav-btn-bar bar-2"></div>
+                    <div class="nav-btn-bar bar-3"></div>
+                </div>
+                <!-- <i class="fas fa-bars"></i> -->
+            </button>
+        </div>
+        <!-- nav links -->
+        <ul class="nav-links">
+            <li id="home-link">
+                <a href="/">pagina principala
+                    <% if(locals.home) { %>
+                        <i class="fa-solid fa-caret-down"></i>
+                        <i class="fa-solid fa-caret-up"></i>
+                        <ul class="sub-links home-links">
+                            <li>
+                                <a href="/#search" class="scroll-link">cautare</a>
+                            </li>
+                            <!-- <li>
+                                <a href="/#about" class="scroll-link">despre noi</a>
+                            </li> -->
+                            <li>
+                                <a href="/#products" class="scroll-link">anunturi populare</a>
+                            </li>
+                            <li>
+                                <a href="/#news" class="scroll-link">noutati</a>
+                            </li>
+                        </ul>
+                        <% } %>
+                </a>
+            </li>
+            <li>
+                <a href="/products">anunturi</a>
+            </li>
+            <li>
+                <a href="/about">despre noi</a>
+            </li>
+            <li id="account-link">
+                <a href="/account">contul meu
+                    <i class="fa-solid fa-caret-down"></i>
+                    <i class="fa-solid fa-caret-up"></i>
+                    <ul class="sub-links account-links">
+                        <li>
+                            <a href="/favorites">anunturi salvate</a>
+                        </li>
+                        <li>
+                            <a href="/add-product">adauga anunt</a>
+                        </li>
+                        <li>
+                            <a href="/messages">mesaje</a>
+                        </li>
+                    </ul>
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<!-- end of navbar -->
+<!-- sidebar -->
+<aside class="sidebar" id="sidebar">
+    <div>
+        <button class="close-btn" id="close-btn">
+            <i class="fas fa-times"></i>
+        </button>
+        <!-- sidebar links -->
+        <ul class="sidebar-links">
+            <li>
+                <a href="/" id="sidebar-home-link">pagina principala
+                    <% if (locals.home) { %>
+                        <ul class="sub-links home-links">
+                            <li>
+                                <a href="/#search" id="sidebar-home-sub-link" class="scroll-link">cautare</a>
+                            </li>
+                            <li>
+                                <a href="/#about" id="sidebar-home-sub-link" class="scroll-link">despre
+                                    noi</a>
+                            </li>
+                            <li>
+                                <a href="/#products" id="sidebar-home-sub-link" class="scroll-link">anunturi
+                                    populare</a>
+                            </li>
+                            <li>
+                                <a href="/#news" id="sidebar-home-sub-link" class="scroll-link">noutati</a>
+                            </li>
+                        </ul>
+                        <% } %>
+                </a>
+            </li>
+            <li>
+                <a href="/products">anunturi</a>
+            </li>
+            <li>
+                <a href="/about">despre noi</a>
+            </li>
+            <li>
+                <a href="/account" id="sidebar-account-link">contul meu
+                    <ul class="sub-links account-links">
+                        <li>
+                            <a href="/favorites">anunturi salvate</a>
+                        </li>
+                        <li>
+                            <a href="/add-product">adauga anunt</a>
+                        </li>
+                        <li>
+                            <a href="/messages">mesaje</a>
+                        </li>
+                    </ul>
+                </a>
+            </li>
+        </ul>
+        <!-- social icons -->
+        <ul class="social-icons">
+            <li>
+                <a href="https://www.facebook.com" class="social-icon" target="_blank">
+                    <i class="fab fa-facebook"></i>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.linkedin.com" class="social-icon" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.instagram.com" class="social-icon" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</aside>
+<!-- end of sidebar -->

@@ -67,6 +67,11 @@ function toggleAdminMode() {
   const mainTag = document.querySelector("main");
   const productsCenter = document.querySelector(".products-center");
   const topMakesCenter = document.querySelector(".top-makes-center");
+
+  if (!productsCenter || !topMakesCenter) {
+    return;
+  }
+
   if (admin) {
     window.localStorage.removeItem("admin");
     mainTag.classList.remove("admin-layout");
