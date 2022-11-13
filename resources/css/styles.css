@@ -684,6 +684,18 @@ About
   color: var(--clr-white);
 }
 
+#about-video {
+  max-width: 25rem;
+  max-height: 30rem;
+  border-radius: var(--radius);
+}
+
+::cue {
+  background: transparent;
+  color: var(--clr-white);
+  text-shadow: #000 0.5px 0.5px;
+}
+
 @media screen and (min-width: 992px) {
   .about-center {
     grid-template-columns: 1fr 1fr;

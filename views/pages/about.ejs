@@ -14,14 +14,15 @@
         <!-- about us -->
         <section class="section about about-page" id="about">
             <div class="section-center about-center about-page-center">
-                <!-- about img -->
+                <!-- about video -->
                 <article class="about-img about-page-img">
-                    <figure>
-                        <img src="/resources/images/about-img.jpg" alt="about img" class="hero-photo">
-                        <figcaption>
-                            <a href="/products">Gaseste masina dorita</a>
-                        </figcaption>
-                    </figure>
+                    <video id="about-video" controls preload="none" poster="/resources/images/video-poster.jpg">
+                        <source src="/resources/videos/about.mp4" type="video/mp4">
+                        <source src="/resources/videos/about.webm" type="video/webm">
+                        <track label="Romanian" kind="subtitles" srclang="ro" src="/resources/videos/about-ro.vtt"
+                            default />
+                        <track label="English" kind="subtitles" srclang="en" src="/resources/videos/about-en.vtt" />
+                    </video>
                 </article>
                 <!-- about info -->
                 <article class="about-info about-page-info">

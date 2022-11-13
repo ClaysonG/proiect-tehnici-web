@@ -2,6 +2,8 @@ const express = require("express");
 const app = express();
 const port = 8080;
 
+const { error403, error404 } = require("./utils/render-params");
+
 app.set("view engine", "ejs");
 
 app.use("/resources", express.static("resources"));
@@ -13,7 +15,7 @@ app.all("*", (req, res, next) => {
 });
 
 app.all("*.ejs", (req, res) => {
-  return res.render("pages/403");
+  return res.render("pages/error", error403);
 });
 
 app.get("/", (req, res) => {
@@ -35,7 +37,7 @@ app.get("/:page", (req, res) => {
   if (fs.existsSync(`./views/pages/${page}.ejs`)) {
     return res.render(`pages/${page}`);
   }
-  return res.status(404).render("pages/404");
+  return res.status(404).render("pages/error", error404);
 });
 
 app.listen(port, () => {
@@ -43,5 +45,5 @@ app.listen(port, () => {
 });
 
 app.use((req, res) => {
-  return res.status(404).render("pages/404");
+  return res.status(404).render("pages/error", error404);
 });
