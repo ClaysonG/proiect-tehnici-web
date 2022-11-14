@@ -1,3 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Mouse+Memoirs&display=swap");
+
+/*
+========================= 
+Navbar
+=========================
+*/
+
 #nav-btn {
   display: none;
 }
@@ -22,9 +30,21 @@
   text-align: center;
 }
 
+/*
+========================= 
+Sidebar
+=========================
+*/
+
 #sidebar {
   display: none;
 }
+
+/*
+========================= 
+Search
+=========================
+*/
 
 #search {
   width: 70vw;
@@ -33,28 +53,83 @@
   page-break-after: always;
 }
 
+.search-bar {
+  margin-left: 1rem;
+  margin-bottom: 2rem;
+}
+
+.search-form > div {
+  margin-bottom: 0.5rem;
+}
+
+/*
+========================= 
+Products
+=========================
+*/
+
 #products {
   display: none;
 }
+
+/*
+========================= 
+Top Makes
+=========================
+*/
 
 #top-makes {
   page-break-inside: avoid;
 }
 
+/*
+========================= 
+Events
+=========================
+*/
+
 #events {
   page-break-inside: avoid;
 }
+
+/*
+========================= 
+Online Users
+=========================
+*/
 
 #online-users {
   page-break-inside: avoid;
 }
 
+/*
+========================= 
+Statistics
+=========================
+*/
+
 #statistics {
   page-break-inside: avoid;
 }
 
+/*
+========================= 
+Server Info
+=========================
+*/
+
 #server-info {
   page-break-inside: avoid;
+}
+
+/*
+========================= 
+General styles
+=========================
+*/
+
+.btn {
+  font-family: "Mouse Memoirs", "sans-serif";
 }
 
 #backToTopBtn {
@@ -91,9 +166,16 @@ section {
 }
 
 body {
+  font-family: "Mouse Memoirs", "sans-serif";
   position: relative;
   height: 100%;
 }
+
+/*
+========================= 
+Watermark
+=========================
+*/
 
 body:before {
   content: "Victor \A David";
@@ -109,6 +191,12 @@ body:before {
   text-align: center;
   opacity: 0.4;
 }
+
+/*
+========================= 
+Page Margin
+=========================
+*/
 
 @page :left {
   margin-left: 3cm;
