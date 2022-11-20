@@ -241,7 +241,7 @@ Sidebar
   padding: 0;
   background: none;
   box-shadow: none;
-  margin-top: -1.5rem;
+  margin-top: -0.5rem;
 }
 .sidebar-links .sub-links a {
   font-size: 0.8rem;
@@ -375,3 +375,18 @@ About (page)
     margin-top: 0;
   }
 }
+/*
+========================= 
+EXTRA --> Cerinte Etapa 2
+=========================
+*/
+/*
+========================= 
+Navbar 
+=========================
+*/
+/*
+========================= 
+Sidebar 
+=========================
+*/

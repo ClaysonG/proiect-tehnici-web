@@ -226,6 +226,10 @@ summary {
   cursor: pointer;
 }
 
+iframe {
+  border: none;
+}
+
 summary:before {
   content: "";
   border-width: 0.4rem;
@@ -274,6 +278,14 @@ details[open] > summary:before {
 
 .hide-element {
   opacity: 0 !important;
+}
+
+.remove-element {
+  display: none !important;
+}
+
+.show-element {
+  display: block !important;
 }
 
 /*

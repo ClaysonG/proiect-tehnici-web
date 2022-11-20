@@ -18,10 +18,15 @@
     <link rel="icon" type="image/png" sizes="32x32" href="./resources/ico/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="./resources/ico/favicon-16x16.png">
     <link rel="manifest" href="./resources/ico/site.webmanifest">
+    <link rel="mask-icon" href="./resources/ico/safari-pinned-tab.svg" color="#e9b949">
+    <link rel="shortcut icon" href="./resources/ico/favicon.ico">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-config" content="./resources/ico/browserconfig.xml">
+    <meta name="theme-color" content="#e9b949">
     <!-- font awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
         integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        crossorigin="anonymous" referrerpolicy="no-referrer">
 </head>
 
 <body>
@@ -32,36 +37,43 @@
                 <!-- nav header -->
                 <div class="nav-header">
                     <h1 class="nav-logo">anunturi auto</h1>
-                    <button class="nav-btn" id="nav-btn">
+                    <div class="nav-btn" id="nav-btn">
                         <div class="nav-btn-bars">
                             <div class="nav-btn-bar bar-1"></div>
                             <div class="nav-btn-bar bar-2"></div>
                             <div class="nav-btn-bar bar-3"></div>
                         </div>
                         <!-- <i class="fas fa-bars"></i> -->
+                    </div>
+                    <button class="close-btn" id="close-btn">
+                        <i class="fas fa-times"></i>
                     </button>
                 </div>
                 <!-- nav links -->
                 <ul class="nav-links">
                     <li id="home-link">
-                        <a href="index.html">pagina principala
+                        <a href="index.html"><i class="fa-solid fa-house"></i><span class="home-text">pagina
+                                principala</span>
                             <i class="fa-solid fa-caret-down"></i>
                             <i class="fa-solid fa-caret-up"></i>
-                            <ul class="sub-links home-links">
-                                <li>
-                                    <a href="#search" class="scroll-link">cautare</a>
-                                </li>
-                                <li>
-                                    <a href="#about" class="scroll-link">despre noi</a>
-                                </li>
-                                <li>
-                                    <a href="#products" class="scroll-link">anunturi populare</a>
-                                </li>
-                                <li>
-                                    <a href="#news" class="scroll-link">noutati</a>
-                                </li>
-                            </ul>
                         </a>
+                        <ul class="sub-links home-links">
+                            <li>
+                                <a href="#search" class="scroll-link"><span
+                                        class="right-arrow">&#8594;</span>cautare</a>
+                            </li>
+                            <li>
+                                <a href="#about" class="scroll-link"><span class="right-arrow">&#8594;</span>despre
+                                    noi</a>
+                            </li>
+                            <li>
+                                <a href="#products" class="scroll-link"><span class="right-arrow">&#8594;</span>anunturi
+                                    populare</a>
+                            </li>
+                            <li>
+                                <a href="#news" class="scroll-link"><span class="right-arrow">&#8594;</span>noutati</a>
+                            </li>
+                        </ul>
                     </li>
                     <li>
                         <a href="products.html">anunturi</a>
@@ -70,18 +82,18 @@
                         <a href="account.html">contul meu
                             <i class="fa-solid fa-caret-down"></i>
                             <i class="fa-solid fa-caret-up"></i>
-                            <ul class="sub-links account-links">
-                                <li>
-                                    <a href="favorites.html">anunturi salvate</a>
-                                </li>
-                                <li>
-                                    <a href="add-product.html">adauga anunt</a>
-                                </li>
-                                <li>
-                                    <a href="messages.html">mesaje</a>
-                                </li>
-                            </ul>
                         </a>
+                        <ul class="sub-links account-links">
+                            <li>
+                                <a href="favorites.html"><span class="right-arrow">&#8594;</span>anunturi salvate</a>
+                            </li>
+                            <li>
+                                <a href="add-product.html"><span class="right-arrow">&#8594;</span>adauga anunt</a>
+                            </li>
+                            <li>
+                                <a href="messages.html"><span class="right-arrow">&#8594;</span>mesaje</a>
+                            </li>
+                        </ul>
                     </li>
                 </ul>
             </div>
@@ -90,48 +102,47 @@
         <!-- sidebar -->
         <aside class="sidebar" id="sidebar">
             <div>
-                <button class="close-btn" id="close-btn">
+                <!-- <button class="close-btn" id="close-btn">
                     <i class="fas fa-times"></i>
-                </button>
+                </button> -->
                 <!-- sidebar links -->
                 <ul class="sidebar-links">
-                    <li>
-                        <a href="index.html" id="sidebar-home-link">pagina principala
-                            <ul class="sub-links home-links">
-                                <li>
-                                    <a href="#search" id="sidebar-home-sub-link" class="scroll-link">cautare</a>
-                                </li>
-                                <li>
-                                    <a href="#about" id="sidebar-home-sub-link" class="scroll-link">despre
-                                        noi</a>
-                                </li>
-                                <li>
-                                    <a href="#products" id="sidebar-home-sub-link" class="scroll-link">anunturi
-                                        populare</a>
-                                </li>
-                                <li>
-                                    <a href="#news" id="sidebar-home-sub-link" class="scroll-link">noutati</a>
-                                </li>
-                            </ul>
-                        </a>
+                    <li class="home-link">
+                        <a href="index.html" id="sidebar-home-link"><i class="fa-solid fa-house"></i></a>
+                        <!-- <a href="index.html" id="sidebar-home-link">pagina principala</a> -->
+                        <ul class="sub-links home-links">
+                            <li>
+                                <a href="#search" class="scroll-link sidebar-home-sub-link">cautare</a>
+                            </li>
+                            <li>
+                                <a href="#about" class="scroll-link sidebar-home-sub-link">despre
+                                    noi</a>
+                            </li>
+                            <li>
+                                <a href="#products" class="scroll-link sidebar-home-sub-link">anunturi
+                                    populare</a>
+                            </li>
+                            <li>
+                                <a href="#news" class="scroll-link sidebar-home-sub-link">noutati</a>
+                            </li>
+                        </ul>
                     </li>
                     <li>
                         <a href="products.html">anunturi</a>
                     </li>
-                    <li>
-                        <a href="account.html" id="sidebar-account-link">contul meu
-                            <ul class="sub-links account-links">
-                                <li>
-                                    <a href="favorites.html">anunturi salvate</a>
-                                </li>
-                                <li>
-                                    <a href="add-product.html">adauga anunt</a>
-                                </li>
-                                <li>
-                                    <a href="messages.html">mesaje</a>
-                                </li>
-                            </ul>
-                        </a>
+                    <li class="account-link">
+                        <a href="account.html" id="sidebar-account-link">contul meu</a>
+                        <ul class="sub-links account-links">
+                            <li>
+                                <a href="favorites.html">anunturi salvate</a>
+                            </li>
+                            <li>
+                                <a href="add-product.html">adauga anunt</a>
+                            </li>
+                            <li>
+                                <a href="messages.html">mesaje</a>
+                            </li>
+                        </ul>
                     </li>
                 </ul>
                 <!-- social icons -->
@@ -158,7 +169,7 @@
     </header>
     <main>
         <!-- search -->
-        <section class="section search" id="search">
+        <div class="section search" id="search">
             <div class="section-center search-center">
                 <article class="search-bar">
                     <!-- section title -->
@@ -199,20 +210,20 @@
                     </form>
                 </article>
             </div>
-        </section>
+        </div>
         <!-- end of search -->
         <!-- about us -->
-        <section class="section about" id="about">
+        <div class="section about" id="about">
             <div class="section-center about-center">
                 <!-- about img -->
-                <article class="about-img">
+                <div class="about-img">
                     <figure>
                         <img src="./resources/images/about-img.jpg" alt="about img" class="hero-photo">
                         <figcaption>
                             <a href="products.html">Gaseste masina dorita</a>
                         </figcaption>
                     </figure>
-                </article>
+                </div>
                 <!-- about info -->
                 <article class="about-info">
                     <!-- section title -->
@@ -229,7 +240,7 @@
                     <p>Vrei sa-ti <strong>vinzi masina</strong>? Inregistreaza-te acum si <em>incarca un anunt</em>.</p>
                 </article>
             </div>
-        </section>
+        </div>
         <!-- end of about us -->
         <!-- popular listings -->
         <section class="section products bg-grey" id="products">
@@ -241,7 +252,7 @@
             <!-- end of section title -->
             <div class="section-center products-center">
                 <!-- single product -->
-                <article class="product-card fade">
+                <div class="product-card fade">
                     <a href="products.html">
                         <div class="product-img-container">
                             <figure>
@@ -265,10 +276,10 @@
                             </span>
                         </div>
                     </a>
-                </article>
+                </div>
                 <!-- end of single product -->
                 <!-- single product -->
-                <article class="product-card fade">
+                <div class="product-card fade">
                     <a href="products.html">
                         <div class="product-img-container">
                             <figure>
@@ -292,10 +303,10 @@
                             </span>
                         </div>
                     </a>
-                </article>
+                </div>
                 <!-- end of single product -->
                 <!-- single product -->
-                <article class="product-card fade">
+                <div class="product-card fade">
                     <a href="products.html">
                         <div class="product-img-container">
                             <figure>
@@ -319,10 +330,10 @@
                             </span>
                         </div>
                     </a>
-                </article>
+                </div>
                 <!-- end of single product -->
                 <!-- single product -->
-                <article class="product-card fade">
+                <div class="product-card fade">
                     <a href="products.html">
                         <div class="product-img-container">
                             <figure>
@@ -346,10 +357,10 @@
                             </span>
                         </div>
                     </a>
-                </article>
+                </div>
                 <!-- end of single product -->
                 <!-- single product -->
-                <article class="product-card fade">
+                <div class="product-card fade">
                     <a href="products.html">
                         <div class="product-img-container">
                             <figure>
@@ -373,10 +384,10 @@
                             </span>
                         </div>
                     </a>
-                </article>
+                </div>
                 <!-- end of single product -->
                 <!-- single product -->
-                <article class="product-card fade">
+                <div class="product-card fade">
                     <a href="products.html">
                         <div class="product-img-container">
                             <figure>
@@ -400,7 +411,7 @@
                             </span>
                         </div>
                     </a>
-                </article>
+                </div>
                 <!-- end of single product -->
                 <!-- slideshow -->
                 <!-- next and previous buttons -->
@@ -436,7 +447,7 @@
                     <!-- end of section title -->
                     <div class="showcases-center">
                         <!-- single news -->
-                        <article class="news-card news-card-1">
+                        <div class="news-card news-card-1">
                             <div class="product-img-container news-img-container">
                                 <figure>
                                     <img src="./resources/images/news-1.jpg" alt="product" class="product-img">
@@ -452,7 +463,7 @@
                                 <summary id="news-summary-1">noul mercedes s</summary>
                                 <div class="news-content">
                                     <iframe src="https://www.youtube.com/embed/qHLxQjk4O04" title="Mercedes S"
-                                        frameborder="0" name="news-frame-1"></iframe>
+                                        name="news-frame-1"></iframe>
                                     <p>La fel ca un prieten bun, Clasa S are grija de toti. Fie ca sunt pasageri sau
                                         pietoni. Noul model Clasa S se concentreaza asupra elementelor esentiale.</p>
                                     <div class="news-footer">
@@ -462,10 +473,10 @@
                                     </div>
                                 </div>
                             </details>
-                        </article>
+                        </div>
                         <!-- end of single news -->
                         <!-- single news -->
-                        <article class="news-card news-card-2">
+                        <div class="news-card news-card-2">
                             <div class="product-img-container news-img-container">
                                 <figure>
                                     <img src="./resources/images/news-2.jpg" alt="product" class="product-img">
@@ -481,7 +492,7 @@
                                 <summary id="news-summary-2">bmw lanseaza noul seria 5</summary>
                                 <div class="news-content">
                                     <iframe src="https://www.youtube.com/embed/6JnuEBRDtvA" title="BMW Seria 5"
-                                        frameborder="0" name="news-frame-2"></iframe>
+                                        name="news-frame-2"></iframe>
                                     <p>BMW Seria 5 Sedan este un sedan modern din clasa business. De la prima vedere,
                                         acesta
                                         ofera sportivitate eleganta care este exprimata prin silueta dinamica şi
@@ -493,10 +504,10 @@
                                     </div>
                                 </div>
                             </details>
-                        </article>
+                        </div>
                         <!-- end of single news -->
                         <!-- single news -->
-                        <article class="news-card news-card-3">
+                        <div class="news-card news-card-3">
                             <div class="product-img-container news-img-container">
                                 <figure>
                                     <img src="./resources/images/news-3.jpg" alt="product" class="product-img">
@@ -512,7 +523,7 @@
                                 <summary id="news-summary-3">audi surprinde cu ultimul s5</summary>
                                 <div class="news-content">
                                     <iframe src="https://www.youtube.com/embed/_LzrQst0sIU" title="Audi S5"
-                                        frameborder="0" name="news-frame-3"></iframe>
+                                        name="news-frame-3"></iframe>
                                     <p>Cu motorul sau puternic, Audi S5 Cabriolet TFSI asigura parametri dinamici
                                         impresionanti, agilitate si călătorii de neuitat - la nivel de automobil sport
                                         autentic.</p>
@@ -522,7 +533,7 @@
                                     </div>
                                 </div>
                             </details>
-                        </article>
+                        </div>
                         <!-- end of single news -->
                     </div>
                 </section>
@@ -534,7 +545,7 @@
                     <!-- end of section title -->
                     <div class="articles-center">
                         <!-- single article -->
-                        <article class="article-card article-card-1">
+                        <div class="article-card article-card-1">
                             <div class="product-img-container article-img-container">
                                 <figure>
                                     <img src="./resources/images/article-1.jpg" alt="product" class="product-img">
@@ -544,7 +555,7 @@
                                 </figure>
                             </div>
                             <details>
-                                <summary id="article-summary-1">totul despre nissan <span class="uppercase">gtr
+                                <summary id="article-summary-1">totul despre nissan <span class="uppercase">gtr</span>
                                 </summary>
                                 <div class="news-content">
                                     <p>Nissan GT-R (R35) este o mașină sport coupe proiectată de Nissan Motor ,
@@ -556,10 +567,10 @@
                                     </p>
                                 </div>
                             </details>
-                        </article>
+                        </div>
                         <!-- end of single article -->
                         <!-- single article -->
-                        <article class="article-card article-card-2">
+                        <div class="article-card article-card-2">
                             <div class="product-img-container article-img-container">
                                 <figure>
                                     <img src="./resources/images/article-2.jpg" alt="product" class="product-img">
@@ -578,10 +589,10 @@
                                         privire la consum.</p>
                                 </div>
                             </details>
-                        </article>
+                        </div>
                         <!-- end of single article -->
                         <!-- single article -->
-                        <article class="article-card article-card-3">
+                        <div class="article-card article-card-3">
                             <div class="product-img-container article-img-container">
                                 <figure>
                                     <img src="./resources/images/article-3.jpg" alt="product" class="product-img">
@@ -600,7 +611,7 @@
                                         electricitate în fiecare lună pentru a alimenta o singura sonda.</p>
                                 </div>
                             </details>
-                        </article>
+                        </div>
                         <!-- end of single article -->
                     </div>
                 </section>
@@ -611,9 +622,9 @@
                     </div>
                     <!-- end of section title -->
                     <div class="presentations-center">
-                        <article class="presentation">
+                        <div class="presentation">
                             <iframe src="https://www.youtube.com/embed/Tm4rkRpoapw" title="Prezentare Auto"
-                                frameborder="0" name="presentation-frame"></iframe>
+                                name="presentation-frame"></iframe>
                             <div class="presentation-links">
                                 <a href="https://www.youtube.com/embed/Tm4rkRpoapw" target="presentation-frame"
                                     class="presentation-link">
@@ -628,7 +639,7 @@
                                     audi a8
                                 </a>
                             </div>
-                        </article>
+                        </div>
                     </div>
                 </section>
             </div>
@@ -823,22 +834,21 @@
         <ul class="footer-links">
             <!-- single link -->
             <li>
-                <a href="#search" class="footer-link scroll-link">pagina principala
-                    <ul class="sub-links home-links footer-sub-links">
-                        <li>
-                            <a href="#search" class="scroll-link">cautare</a>
-                        </li>
-                        <li>
-                            <a href="#about" class="scroll-link">despre noi</a>
-                        </li>
-                        <li>
-                            <a href="#products" class="scroll-link">anunturi populare</a>
-                        </li>
-                        <li>
-                            <a href="#news" class="scroll-link">noutati</a>
-                        </li>
-                    </ul>
-                </a>
+                <a href="#search" class="footer-link scroll-link">pagina principala</a>
+                <ul class="sub-links home-links footer-sub-links">
+                    <li>
+                        <a href="#search" class="scroll-link">cautare</a>
+                    </li>
+                    <li>
+                        <a href="#about" class="scroll-link">despre noi</a>
+                    </li>
+                    <li>
+                        <a href="#products" class="scroll-link">anunturi populare</a>
+                    </li>
+                    <li>
+                        <a href="#news" class="scroll-link">noutati</a>
+                    </li>
+                </ul>
             </li>
             <!-- end of single link -->
             <!-- single link -->
@@ -848,19 +858,18 @@
             <!-- end of single link -->
             <!-- single link -->
             <li>
-                <a href="account.html" class="footer-link">contul meu
-                    <ul class="sub-links account-links footer-sub-links">
-                        <li>
-                            <a href="favorites.html">anunturi salvate</a>
-                        </li>
-                        <li>
-                            <a href="add-product.html">adauga anunt</a>
-                        </li>
-                        <li>
-                            <a href="messages.html">mesaje</a>
-                        </li>
-                    </ul>
-                </a>
+                <a href="account.html" class="footer-link">contul meu</a>
+                <ul class="sub-links account-links footer-sub-links">
+                    <li>
+                        <a href="favorites.html">anunturi salvate</a>
+                    </li>
+                    <li>
+                        <a href="add-product.html">adauga anunt</a>
+                    </li>
+                    <li>
+                        <a href="messages.html">mesaje</a>
+                    </li>
+                </ul>
             </li>
             <!-- end of single link -->
         </ul>
@@ -897,12 +906,12 @@
             </div>
             <!-- end of section title -->
             <div class="contact-center">
-                <article class="contact-info">
+                <div class="contact-info">
                     <a href="tel:0740910910">suna acum</a>
                     <a href="https://wa.me/740910910" target="_blank">trimite mesaj</a>
                     <a href="mailto:victordavid2506@gmail.com">sau mail</a>
                     <a href="https://goo.gl/maps/DmRvEzVhuAUhQu7w7" target="_blank">ne gasesti aici</a>
-                </article>
+                </div>
             </div>
         </section>
         <!-- end of contact -->

@@ -276,7 +276,7 @@ Sidebar
         padding: 0;
         background: none;
         box-shadow: none;
-        margin-top: -1.5rem;
+        margin-top: -0.5rem;
 
         a {
             font-size: 0.8rem;
@@ -429,3 +429,215 @@ About (page)
         margin-top: 0;
     }
 }
+
+/*
+========================= 
+EXTRA --> Cerinte Etapa 2
+=========================
+*/
+
+/*
+========================= 
+Navbar 
+=========================
+*/
+
+// .nav-links {
+//     & > .home-links {
+//         transform: scale(1, 0);
+//         transform-origin: top;
+//         transition: $transition;
+//     }
+
+//     & > .account-links {
+//         transform: scale(1, 0);
+//         transform-origin: top;
+//         transition: $transition;
+//     }
+// }
+
+// .home-text {
+//     display: none;
+// }
+
+// @media screen and (min-width: 768px) {
+//     .nav-links {
+//         & > li {
+//             // & > a {
+//             //     padding: 0 0.2rem 0 0.2rem;
+//             //     &:hover {
+//             //         box-shadow: 2px 2px 2px $clr-primary-5 inset, -2px -2px 2px $clr-primary-5 inset;
+//             //     }
+//             // }
+//             padding: 0 0.2rem 0 0.2rem;
+//             &:hover {
+//                 box-shadow: 2px 2px 2px $clr-primary-5 inset, -2px -2px 2px $clr-primary-5 inset;
+//             }
+//         }
+//     }
+
+//     .right-arrow {
+//         display: inline-block;
+//         transform: translateX(-500%);
+//         transition: $transition;
+//     }
+
+//     .home-links {
+//         padding-right: 1rem;
+//     }
+
+//     .account-links {
+//         padding-right: 1rem;
+//     }
+
+//     #home-link {
+//         &:hover {
+//             .home-links {
+//                 transform: scale(1);
+//             }
+//         }
+
+//         li {
+//             overflow: hidden;
+//         }
+
+//         & a:hover .right-arrow {
+//             transform: translateX(0);
+//         }
+//     }
+
+//     #account-link {
+//         &:hover {
+//             .account-links {
+//                 transform: scale(1);
+//             }
+//         }
+
+//         li {
+//             overflow: hidden;
+//         }
+
+//         & a:hover .right-arrow {
+//             transform: translateX(0);
+//         }
+//     }
+// }
+
+// @media screen and (min-width: 992px) {
+//     .home-text {
+//         display: inline-block;
+//     }
+// }
+
+/*
+========================= 
+Sidebar 
+=========================
+*/
+
+// .nav-btn {
+//     grid-column: 1;
+//     grid-row: 1;
+//     justify-self: start;
+// }
+
+// .nav-logo {
+//     grid-column: 2;
+//     grid-row: 1;
+//     justify-self: end;
+// }
+
+// .close-btn {
+//     display: none;
+//     top: 1rem;
+//     right: unset;
+//     left: 1rem;
+// }
+
+// .sidebar {
+//     height: calc(100% - 80px);
+//     margin-top: 80px;
+//     transform: scale(0);
+//     transform-origin: top left;
+// }
+
+// .show-sidebar {
+//     animation: show-menu 0.5s ease-out 0s normal forwards;
+//     // transform: scale(1);
+// }
+
+// .close-sidebar {
+//     animation: close-menu 0.5s ease-out 0s normal forwards;
+// }
+
+// .sidebar-links {
+//     a {
+//         width: 100%;
+//         &:hover {
+//             box-shadow: 2px 2px 2px $clr-primary-5 inset, -2px -2px 2px $clr-primary-5 inset;
+//         }
+//     }
+
+//     .home-links {
+//         max-height: 0;
+//         transform: scale(1, 0);
+//         transform-origin: top;
+//         transition: $transition;
+//         overflow: hidden;
+//     }
+
+//     .account-links {
+//         max-height: 0;
+//         transform: scale(1, 0);
+//         transform-origin: top;
+//         transition: $transition;
+//         overflow: hidden;
+//     }
+
+//     .home-link {
+//         &:hover {
+//             .home-links {
+//                 max-height: 1000px;
+//                 transition: $transition;
+//                 transform: scale(1);
+//             }
+//         }
+//     }
+
+//     .account-link {
+//         &:hover {
+//             .account-links {
+//                 max-height: 1000px;
+//                 transition: $transition;
+//                 transform: scale(1);
+//             }
+//         }
+//     }
+// }
+
+// @keyframes bar-slide {
+//     0% {
+//         transform: translateX(-150%);
+//     }
+//     100% {
+//         transform: translateX(0);
+//     }
+// }
+
+// @keyframes show-menu {
+//     0% {
+//         transform: scale(0);
+//     }
+//     100% {
+//         transform: scale(1);
+//     }
+// }
+
+// @keyframes close-menu {
+//     0% {
+//         transform: scale(1);
+//     }
+//     100% {
+//         transform: scale(0);
+//     }
+// }

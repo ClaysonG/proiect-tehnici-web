@@ -8,7 +8,10 @@ function smoothScroll() {
     link.addEventListener("click", (e) => {
       e.preventDefault();
 
+      // server
       const id = e.target.getAttribute("href").slice(1).substring(1);
+      // local (html)
+      // const id = e.target.getAttribute("href").slice(1);
       const element = document.getElementById(id);
 
       let position = element?.offsetTop - 80;

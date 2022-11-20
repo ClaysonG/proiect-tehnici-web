@@ -2,7 +2,9 @@ const express = require("express");
 const app = express();
 const port = 8080;
 
-const { error403, error404 } = require("./utils/render-params");
+// const { error403, error404 } = require("./utils/render-params");
+const errorJSON = require("./utils/errors.json");
+const { error403, error404 } = errorJSON;
 
 app.set("view engine", "ejs");
 
@@ -18,7 +20,7 @@ app.all("*.ejs", (req, res) => {
   return res.render("pages/error", error403);
 });
 
-app.get("/", (req, res) => {
+app.get(["/", "/home", "/index"], (req, res) => {
   return res.render("pages/index", {
     home: true,
     ip: req.user.ip,
@@ -28,12 +30,7 @@ app.get("/", (req, res) => {
 app.get("/:page", (req, res) => {
   const fs = require("fs");
   const { page } = req.params;
-  if (page === "home") {
-    return res.render("pages/index", {
-      home: true,
-      ip: req.user.ip,
-    });
-  }
+
   if (fs.existsSync(`./views/pages/${page}.ejs`)) {
     return res.render(`pages/${page}`);
   }

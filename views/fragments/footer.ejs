@@ -2,24 +2,23 @@
 <ul class="footer-links">
     <!-- single link -->
     <li>
-        <a href="/#search" class="footer-link scroll-link">pagina principala
-            <% if (locals.home) { %>
-                <ul class="sub-links home-links footer-sub-links">
-                    <li>
-                        <a href="/#search" class="scroll-link">cautare</a>
-                    </li>
-                    <!-- <li>
-                        <a href="/#about" class="scroll-link">despre noi</a>
-                    </li> -->
-                    <li>
-                        <a href="/#products" class="scroll-link">anunturi populare</a>
-                    </li>
-                    <li>
-                        <a href="/#news" class="scroll-link">noutati</a>
-                    </li>
-                </ul>
-                <% } %>
-        </a>
+        <a href="/#search" class="footer-link scroll-link">pagina principala</a>
+        <% if (locals.home) { %>
+            <ul class="sub-links home-links footer-sub-links">
+                <li>
+                    <a href="/#search" class="scroll-link">cautare</a>
+                </li>
+                <!-- <li>
+                    <a href="/#about" class="scroll-link">despre noi</a>
+                </li> -->
+                <li>
+                    <a href="/#products" class="scroll-link">anunturi populare</a>
+                </li>
+                <li>
+                    <a href="/#news" class="scroll-link">noutati</a>
+                </li>
+            </ul>
+            <% } %>
     </li>
     <!-- end of single link -->
     <!-- single link -->
@@ -34,19 +33,18 @@
     <!-- end of single link -->
     <!-- single link -->
     <li>
-        <a href="/account" class="footer-link">contul meu
-            <ul class="sub-links account-links footer-sub-links">
-                <li>
-                    <a href="/favorites">anunturi salvate</a>
-                </li>
-                <li>
-                    <a href="/add-product">adauga anunt</a>
-                </li>
-                <li>
-                    <a href="/messages">mesaje</a>
-                </li>
-            </ul>
-        </a>
+        <a href="/account" class="footer-link">contul meu</a>
+        <ul class="sub-links account-links footer-sub-links">
+            <li>
+                <a href="/favorites">anunturi salvate</a>
+            </li>
+            <li>
+                <a href="/add-product">adauga anunt</a>
+            </li>
+            <li>
+                <a href="/messages">mesaje</a>
+            </li>
+        </ul>
     </li>
     <!-- end of single link -->
 </ul>
@@ -76,7 +74,7 @@
 </ul>
 <!-- end of footer icons -->
 <!-- contact -->
-<section class="section contact">
+<div class="section contact">
     <!-- section title -->
     <div class="section-title contact-title">
         <h3>contact</h3>
@@ -90,7 +88,7 @@
             <a href="https://goo.gl/maps/DmRvEzVhuAUhQu7w7" target="_blank">ne gasesti aici</a>
         </article>
     </div>
-</section>
+</div>
 <!-- end of contact -->
 <small class="copyright">
     copyright &copy; anunturi masini <span id="date"></span>. toate drepturile rezervate.
