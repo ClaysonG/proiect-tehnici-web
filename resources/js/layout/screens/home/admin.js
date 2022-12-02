@@ -87,9 +87,10 @@ function toggleAdminMode() {
     productsCenter.classList.add("products-admin-center");
     topMakesCenter.classList.add("top-makes-admin-center");
     handleTopMakesAdmin();
-    document.styleSheets[0].insertRule(
+    // styleSheets[0] === bootstrap --> see order of declaration in head
+    document.styleSheets[1].insertRule(
       ".admin { display: block }",
-      document.styleSheets[0].cssRules.length
+      document.styleSheets[1].cssRules.length
     );
   }
   // window.location.reload();

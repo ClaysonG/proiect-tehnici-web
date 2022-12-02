@@ -1,0 +1,17 @@
+<div class="section-center gallery-center">
+    <% locals.galleryPhotos.forEach((image, index)=> { %>
+        <figure class="gallery-photo-<%= index %> ">
+            <picture>
+                <source media="(min-width: 676px)" srcset="<%=image.medium_image %>">
+                <source media="(min-width: 992px)" srcset="<%=image.cale_imagine %>">
+                <img src="<%=image.small_image %>" alt="<%= image.titlu %>" title="<%= image.descriere %>">
+            </picture>
+            <% if (image.licenta){ %>
+                <%- image.licenta %>
+                    <% } %>
+                        <figcaption class="gallery-img-caption">
+                            <%= image.descriere %>
+                        </figcaption>
+        </figure>
+        <% }); %>
+</div>

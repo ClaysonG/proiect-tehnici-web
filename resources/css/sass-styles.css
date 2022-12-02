@@ -45,6 +45,14 @@ Navbar
   transition: all 0.3s linear;
 }
 
+.products-links {
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(-0.5rem);
+  z-index: -1;
+  transition: all 0.3s linear;
+}
+
 .account-links {
   visibility: hidden;
   opacity: 0;
@@ -173,6 +181,18 @@ Navbar
     display: inline !important;
   }
   #home-link:hover .fa-caret-down {
+    display: none !important;
+  }
+  #products-link:hover .products-links {
+    visibility: visible;
+    opacity: 1;
+    z-index: 1;
+    transform: translateY(0%);
+  }
+  #products-link:hover .fa-caret-up {
+    display: inline !important;
+  }
+  #products-link:hover .fa-caret-down {
     display: none !important;
   }
   #account-link:hover .account-links {
@@ -364,7 +384,6 @@ About (page)
 .about-page-img {
   position: relative;
   justify-self: center;
-  margin: 4rem 2rem 0 2rem;
 }
 
 @media screen and (min-width: 992px) {
@@ -390,3 +409,417 @@ Navbar
 Sidebar 
 =========================
 */
+/*
+========================= 
+Gallery
+=========================
+*/
+.gallery {
+  counter-reset: gallery;
+}
+
+.product-gallery {
+  margin-top: 5rem;
+  counter-reset: gallery;
+}
+
+.gallery-center {
+  display: grid;
+  grid-template-rows: repeat(10, 280px);
+}
+.gallery-center figure {
+  position: relative;
+  border: 4px solid hsl(42deg, 78%, 60%);
+  margin-bottom: 2rem;
+  transition: all 1.2s linear;
+}
+.gallery-center figure:hover {
+  transform: scale(25%) rotate(-10deg);
+  border-width: 8px;
+}
+.gallery-center img {
+  height: 15rem;
+  object-fit: cover;
+}
+.gallery-center .license {
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+}
+.gallery-center .license a {
+  color: hsl(210deg, 22%, 49%);
+}
+
+.gallery-img-caption::before {
+  font-weight: bold;
+  counter-increment: gallery;
+  content: counter(gallery, upper-roman);
+}
+
+.gallery-img-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(rgba(255, 250, 235, 0.7), rgba(0, 0, 0, 0.7));
+  color: #fff;
+  text-align: center;
+  font-size: 1.2rem;
+  transition: all 0.3s linear;
+}
+
+.gallery-img-caption:hover {
+  color: hsl(42deg, 78%, 60%);
+  cursor: pointer;
+}
+
+@media screen and (min-width: 676px) {
+  .gallery-center {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(5, 280px);
+    column-gap: 1rem;
+  }
+}
+@media screen and (min-width: 992px) {
+  .gallery-center {
+    grid-template-areas: "photo-0 photo-1 photo-2" "photo-3 empty photo-4" "photo-5 empty photo-6" "photo-7 photo-8 photo-9";
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 280px);
+  }
+  .gallery-photo-0 {
+    grid-area: photo-0;
+  }
+  .gallery-photo-1 {
+    grid-area: photo-1;
+  }
+  .gallery-photo-2 {
+    grid-area: photo-2;
+  }
+  .gallery-photo-3 {
+    grid-area: photo-3;
+  }
+  .gallery-photo-4 {
+    grid-area: photo-4;
+  }
+  .gallery-photo-5 {
+    grid-area: photo-5;
+  }
+  .gallery-photo-6 {
+    grid-area: photo-6;
+  }
+  .gallery-photo-7 {
+    grid-area: photo-7;
+  }
+  .gallery-photo-8 {
+    grid-area: photo-8;
+  }
+  .gallery-photo-9 {
+    grid-area: photo-9;
+  }
+}
+/*
+========================= 
+Duotone
+=========================
+*/
+.duotone-title {
+  display: none;
+}
+
+.duotone {
+  display: none;
+}
+
+@media screen and (min-width: 992px) {
+  .duotone-title {
+    display: block;
+  }
+  .duotone {
+    display: block;
+    max-width: 90vw;
+    position: relative;
+    background: url("../../resources/images/duotone.jpg") no-repeat center;
+    width: 900px;
+    height: 550px;
+    transition: all 2s linear;
+  }
+  .duotone::after, .duotone::before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0.5;
+    transition: all 2s linear;
+  }
+  .duotone::after {
+    background: linear-gradient(to left, blue 50%, transparent 50%);
+    background-size: 200% 100%;
+    background-position: bottom left;
+    mix-blend-mode: lighten;
+  }
+  .duotone::before {
+    background: linear-gradient(to right, red 50%, transparent 50%);
+    background-size: 200% 100%;
+    background-position: bottom right;
+    mix-blend-mode: darken;
+  }
+  .duotone:hover::after {
+    background-position: bottom right;
+  }
+  .duotone:hover::before {
+    background-position: bottom left;
+  }
+}
+/*
+========================= 
+Text Reflexion
+=========================
+*/
+.text, .text-reflect {
+  display: none;
+}
+
+@media screen and (min-width: 992px) {
+  .text, .text-reflect {
+    display: block;
+    font-size: 2rem;
+    text-transform: capitalize;
+    font-weight: bold;
+  }
+  .text {
+    max-width: 90vw;
+    position: relative;
+    margin-bottom: 3rem;
+  }
+  .text:hover .text-reflect {
+    transform: rotateX(180deg) skew(-45deg) scaleY(0.7) translate(10px, -25px) translateX(-50%);
+  }
+  .text-reflect {
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    transform-origin: 0 0;
+    transform: rotateX(180deg) skew(-45deg) scaleY(0.5) translate(10px, -20px) translateX(-50%);
+    opacity: 0.5;
+    filter: blur(1px);
+    transition: all 0.3s linear;
+  }
+}
+/*
+========================= 
+Column Text
+=========================
+*/
+.column-text {
+  text-align: justify;
+}
+
+@media screen and (min-width: 992px) {
+  .column-text {
+    padding: 0.5rem;
+    column-count: 3;
+    column-rule: inset 2px hsl(42deg, 78%, 60%);
+  }
+}
+/*
+========================= 
+Text Selection
+=========================
+*/
+::selection {
+  background: hsl(42deg, 78%, 60%);
+  color: hsl(210deg, 36%, 96%);
+}
+
+/*
+========================= 
+Horizontal Animation
+=========================
+*/
+.horizontal-animation-container {
+  width: 300px;
+  position: relative;
+  animation: horizontal-animation 8s infinite;
+}
+
+@keyframes horizontal-animation {
+  0%, 100% {
+    margin-left: 0;
+  }
+  50% {
+    margin-left: calc(100% - 300px);
+  }
+}
+/*
+========================= 
+Background Fixed
+=========================
+*/
+.background-fixed {
+  width: 100%;
+  height: 600px;
+  background: url("../../resources/images/background-fixed.jpg") no-repeat fixed center;
+  animation: change-background 1s linear 5s 1 forwards;
+}
+
+@keyframes change-background {
+  0% {
+    background: url("../../resources/images/background-fixed.jpg") no-repeat fixed center;
+  }
+  100% {
+    background: url("../../resources/images/background-fixed-alt.jpg") no-repeat fixed center;
+  }
+}
+/*
+========================= 
+Responsive Table
+=========================
+*/
+.responsive-table {
+  border: 0;
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  table-layout: fixed;
+  text-transform: capitalize;
+}
+.responsive-table thead {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+.responsive-table th {
+  padding: 0.625em;
+  text-align: center;
+  font-size: 0.85em;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.responsive-table tr {
+  background-color: hsl(210deg, 36%, 96%);
+  border: 1px solid hsl(42deg, 78%, 60%);
+  padding: 0.35em;
+  display: block;
+}
+.responsive-table tr:not(:last-child) {
+  border-bottom: 3px dashed hsl(42deg, 63%, 48%);
+}
+.responsive-table tr:not(:first-child) {
+  border-top: 0;
+}
+.responsive-table td {
+  padding: 0.625em;
+  border-bottom: 1px solid hsl(42deg, 78%, 60%);
+  display: block;
+  font-size: 0.8em;
+  text-align: left;
+}
+.responsive-table td::before {
+  content: attr(label);
+  float: left;
+  font-weight: bold;
+  text-transform: uppercase;
+  background: hsl(42deg, 78%, 60%);
+  width: 150px;
+  text-align: left;
+  margin-right: 1rem;
+}
+.responsive-table td:last-child {
+  border-bottom: 0;
+}
+
+@media screen and (min-width: 992px) {
+  .responsive-table {
+    border-spacing: 0;
+    border-collapse: separate;
+    box-sizing: border-box;
+    border: 1px solid hsl(42deg, 78%, 60%);
+    padding: 1rem;
+  }
+  .responsive-table thead {
+    position: relative;
+  }
+  .responsive-table th {
+    padding: 1rem;
+    border: 1px solid hsl(42deg, 78%, 60%);
+  }
+  .responsive-table tr {
+    padding: 1rem;
+    border: 1px solid hsl(42deg, 78%, 60%);
+    display: revert;
+  }
+  .responsive-table td {
+    display: revert;
+    font-size: unset;
+    text-align: center;
+    padding: 1rem;
+    border: 1px solid hsl(42deg, 78%, 60%);
+    border-top: 0;
+  }
+  .responsive-table td::before {
+    content: none;
+    float: none;
+    font-weight: unset;
+  }
+  .responsive-table td:last-child {
+    border-bottom: 1px solid hsl(42deg, 78%, 60%);
+  }
+}
+/*
+========================= 
+Transpose Table
+=========================
+*/
+.transpose-table {
+  border-collapse: separate;
+  box-sizing: border-box;
+  text-transform: capitalize;
+  table-layout: fixed;
+  width: 300px;
+  font-size: 0.5rem;
+  transition: all 0.3s linear;
+}
+.transpose-table thead, .transpose-table tbody, .transpose-table tr {
+  display: block;
+  float: left;
+}
+.transpose-table th, .transpose-table td {
+  display: block;
+  border: 1px solid hsl(42deg, 78%, 60%);
+  padding: 0.5rem;
+}
+.transpose-table th:not(:first-child), .transpose-table td:not(:first-child) {
+  border-top: 0;
+}
+
+@media screen and (min-width: 400px) {
+  .transpose-table {
+    width: 350px;
+    font-size: 0.6rem;
+  }
+}
+@media screen and (min-width: 500px) {
+  .transpose-table {
+    width: 400px;
+    font-size: 0.7rem;
+  }
+}
+@media screen and (min-width: 600px) {
+  .transpose-table {
+    width: 450px;
+    font-size: 0.8rem;
+  }
+}
+@media screen and (min-width: 676px) {
+  .transpose-table {
+    width: 500px;
+    font-size: 0.9rem;
+  }
+}

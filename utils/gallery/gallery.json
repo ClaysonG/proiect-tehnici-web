@@ -1,0 +1,246 @@
+{
+    "cale_galerie": "resources/images/gallery",
+    "imagini": [
+        {
+            "cale_imagine": "gallery-1.jpg",
+            "titlu": "Produs 1",
+            "descriere": "Descriere 1",
+            "sfert_ora": "1"
+        },
+        {
+            "cale_imagine": "gallery-2.jpg",
+            "titlu": "Produs 2",
+            "descriere": "Descriere 2",
+            "sfert_ora": "1"
+        },
+        {
+            "cale_imagine": "gallery-3.jpg",
+            "titlu": "Produs 3",
+            "descriere": "Descriere 3",
+            "sfert_ora": "1"
+        },
+        {
+            "cale_imagine": "gallery-4.jpg",
+            "titlu": "Produs 4",
+            "descriere": "Descriere 4",
+            "sfert_ora": "1"
+        },
+        {
+            "cale_imagine": "gallery-5.jpg",
+            "titlu": "Produs 5",
+            "descriere": "Descriere 5",
+            "sfert_ora": "1"
+        },
+        {
+            "cale_imagine": "gallery-6.jpg",
+            "titlu": "Produs 6",
+            "descriere": "Descriere 6",
+            "sfert_ora": "1"
+        },
+        {
+            "cale_imagine": "gallery-7.jpg",
+            "titlu": "Produs 7",
+            "descriere": "Descriere 7",
+            "sfert_ora": "1"
+        },
+        {
+            "cale_imagine": "gallery-8.jpg",
+            "titlu": "Produs 8",
+            "descriere": "Descriere 8",
+            "sfert_ora": "1"
+        },
+        {
+            "cale_imagine": "gallery-9.jpg",
+            "titlu": "Produs 9",
+            "descriere": "Descriere 9",
+            "sfert_ora": "1"
+        },
+        {
+            "cale_imagine": "gallery-10.jpg",
+            "titlu": "Produs 10",
+            "descriere": "Descriere 10",
+            "sfert_ora": "1"
+        },
+        {
+            "cale_imagine": "gallery-11.jpg",
+            "titlu": "Produs 11",
+            "descriere": "Descriere 11",
+            "sfert_ora": "2"
+        },
+        {
+            "cale_imagine": "gallery-12.jpg",
+            "titlu": "Produs 12",
+            "descriere": "Descriere 12",
+            "sfert_ora": "2"
+        },
+        {
+            "cale_imagine": "gallery-13.jpg",
+            "titlu": "Produs 13",
+            "descriere": "Descriere 13",
+            "sfert_ora": "2"
+        },
+        {
+            "cale_imagine": "gallery-14.jpg",
+            "titlu": "Produs 14",
+            "descriere": "Descriere 14",
+            "sfert_ora": "2"
+        },
+        {
+            "cale_imagine": "gallery-15.jpg",
+            "titlu": "Produs 15",
+            "descriere": "Descriere 15",
+            "sfert_ora": "2"
+        },
+        {
+            "cale_imagine": "gallery-16.jpg",
+            "titlu": "Produs 16",
+            "descriere": "Descriere 16",
+            "sfert_ora": "2"
+        },
+        {
+            "cale_imagine": "gallery-17.jpg",
+            "titlu": "Produs 17",
+            "descriere": "Descriere 17",
+            "sfert_ora": "2"
+        },
+        {
+            "cale_imagine": "gallery-18.jpg",
+            "titlu": "Produs 18",
+            "descriere": "Descriere 18",
+            "sfert_ora": "2"
+        },
+        {
+            "cale_imagine": "gallery-19.jpg",
+            "titlu": "Produs 19",
+            "descriere": "Descriere 19",
+            "sfert_ora": "2"
+        },
+        {
+            "cale_imagine": "gallery-20.jpg",
+            "titlu": "Produs 20",
+            "descriere": "Descriere 20",
+            "sfert_ora": "2"
+        },
+        {
+            "cale_imagine": "gallery-21.jpg",
+            "titlu": "Produs 21",
+            "descriere": "Descriere 21",
+            "sfert_ora": "3"
+        },
+        {
+            "cale_imagine": "gallery-22.jpg",
+            "titlu": "Produs 22",
+            "descriere": "Descriere 22",
+            "sfert_ora": "3"
+        },
+        {
+            "cale_imagine": "gallery-23.jpg",
+            "titlu": "Produs 23",
+            "descriere": "Descriere 23",
+            "sfert_ora": "3"
+        },
+        {
+            "cale_imagine": "gallery-24.jpg",
+            "titlu": "Produs 24",
+            "descriere": "Descriere 24",
+            "sfert_ora": "3"
+        },
+        {
+            "cale_imagine": "gallery-25.jpg",
+            "titlu": "Produs 25",
+            "descriere": "Descriere 25",
+            "sfert_ora": "3"
+        },
+        {
+            "cale_imagine": "gallery-26.jpg",
+            "titlu": "Produs 26",
+            "descriere": "Descriere 26",
+            "sfert_ora": "3"
+        },
+        {
+            "cale_imagine": "gallery-27.jpg",
+            "titlu": "Produs 27",
+            "descriere": "Descriere 27",
+            "sfert_ora": "3"
+        },
+        {
+            "cale_imagine": "gallery-28.jpg",
+            "titlu": "Produs 28",
+            "descriere": "Descriere 28",
+            "sfert_ora": "3"
+        },
+        {
+            "cale_imagine": "gallery-29.jpg",
+            "titlu": "Produs 29",
+            "descriere": "Descriere 29",
+            "sfert_ora": "3"
+        },
+        {
+            "cale_imagine": "gallery-30.jpg",
+            "titlu": "Produs 30",
+            "descriere": "Descriere 30",
+            "sfert_ora": "3"
+        },
+        {
+            "cale_imagine": "gallery-31.jpg",
+            "titlu": "Produs 31",
+            "descriere": "Descriere 31",
+            "sfert_ora": "4"
+        },
+        {
+            "cale_imagine": "gallery-32.jpg",
+            "titlu": "Produs 32",
+            "descriere": "Descriere 32",
+            "sfert_ora": "4"
+        },
+        {
+            "cale_imagine": "gallery-33.jpg",
+            "titlu": "Produs 33",
+            "descriere": "Descriere 33",
+            "sfert_ora": "4"
+        },
+        {
+            "cale_imagine": "gallery-34.jpg",
+            "titlu": "Produs 34",
+            "descriere": "Descriere 34",
+            "sfert_ora": "4"
+        },
+        {
+            "cale_imagine": "gallery-35.jpg",
+            "titlu": "Produs 35",
+            "descriere": "Descriere 35",
+            "sfert_ora": "4"
+        },
+        {
+            "cale_imagine": "gallery-36.jpg",
+            "titlu": "Produs 36",
+            "descriere": "Descriere 36",
+            "sfert_ora": "4"
+        },
+        {
+            "cale_imagine": "gallery-37.jpg",
+            "titlu": "Produs 37",
+            "descriere": "Descriere 37",
+            "sfert_ora": "4"
+        },
+        {
+            "cale_imagine": "gallery-38.jpg",
+            "titlu": "Produs 38",
+            "descriere": "Descriere 38",
+            "sfert_ora": "4"
+        },
+        {
+            "cale_imagine": "gallery-39.jpg",
+            "titlu": "Produs 39",
+            "descriere": "Descriere 39",
+            "sfert_ora": "4"
+        },
+        {
+            "cale_imagine": "gallery-40.jpg",
+            "titlu": "Produs 40",
+            "descriere": "Descriere 40",
+            "sfert_ora": "4",
+            "licenta": "<p class='license'><a target='_blank' rel='noopener noreferrer' href='https://www.flickr.com/photos/54731423@N04/6937142411'>2012 Mercedes-Benz C63 AMG Car Review</a> by <a target='_blank' rel='noopener noreferrer' href='https://www.flickr.com/photos/54731423@N04'>The National Roads and Motorists' Association</a> is licensed under <a target='_blank' rel='noopener noreferrer' href='https://creativecommons.org/licenses/by/2.0/?ref=openverse'>CC BY 2.0</a>. </p>"
+        }
+    ]
+}

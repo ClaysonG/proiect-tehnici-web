@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+    <title>Galerie Anunturi</title>
+    <%- include('../fragments/head'); %>
+</head>
+
+<body>
+    <header>
+        <%- include('../fragments/header'); %>
+    </header>
+    <main>
+        <!-- gallery -->
+        <section class="section gallery product-gallery" id="gallery">
+            <!-- section title -->
+            <div class="section-title gallery-title">
+                <h2>galerie anunturi</h2>
+                <div class="underline"></div>
+            </div>
+            <!-- end of section title -->
+            <div class="container text-center">
+                <p class="h2 text-info text-capitalize pb-2">galerie statica</p>
+            </div>
+            <%- include('../fragments/gallery') %>
+                <div class="container text-center">
+                    <button class="btn btn-primary text-capitalize mt-5">vezi toate oferte</button>
+                </div>
+        </section>
+        <!-- end of gallery -->
+        <div class="container text-center duotone-title">
+            <p class="h2 text-info text-capitalize pb-2">efect duotone</p>
+        </div>
+        <div class="container duotone mb-5"></div>
+        <div class="container text-center text">
+            <p>efect reflexie</p>
+            <div class="text-reflect">efect reflexie</div>
+        </div>
+        <div class="container text-center mb-5">
+            <p class="h2 text-info text-capitalize py-2">text pe coloane</p>
+            <div class="column-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero molestias quasi,
+                adipisci in ab minus sequi corrupti culpa unde vero expedita id iure consequatur omnis placeat!
+                Assumenda, a, tempore molestias facilis, deserunt rerum omnis quis reiciendis corporis veritatis quas
+                autem fugit saepe consectetur aperiam. Culpa accusamus cumque inventore vero laudantium illum ex dolore
+                ullam porro magnam possimus ut quis nulla odio eaque fugiat, cupiditate numquam facilis? Iusto sapiente
+                non sint inventore, delectus voluptate suscipit minima consequuntur quisquam ratione nostrum repudiandae
+                dolorem ut, reprehenderit nesciunt, repellat facere illum cum? Perspiciatis voluptatibus iste velit
+                beatae ullam consectetur nulla voluptatum! Temporibus laborum tenetur quas repudiandae perferendis,
+                saepe delectus dolores, animi odio explicabo asperiores eum commodi recusandae eos dolorum modi
+                architecto enim, sed consectetur. Sit qui blanditiis, laudantium porro aliquam odit velit minima, eius
+                aperiam repellat illo, in facilis. Non facilis expedita fugiat reprehenderit nihil hic ratione
+                recusandae! Corrupti omnis cum maiores at quam.
+            </div>
+        </div>
+        <p class="h2 text-info text-capitalize py-2 text-center horizontal-animation-container">text orizontal</p>
+        <div class="container text-center my-5">
+            <p class="h2 text-info text-capitalize py-2">background fixed</p>
+            <div class="background-fixed"></div>
+        </div>
+        <div class="container text-center mb-5">
+            <p class="h2 text-info text-capitalize py-2">tabel responsive</p>
+            <table class="responsive-table">
+                <thead>
+                    <tr>
+                        <th scope="col">marca</th>
+                        <th scope="col">model</th>
+                        <th scope="col">an fabricatie</th>
+                        <th scope="col">kilometraj</th>
+                        <th scope="col">cai putere</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td label="Marca">mercedes benz</td>
+                        <td label="Model">s</td>
+                        <td label="An Fabricatie">2022</td>
+                        <td label="Kilometraj">1.000</td>
+                        <td label="Cai Putere">500</td>
+                    </tr>
+                    <tr>
+                        <td label="Marca">bmw</td>
+                        <td label="Model">seria 7</td>
+                        <td label="An Fabricatie">2020</td>
+                        <td label="Kilometraj">50.000</td>
+                        <td label="Cai Putere">450</td>
+                    </tr>
+                    <tr>
+                        <td label="Marca">audi</td>
+                        <td label="Model">r8</td>
+                        <td label="An Fabricatie">2019</td>
+                        <td label="Kilometraj">72.000</td>
+                        <td label="Cai Putere">530</td>
+                    </tr>
+                    <tr>
+                        <td label="Marca">toyota</td>
+                        <td label="Model">supra</td>
+                        <td label="An Fabricatie">2010</td>
+                        <td label="Kilometraj">200.000</td>
+                        <td label="Cai Putere">320</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="container text-center mb-5">
+            <p class="h2 text-info text-capitalize py-2">tabel transpus</p>
+            <table class="transpose-table">
+                <thead>
+                    <tr>
+                        <th>marca</th>
+                        <th>model</th>
+                        <th>an fabricatie</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>mercedes benz</td>
+                        <td>c</td>
+                        <td>2022</td>
+                    </tr>
+                    <tr>
+                        <td>bmw</td>
+                        <td>seria 3</td>
+                        <td>2018</td>
+                    </tr>
+                    <tr>
+                        <td>audi</td>
+                        <td>a4</td>
+                        <td>2015</td>
+                    </tr>
+                    <tr>
+                        <td>volkswagen</td>
+                        <td>golf</td>
+                        <td>2019</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- floating button (back to top) -->
+        <button id="backToTopBtn" title="Inapoi Sus"><i class="fa-solid fa-arrow-up"></i></button>
+    </main>
+    <footer class="footer">
+        <%- include('../fragments/footer') %>
+    </footer>
+    <script type="module" src="/resources/js/app.js"></script>
+</body>
+
+</html>

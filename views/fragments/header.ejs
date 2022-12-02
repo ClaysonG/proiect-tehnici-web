@@ -39,8 +39,16 @@
                     </ul>
                     <% } %>
             </li>
-            <li>
-                <a href="/products">anunturi</a>
+            <li id="products-link">
+                <a href="/products">anunturi
+                    <i class="fa-solid fa-caret-down"></i>
+                    <i class="fa-solid fa-caret-up"></i>
+                </a>
+                <ul class="sub-links products-links">
+                    <li>
+                        <a href="/product-gallery">galerie</a>
+                    </li>
+                </ul>
             </li>
             <li>
                 <a href="/about">despre noi</a>
@@ -96,7 +104,12 @@
                     <% } %>
             </li>
             <li>
-                <a href="/products">anunturi</a>
+                <a href="/products" id="sidebar-products-link">anunturi</a>
+                <ul class="sub-links products-links">
+                    <li>
+                        <a href="/product-gallery">galerie</a>
+                    </li>
+                </ul>
             </li>
             <li>
                 <a href="/about">despre noi</a>
