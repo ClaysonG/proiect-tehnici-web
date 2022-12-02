@@ -576,12 +576,14 @@ Duotone
 Text Reflexion
 =========================
 */
-.text, .text-reflect {
+.text,
+.text-reflect {
   display: none;
 }
 
 @media screen and (min-width: 992px) {
-  .text, .text-reflect {
+  .text,
+.text-reflect {
     display: block;
     font-size: 2rem;
     text-transform: capitalize;
@@ -786,16 +788,20 @@ Transpose Table
   font-size: 0.5rem;
   transition: all 0.3s linear;
 }
-.transpose-table thead, .transpose-table tbody, .transpose-table tr {
+.transpose-table thead,
+.transpose-table tbody,
+.transpose-table tr {
   display: block;
   float: left;
 }
-.transpose-table th, .transpose-table td {
+.transpose-table th,
+.transpose-table td {
   display: block;
   border: 1px solid hsl(42deg, 78%, 60%);
   padding: 0.5rem;
 }
-.transpose-table th:not(:first-child), .transpose-table td:not(:first-child) {
+.transpose-table th:not(:first-child),
+.transpose-table td:not(:first-child) {
   border-top: 0;
 }
 
@@ -822,4 +828,54 @@ Transpose Table
     width: 500px;
     font-size: 0.9rem;
   }
+}
+/*
+========================= 
+Zig Zag
+=========================
+*/
+.zigzag {
+  border: none;
+  height: 1rem;
+  background: linear-gradient(90deg, hsl(42deg, 78%, 60%) 50%, transparent 0) top, linear-gradient(90deg, transparent 50%, hsl(42deg, 78%, 60%) 0) bottom;
+  background-size: 10px 66.6666666667%;
+  background-repeat: repeat-x;
+}
+
+/*
+========================= 
+Background Video
+=========================
+*/
+#background-video {
+  object-fit: cover;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.video-text {
+  position: relative;
+  height: 100vh;
+  text-align: center;
+  text-transform: capitalize;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.video-text h3 {
+  color: #fff;
+  font-size: 4rem;
+}
+
+.video-description {
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  position: relative;
+  padding: 1rem 3rem;
+  width: 100%;
+  font-size: 1.5rem;
+  margin: 0 auto;
 }
