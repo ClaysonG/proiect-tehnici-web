@@ -4,6 +4,7 @@
 <head>
     <title>Galerie Anunturi</title>
     <%- include('../fragments/head'); %>
+        <link rel="stylesheet" media="screen" href="/temp/animated-gallery.css">
 </head>
 
 <body>
@@ -136,6 +137,33 @@
                 </tbody>
             </table>
         </div>
+        <!-- animated gallery -->
+        <section class="section animated-gallery" id="animated-gallery">
+            <!-- section title -->
+            <div class="section-title gallery-title">
+                <h2>galerie animata</h2>
+                <div class="underline"></div>
+            </div>
+            <!-- end of section title -->
+            <div class="animated-gallery-container">
+                <div class="section-center animated-gallery-center">
+                    <% locals.animatedGalleryPhotos.forEach((image, index)=> { %>
+                        <figure class="animated-gallery-photo-<%= index %> ">
+                            <picture>
+                                <source media="(min-width: 676px)" srcset="<%=image.medium_image %>">
+                                <source media="(min-width: 992px)" srcset="<%=image.cale_imagine %>">
+                                <img src="<%=image.small_image %>" alt="<%= image.titlu %>"
+                                    title="<%= image.descriere %>">
+                            </picture>
+                            <figcaption class="animated-gallery-img-caption">
+                                <%= image.descriere %>
+                            </figcaption>
+                        </figure>
+                        <% }); %>
+                </div>
+            </div>
+        </section>
+        <!-- end of animated gallery -->
         <!-- floating button (back to top) -->
         <button id="backToTopBtn" title="Inapoi Sus"><i class="fa-solid fa-arrow-up"></i></button>
     </main>

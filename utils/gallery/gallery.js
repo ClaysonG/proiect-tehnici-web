@@ -2,16 +2,19 @@ const fs = require("fs");
 const sharp = require("sharp");
 const path = require("path");
 const galleryJSON = require("./gallery.json");
+const e = require("express");
 
 exports.getGalleryPhotos = async (minutes) => {
   const quarter = Math.floor(minutes / 15 + 1) + "";
   const galleryPath = galleryJSON.cale_galerie;
-  const photos = galleryJSON.imagini.filter((image) => {
+  let photos = galleryJSON.imagini.filter((image) => {
     return image.sfert_ora === quarter;
   });
   if (photos.length > 10) {
     return photos.slice(0, 10);
   }
+  // copy array of objects
+  photos = JSON.parse(JSON.stringify(photos));
   const resizePhotosPromise = photos.map(async (image) => {
     const fileName = image.cale_imagine.split(".")[0];
     const filePath = path.join(galleryPath, image.cale_imagine);
@@ -31,4 +34,29 @@ exports.getGalleryPhotos = async (minutes) => {
   });
   await Promise.allSettled(resizePhotosPromise);
   return photos;
+};
+
+exports.getAnimatedGalleryPhotos = (imageCount) => {
+  const galleryPath = galleryJSON.cale_galerie;
+  const photos = galleryJSON.imagini.filter((image) => {
+    return image.titlu.length < 12;
+  });
+  const selectedPhotos = [];
+  while (selectedPhotos.length !== imageCount) {
+    // copy object
+    const image = Object.assign(
+      {},
+      photos[Math.floor(Math.random() * photos.length)]
+    );
+    if (!selectedPhotos.find((img) => img.titlu === image.titlu)) {
+      const fileName = image.cale_imagine.split(".")[0];
+      const mediumSizedFileName = fileName + "-medium.jpg";
+      const smallSizedFileName = fileName + "-small.jpg";
+      image.cale_imagine = path.join(galleryPath, image.cale_imagine);
+      image.medium_image = path.join(galleryPath, mediumSizedFileName);
+      image.small_image = path.join(galleryPath, smallSizedFileName);
+      selectedPhotos.push(image);
+    }
+  }
+  return selectedPhotos;
 };
