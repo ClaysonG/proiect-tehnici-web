@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+    <title>Anunt <%= locals.title %>
+    </title>
+    <%- include('../fragments/head'); %>
+</head>
+
+<body>
+    <header>
+        <%- include('../fragments/header'); %>
+    </header>
+    <main>
+        <section class="section product-page">
+            <div class="section-title product-page-title">
+                <h1>
+                    <%= locals.title %>
+                </h1>
+            </div>
+            <div class="section-center product-page-center">
+                <div class="product-img-container">
+                    <img src="<%= product.image %> " alt="product" class="product-img">
+                    <i class="fa-solid fa-heart"></i>
+                </div>
+                <div class="product-page-data-container">
+                    <div class="product-page-info-container">
+                        <div class="product-page-info-title">
+                            <span>caracteristici</span>
+                            <div class="underline"></div>
+                        </div>
+                        <div class="product-page-price">
+                            <span>
+                                <i class="fa-solid fa-money-bill"></i>
+                                pret
+                            </span>
+                            <span>
+                                <%= product.price %> &#x20AC;
+                            </span>
+                        </div>
+                        <div class="product-page-info">
+                            <ul>
+                                <li>
+                                    <span>
+                                        <i class="fa-solid fa-hashtag"></i>
+                                        marca
+                                    </span>
+                                    <span>
+                                        <%= product.make %>
+                                    </span>
+                                </li>
+                                <li>
+                                    <span>
+                                        <i class="fa-solid fa-hashtag"></i>
+                                        model
+                                    </span>
+                                    <span>
+                                        <%= product.model %>
+                                    </span>
+                                </li>
+                                <li>
+                                    <span>
+                                        <i class="fa-solid fa-calendar"></i>
+                                        anul fabricatiei
+                                    </span>
+                                    <span>
+                                        <%= product.year %>
+                                    </span>
+                                </li>
+                                <li>
+                                    <span>
+                                        <i class="fa-solid fa-road"></i>
+                                        rulaj
+                                    </span>
+                                    <span>
+                                        <%= product.mileage %> KM
+                                    </span>
+                                </li>
+                                <li>
+                                    <span>
+                                        <i class="fa-solid fa-gauge-high"></i>
+                                        putere motor
+                                    </span>
+                                    <span>
+                                        <%= product.engine_power %> CP
+                                    </span>
+                                </li>
+                                <li>
+                                    <span>
+                                        <i class="fa-solid fa-bolt"></i>
+                                        capacitate cilindrica
+                                    </span>
+                                    <span>
+                                        <%= product.cilindrical_capacity %> CMC
+                                    </span>
+                                </li>
+                                <li>
+                                    <span>
+                                        <i class="fa-solid fa-gas-pump"></i>
+                                        combustibil
+                                    </span>
+                                    <span>
+                                        <%= product.fuel_type %>
+                                    </span>
+                                </li>
+                                <li>
+                                    <span>
+                                        <i class="fa-solid fa-gear"></i>
+                                        transmisie
+                                    </span>
+                                    <span>
+                                        <%= product.gearbox_type %>
+                                    </span>
+                                </li>
+                                <li>
+                                    <span>
+                                        <i class="fa-solid fa-gears"></i>
+                                        tractiune
+                                    </span>
+                                    <span>
+                                        <%= product.transmission_type %>
+                                    </span>
+                                </li>
+                                <li>
+                                    <span>
+                                        <i class="fa-solid fa-car"></i>
+                                        caroserie
+                                    </span>
+                                    <span>
+                                        <%= product.body_type %>
+                                    </span>
+                                </li>
+                                <li>
+                                    <span>
+                                        <i class="fa-solid fa-paint-roller"></i>
+                                        culoare
+                                    </span>
+                                    <span>
+                                        <%= product.color %>
+                                    </span>
+                                </li>
+                                <% if (product.features) { %>
+                                    <li>
+                                        <span>
+                                            <i class="fa-solid fa-hashtag"></i>
+                                            dotari
+                                        </span>
+                                        <span>
+                                            <%= product.features %>
+                                        </span>
+                                    </li>
+                                    <% } %>
+                                        <li>
+                                            <span>
+                                                <i class="fa-solid fa-recycle"></i>
+                                                stare
+                                            </span>
+                                            <span>
+                                                <% if (product.is_second_hand) { %>
+                                                    second hand
+                                                    <% } else { %>
+                                                        nou
+                                                        <% } %>
+                                            </span>
+                                        </li>
+                                        <li>
+                                            <span>
+                                                <% if (product.category==='autoturisme' ){ %>
+                                                    <i class="fa-solid fa-car-side"></i>
+                                                    <% } %>
+                                                        <% if (product.category==='autoutilitare' ){ %>
+                                                            <i class="fa-solid fa-van-shuttle"></i>
+                                                            <% } %>
+                                                                <% if (product.category==='motociclete' ){ %>
+                                                                    <i class="fa-solid fa-motorcycle"></i>
+                                                                    <% } %>
+                                                                        categorie
+                                            </span>
+                                            <span>
+                                                <%= product.category %>
+                                            </span>
+                                        </li>
+                                        <li>
+                                            <span>
+                                                <i class="fa-solid fa-clock"></i>
+                                                publicat
+                                            </span>
+                                            <span>
+                                                <%= product.created_at %>
+                                            </span>
+                                        </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="product-page-description">
+                        <div class="product-page-description-title">
+                            <span>descriere</span>
+                            <div class="underline"></div>
+                        </div>
+                        <%= product.description %>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- floating button (back to top) -->
+        <button id="backToTopBtn" title="Inapoi Sus"><i class="fa-solid fa-arrow-up"></i></button>
+    </main>
+    <footer class="footer">
+        <%- include('../fragments/footer') %>
+    </footer>
+    <script type="module" src="/resources/js/app.js"></script>
+</body>
+
+</html>

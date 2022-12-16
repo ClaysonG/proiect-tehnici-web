@@ -27,9 +27,16 @@
     <li>
         <a href="/products" class="footer-link">anunturi</a>
         <ul class="sub-links products-links footer-sub-links">
-            <li>
+            <% locals.categories.forEach((category)=>{%>
+                <li>
+                    <a href="/products?category=<%= category %> ">
+                        <%= category%>
+                    </a>
+                </li>
+                <% }) %>
+                    <!-- <li>
                 <a href="/product-gallery">galerie</a>
-            </li>
+            </li> -->
         </ul>
     </li>
     <!-- end of single link -->

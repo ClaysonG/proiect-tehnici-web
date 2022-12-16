@@ -10,5 +10,11 @@
         "image": "/resources/images/404-img.jpg",
         "header": "eroare 404",
         "info": "<p>In limbaj trivial, asta inseamna ca pagina pe care o cauti nu exista. Sau ca link-ul nu mai este de actualitate.</p> <p>Sunt insa sanse foarte mari sa gasesti ceea ce te intereseaza in <a href='/products'>pagina de oferte!</a></p>"
+    },
+    "error500": {
+        "title": "Eroare necunoscuta",
+        "image": "/resources/images/500-img.jpg",
+        "header": "eroare 500",
+        "info": "<p>In limbaj trivial, asta inseamna ca serverul nostru a intalnit o eroare nemaivazuta si s-a fastacit. Echipa noastra tehnica a fost deja anuntata si lucreaza la remedierea situatiei.</p> <p>Intre timp, incearca sa accesezi <a href='/'>prima pagina</a> a site-ului sau sa cauti ceea ce te intereseaza direct in <a href='/produse'>pagina de anunturi</a></p>"
     }
 }
