@@ -62,13 +62,13 @@ app.use("/resources", express.static("resources"));
 app.all("*", (req, res, next) => {
   req.user = {};
   req.user.ip = req.header("x-forwarded-for") || req.socket.remoteAddress;
+  res.locals.categories = categories;
   next();
 });
 
 app.all("*.ejs", (req, res) => {
   return res.status(403).render("pages/error", {
     ...error403,
-    categories,
   });
 });
 
@@ -77,7 +77,6 @@ app.get(["/", "/home", "/index"], async (req, res) => {
     home: true,
     ip: req.user.ip,
     galleryPhotos: await getGalleryPhotos(new Date().getMinutes()),
-    categories,
   });
 });
 
@@ -122,7 +121,7 @@ app.get("/product/:id", async (req, res) => {
     const productName = product.name;
     return res
       .status(200)
-      .render("pages/product", { categories, product, title: productName });
+      .render("pages/product", { product, title: productName });
   } catch (error) {
     console.log(error);
     return res.status(500).render("pages/error", { ...error500, categories });
@@ -132,7 +131,15 @@ app.get("/product/:id", async (req, res) => {
 app.get("/products", async (req, res) => {
   try {
     const products = [];
+    const makes = [];
+    const models = [];
+    let prices = [];
+    let minMileage = 100000;
+    let maxMileage = 0;
+    const fuelTypes = [];
+    const bodyTypes = [];
     let category = url.parse(req.url, true).query.category;
+    // Products
     const productsQuery = await client.query(
       `SELECT products.id, products.name, products.description, 
       products.image, products.category, makes.name AS make, 
@@ -157,8 +164,14 @@ app.get("/products", async (req, res) => {
     );
     productsQuery.rows.forEach((row) => {
       const data = Object.assign({}, row);
-      data.price = row.price.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.");
-      data.mileage = row.mileage.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.");
+      data.formattedPrice = row.price.replace(
+        /(\d)(?=(\d\d\d)+(?!\d))/g,
+        "$1."
+      );
+      data.formattedMileage = row.mileage.replace(
+        /(\d)(?=(\d\d\d)+(?!\d))/g,
+        "$1."
+      );
       if (data.features) {
         data.features = row.features.replace(/,/g, " | ");
       }
@@ -168,12 +181,126 @@ app.get("/products", async (req, res) => {
     if (category === undefined) {
       category = "autovehicule";
     }
-    return res
-      .status(200)
-      .render("pages/products", { categories, products, heading: category });
+    // Makes
+    const makesQuery = await client.query(
+      `SELECT id, name
+      FROM makes
+      ORDER BY name`
+    );
+    makesQuery.rows.forEach((row) => {
+      const data = Object.assign({}, row);
+      makes.push(data);
+    });
+    // Models
+    const modelsQuery = await client.query(
+      `SELECT models.id, models.name, models.category, makes.name AS make
+      FROM models
+      INNER JOIN makes ON models.make_id=makes.id
+      ORDER BY models.name`
+    );
+    modelsQuery.rows.forEach((row) => {
+      const data = Object.assign({}, row);
+      models.push(data);
+    });
+    // Prices
+    prices = [
+      {
+        value: "7000-10000",
+        formatted: "7.000 - 10.000",
+      },
+      {
+        value: "10000-20000",
+        formatted: "10.000 - 20.000",
+      },
+      {
+        value: "20000-40000",
+        formatted: "20.000 - 40.000",
+      },
+      {
+        value: "40000-80000",
+        formatted: "40.000 - 80.000",
+      },
+      {
+        value: "80000-100000",
+        formatted: "80.000 - 100.000",
+      },
+      {
+        value: "100000-150000",
+        formatted: "100.000 - 150.000",
+      },
+      {
+        value: "150000 - 200000",
+        formatted: "150.000 - 200.000",
+      },
+    ];
+    // Mileage
+    products.forEach((product) => {
+      if (Number(product.mileage) < minMileage) {
+        minMileage = product.mileage;
+      }
+      if (Number(product.mileage) > maxMileage) {
+        maxMileage = product.mileage;
+      }
+    });
+    const formattedMinMileage = minMileage.replace(
+      /(\d)(?=(\d\d\d)+(?!\d))/g,
+      "$1."
+    );
+    const formattedMaxMileage = maxMileage.replace(
+      /(\d)(?=(\d\d\d)+(?!\d))/g,
+      "$1."
+    );
+    const initialMileage = Number(maxMileage) / 2 + "";
+    const formattedInitialMileage = initialMileage.replace(
+      /(\d)(?=(\d\d\d)+(?!\d))/g,
+      "$1."
+    );
+    // Fuel Types
+    const fuelTypesQuery = await client.query(
+      `SELECT id, name
+      FROM fuel_types
+      ORDER BY name`
+    );
+    fuelTypesQuery.rows.forEach((row) => {
+      const data = Object.assign({}, row);
+      data.name = row.name.charAt(0).toUpperCase() + row.name.slice(1);
+      fuelTypes.push(data);
+    });
+    // Body Types
+    if (category !== "autovehicule") {
+      const bodyTypesQuery = await client.query(
+        `SELECT id, name, category
+        FROM body_types
+        ORDER BY name`
+      );
+      bodyTypesQuery.rows.forEach((row) => {
+        const data = Object.assign({}, row);
+        if (data.category === category) {
+          bodyTypes.push(data);
+        }
+      });
+      if (category === "autoturisme") {
+        bodyTypes.splice(2, 1);
+      }
+    }
+    return res.status(200).render("pages/products", {
+      categories,
+      products,
+      heading: category,
+      makes,
+      models,
+      prices,
+      minMileage,
+      maxMileage,
+      formattedMinMileage,
+      formattedMaxMileage,
+      formattedInitialMileage,
+      fuelTypes,
+      bodyTypes,
+    });
   } catch (error) {
     console.log(error);
-    return res.status(500).render("pages/error", { ...error500, categories });
+    return res.status(500).render("pages/error", { ...error500 });
   }
 });
 
@@ -205,7 +332,6 @@ app.get("/product-gallery", async (req, res) => {
   return res.status(200).render("pages/product-gallery", {
     galleryPhotos: await getGalleryPhotos(new Date().getMinutes()),
     animatedGalleryPhotos: getAnimatedGalleryPhotos(count),
-    categories,
   });
 });
 
@@ -216,7 +342,7 @@ app.get("/:page", (req, res) => {
   if (fs.existsSync(`./views/pages/${page}.ejs`)) {
     return res.status(200).render(`pages/${page}`, { categories });
   }
-  return res.status(404).render("pages/error", { ...error404, categories });
+  return res.status(404).render("pages/error", { ...error404 });
 });
 
 app.listen(port, () => {
@@ -224,5 +350,5 @@ app.listen(port, () => {
 });
 
 app.use((req, res) => {
-  return res.status(404).render("pages/error", { ...error404, categories });
+  return res.status(404).render("pages/error", { ...error404 });
 });

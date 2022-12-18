@@ -15,6 +15,7 @@ $clr-primary-10: hsl(45, 100%, 96%);
 $clr-grey-1: hsl(209, 61%, 16%);
 /* grey used for paragraphs */
 $clr-grey-5: hsl(210, 22%, 49%);
+$clr-grey-8: hsl(210, 31%, 80%);
 $clr-grey-10: hsl(210, 36%, 96%);
 $clr-white: #fff;
 $transition: all 0.3s linear;
@@ -1202,11 +1203,151 @@ Products Page
 }
 
 .filter-section {
+    position: relative;
+    margin-bottom: 2rem;
+    box-shadow: $light-shadow;
+    border-radius: $radius;
+    padding: 1rem;
+
+    .filter-title {
+        text-align: center;
+    }
+
+    select {
+        margin-bottom: 1rem;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 0.2rem;
+    }
+
+    input {
+        margin-top: 0;
+        margin-bottom: 1rem;
+        display: unset;
+    }
+
+    .mileage-filter {
+        #mileage-min-value {
+            margin-right: 0.5rem;
+        }
+
+        #mileage-max-value {
+            margin-left: 0.5rem;
+        }
+
+        #selected-mileage-value {
+            display: inline-block;
+            margin-left: 0.5rem;
+            margin-bottom: 1rem;
+        }
+    }
+
+    .fuel-type-filter,
+    .name-filter {
+        input {
+            border: 2px solid $clr-grey-8;
+            border-radius: $radius;
+            padding: 0.5rem 0.2rem;
+            width: 100%;
+        }
+    }
+
+    .body-type-filter {
+        .radio-group-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            margin-bottom: 1rem;
+        }
+
+        .no-body-type {
+            margin-bottom: 1rem;
+        }
+
+        label {
+            display: inline-block;
+            margin-bottom: 0.2rem;
+        }
+
+        input {
+            margin-bottom: 0;
+        }
+    }
+
+    .description-filter {
+        margin-bottom: 1rem;
+
+        textarea {
+            resize: none;
+            border: 2px solid $clr-grey-8;
+            border-radius: $radius;
+            width: 100%;
+        }
+    }
+
+    .second-hand-filter {
+        span {
+            text-transform: capitalize;
+            margin-right: 0.5rem;
+        }
+    }
+
+    .filter-buttons {
+        .reset-btn {
+            background: unset;
+        }
+
+        .filter-btn {
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+
+        .fa-solid {
+            margin-left: 0.2rem;
+        }
+    }
+}
+
+.sort-buttons-container {
     margin-bottom: 4rem;
+    text-transform: capitalize;
+
+    span {
+        display: inline-block;
+        margin-bottom: 0.5rem;
+        font-weight: bold;
+    }
+
+    .reset-btn {
+        background: unset;
+    }
+
+    .filter-btn {
+        width: 100%;
+        margin-bottom: 1rem;
+        font-size: 0.8rem;
+    }
+
+    .fa-solid {
+        margin-left: 0.2rem;
+    }
+
+    .sort-buttons {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 0.5rem;
+    }
 }
 
 .products-page-center {
     display: grid;
+}
+
+.no-results {
+    display: none;
+    text-align: center;
+    font-size: 2rem;
 }
 
 .products-page-card {
@@ -1271,6 +1412,73 @@ Products Page
 }
 
 @media screen and (min-width: 676px) {
+    .filter-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-areas:
+            "make model fuel-type"
+            "name mileage body-type"
+            "price description second-hand";
+        column-gap: 1rem;
+
+        .make-filter {
+            grid-area: make;
+        }
+
+        .model-filter {
+            grid-area: model;
+        }
+
+        .fuel-type-filter {
+            grid-area: fuel-type;
+        }
+
+        .name-filter {
+            grid-area: name;
+        }
+
+        .mileage-filter {
+            grid-area: mileage;
+        }
+
+        .second-hand-filter {
+            grid-area: second-hand;
+        }
+
+        .price-filter {
+            height: 100%;
+            grid-area: price;
+        }
+
+        .description-filter {
+            grid-area: description;
+        }
+
+        .body-type-filter {
+            grid-area: body-type;
+
+            .radio-group-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    }
+
+    .filter-buttons,
+    .sort-buttons,
+    .calc-button {
+        width: 75%;
+        margin: 0 auto;
+    }
+
+    .sort-buttons-container {
+        span {
+            display: block;
+            width: 75%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+
     .products-page-card {
         .products-page-card-heading {
             text-align: left;
@@ -1307,6 +1515,27 @@ Products Page
                 }
             }
         }
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .filter-buttons {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 2rem;
+    }
+
+    .sort-buttons {
+        display: block;
+    }
+
+    .sort-buttons-wrapper {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    #selected-mileage-value {
+        display: block !important;
     }
 }
 

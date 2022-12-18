@@ -20,50 +20,141 @@
                 </h1>
                 <div class="underline"></div>
             </div>
-            <div class="section-center filter-section">
-                <h2>
-                    ce cauti?
-                </h2>
-                <label for="name-choice">nume</label>
-                <input type="text" name="name-choice" id="name-choice">
-                <label for="mileage-choice">kilometraj</label>
-                <input type="range" name="mileage-choice" id="mileage-choice">
-                <label for="fuel-type-choice">combustibil</label>
-                <input list="fuel-types" name="fuel-type-choice" id="fuel-type-choice">
-                <datalist id="fuel-types">
-                    <option value="GPL"></option>
-                    <option value="Benzina"></option>
-                    <option value="Diesel"></option>
-                </datalist>
-                <label for="body-type-choice">caroserie</label>
-                <input type="radio" name="body-type-choice" id="">
-                <input type="radio" name="body-type-choice" id="">
-                <input type="radio" name="body-type-choice" id="">
-                <input type="radio" name="body-type-choice" id="">
-                <label for="second-hand-choice">nou</label>
-                <input type="checkbox" name="second-hand-choice" id="second-hand-choice">
-                <div>
-                    <label for="description-choice">descriere</label>
-                    <br>
-                    <textarea name="description-choice" id="description-choice" cols="30" rows="10"></textarea>
-                </div>
-                <label for="make-choice">marca</label>
-                <select name="make-choice" id="make-choice"></select>
-                <label for="model-choice">model</label>
-                <select name="model-choice" id="model-choice"></select>
-                <label for="price-choice">pret</label>
-                <select name="price-choice" id="price-choice" multiple></select>
-                <button>filtreaza</button>
-                <button>asc</button>
-                <button>desc</button>
-                <button>calculeaza</button>
-                <button>reseteaza</button>
-            </div>
             <!-- end of section title -->
+            <div class="section-center filter-section">
+                <div class="filter-title">
+                    <h2>
+                        ce cauti?
+                    </h2>
+                </div>
+                <div class="filter-container">
+                    <div class="make-filter">
+                        <label for="make-choice">marca</label>
+                        <select name="make-choice" id="make-choice">
+                            <option value="any" id="make-0">oricare</option>
+                            <% locals.makes.forEach((make)=> {%>
+                                <option value="<%= make.name %>" id="make-<%= make.id %>">
+                                    <%= make.name %>
+                                </option>
+                                <% }) %>
+                        </select>
+                    </div>
+                    <div class="model-filter">
+                        <label for="model-choice">model</label>
+                        <select name="model-choice" id="model-choice">
+                            <option value="any" id="model-0">oricare</option>
+                            <% locals.models.forEach((model)=> { %>
+                                <option value="<%= model.name %>" id="model-<%= model.id %>">
+                                    <%= model.name %>
+                                </option>
+                                <% }) %>
+                        </select>
+                    </div>
+                    <div class="price-filter">
+                        <label for="price-choice">interval pret</label>
+                        <select name="price-choice" id="price-choice" multiple>
+                            <% locals.prices.forEach((price, index)=> { %>
+                                <option value="<%= price.value %>" id="price-<%= index %>">
+                                    <%= price.formatted %>
+                                </option>
+                                <% }) %>
+                        </select>
+                    </div>
+                    <div class="mileage-filter">
+                        <label for="mileage-choice">kilometraj</label>
+                        <span id="mileage-min-value">
+                            <%= locals.formattedMinMileage %> KM
+                        </span>
+                        <input type="range" name="mileage-choice" id="mileage-choice" min="<%= locals.minMileage %>"
+                            max="<%= locals.maxMileage %>" step="1000">
+                        <span id="mileage-max-value">
+                            <%= locals.formattedMaxMileage %> KM
+                        </span>
+                        <span id="selected-mileage-value">
+                            (<%= locals.formattedInitialMileage %> KM)
+                        </span>
+                    </div>
+                    <div class="fuel-type-filter">
+                        <label for="fuel-type-choice">combustibil</label>
+                        <input list="fuel-types" name="fuel-type-choice" id="fuel-type-choice" placeholder="Ex: Diesel">
+                        <datalist id="fuel-types">
+                            <% locals.fuelTypes.forEach((fuelType)=>{ %>
+                                <option value="<%= fuelType.name %>">
+                                    <%= fuelType.name %>
+                                </option>
+                                <% }) %>
+                        </datalist>
+                    </div>
+                    <div class="body-type-filter">
+                        <label for="body-type-choice">caroserie</label>
+                        <div class="radio-group-container">
+                            <div class="body-type-radio-group">
+                                <input type="radio" name="body-type-choice" id="body-type-0" class="body-type-radio"
+                                    value="any" checked>
+                                <label for="body-type-0">oricare</label>
+                            </div>
+                            <% if (locals.bodyTypes.length> 0 ) { %>
+                                <% locals.bodyTypes.forEach((bodyType)=> { %>
+                                    <div class="body-type-radio-group">
+                                        <input type="radio" name="body-type-choice" id="body-type-<%= bodyType.id %>"
+                                            class="body-type-radio" value="<%= bodyType.name %>">
+                                        <label for="body-type-<%= bodyType.id %>">
+                                            <%= bodyType.name %>
+                                        </label>
+                                    </div>
+                                    <% }) %>
+                                        <% } %>
+                        </div>
+                    </div>
+                    <div class="name-filter">
+                        <label for="name-choice">nume anunt</label>
+                        <input type="text" name="name-choice" id="name-choice" placeholder="Ex: Volkswagen Golf">
+                    </div>
+                    <div class="description-filter">
+                        <label for="description-choice">descriere</label>
+                        <textarea name="description-choice" id="description-choice" cols="30" rows="4"
+                            placeholder="Cuvinte cheie, care sa apara (+) sau nu (-) in descriere. Ex: +tractiune +fata -trapa"></textarea>
+                    </div>
+                    <div class="second-hand-filter">
+                        <label for="second-hand-choice">stare</label>
+                        <span>nou</span>
+                        <input type="checkbox" name="second-hand-choice" id="second-hand-choice">
+                    </div>
+                </div>
+                <div class="filter-buttons">
+                    <button class="btn filter-btn reset-btn" id="reset-btn">reseteaza filtrele<i
+                            class="fa-solid fa-arrows-rotate"></i></button>
+                    <button class="btn filter-btn" id="search-btn">filtreaza<i class="fa-solid fa-filter"></i></button>
+                </div>
+            </div>
+            <div class="sort-buttons-container section-center">
+                <span>sorteaza</span>
+                <div class="sort-buttons-wrapper">
+                    <div class="sort-buttons">
+                        <button class="btn filter-btn" id="asc-btn">ascendent<i
+                                class="fa-solid fa-arrow-up-wide-short"></i></button>
+                        <button class="btn filter-btn" id="desc-btn">descendent<i
+                                class="fa-solid fa-arrow-down-wide-short"></i></button>
+                    </div>
+                    <div class="calc-button">
+                        <button class="btn filter-btn reset-btn" id="calc-btn">calculeaza pret mediu<i
+                                class="fa-solid fa-calculator"></i></button>
+                    </div>
+                </div>
+            </div>
             <div class="section-center products-page-center">
+                <div class="no-results">
+                    Ne pare rau, nu exista produse conform filtrarii curente.
+                </div>
                 <% locals.products.forEach((product)=> { %>
                     <article id="product_<%= product.id %>"
-                        class="product-card products-page-card <%= product.category %>">
+                        class="product-card products-page-card <%= product.category %>"
+                        data-product-id="<%= product.id %>" data-product-name="<%= product.name %>"
+                        data-product-make="<%= product.make %>" data-product-model="<%= product.model %>"
+                        data-product-fuel-type="<%= product.fuel_type %>" data-product-mileage="<%= product.mileage %>"
+                        data-product-body-type="<%= product.body_type %>" data-product-price="<%= product.price %>"
+                        data-product-description="<%= product.description %>"
+                        data-product-second-hand="<%= product.is_second_hand %>">
                         <h2 class="products-page-card-heading">
                             <%= product.name %>
                         </h2>
@@ -89,7 +180,7 @@
                                         </div>
                                         <div class="products-page-card-price">
                                             <i class="fa-solid fa-money-bill"></i>
-                                            <%= product.price %> &#x20AC;
+                                            <%= product.formattedPrice %> &#x20AC;
                                         </div>
                                     </div>
                                     <div class="products-page-card-description">
@@ -113,7 +204,7 @@
                                         <li>
                                             <span>
                                                 <i class="fa-solid fa-road"></i>
-                                                <%= product.mileage %> KM
+                                                <%= product.formattedMileage %> KM
                                             </span>
                                         </li>
                                         <% if (product.is_second_hand) { %>
