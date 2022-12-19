@@ -306,8 +306,13 @@ function calculateAveragePrice() {
     const averagePrice = Math.floor(sum / displayedProducts) + "";
     const result = document.createElement("div");
     result.style.position = "fixed";
-    result.style.background = "#fff";
-    result.style.color = "hsl(209, 61%, 16%)";
+    if (localStorage.getItem("theme")) {
+      result.style.background = "hsl(209, 61%, 16%)";
+      result.style.color = "#fff";
+    } else {
+      result.style.background = "#fff";
+      result.style.color = "hsl(209, 61%, 16%)";
+    }
     result.style.bottom = 0;
     result.style.width = "100%";
     result.style.textAlign = "center";
