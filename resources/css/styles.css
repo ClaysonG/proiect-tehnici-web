@@ -75,20 +75,24 @@ body {
 
 .dark-theme {
   --clr-white: hsl(209, 61%, 16%);
-  --clr-grey-1: hsl(210, 22%, 49%);
+  --clr-grey-1: hsl(210, 22%, 70%);
   --clr-grey-5: hsl(209, 23%, 60%);
-  --clr-grey-10: hsl(209, 61%, 16%);
+  --clr-grey-8: hsl(209, 28%, 39%);
+  --clr-grey-10: hsl(209, 61%, 23%);
   --clr-primary-1: hsl(42, 63%, 55%);
   --clr-primary-5: hsl(43, 72%, 37%);
+  --clr-primary-7: hsl(43, 72%, 27%);
   --clr-primary-10: hsl(43, 86%, 11%);
-  --clr-gradient: hsl(43, 86%, 13%);
+  --clr-gradient: hsl(43, 86%, 25%);
+  --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 .dark-theme select,
 .dark-theme input,
 .dark-theme textarea {
   background: hsl(209, 28%, 39%);
-  border-color: hsl(209, 28%, 39%) !important;
+  border-color: hsl(209, 28%, 39%);
 }
 
 .dark-theme ::placeholder {

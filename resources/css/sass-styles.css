@@ -26,7 +26,7 @@ Navbar
   background: var(--clr-white);
   top: 100%;
   padding: 0.5rem 0.5rem;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--light-shadow);
   border-radius: 0.5rem;
 }
 .sub-links li {
@@ -64,7 +64,7 @@ Navbar
   width: 100%;
   background: var(--clr-white);
   z-index: 100;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--light-shadow);
   height: 5rem;
   padding: 1rem;
   display: grid;
@@ -902,7 +902,7 @@ Products Page
 .filter-section {
   position: relative;
   margin-bottom: 2rem;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--light-shadow);
   border-radius: 0.5rem;
   padding: 1rem;
 }
@@ -928,7 +928,7 @@ Products Page
   margin-left: 0.5rem;
 }
 .filter-section .mileage-filter #selected-mileage-value {
-  display: inline-block;
+  display: block;
   margin-left: 0.5rem;
   margin-bottom: 1rem;
 }
@@ -1018,6 +1018,9 @@ Products Page
   position: relative;
   margin-bottom: 4rem;
 }
+.products-page-card:hover .products-page-card-heading {
+  color: var(--clr-primary-5);
+}
 .products-page-card .fa-solid {
   margin-right: 0.5rem;
   font-size: 1rem;
@@ -1033,9 +1036,6 @@ Products Page
   right: 0;
   text-align: center;
   transition: all 0.3s linear;
-}
-.products-page-card .products-page-card-heading:hover {
-  color: var(--clr-primary-5);
 }
 .products-page-card .products-page-card-info {
   color: var(--clr-grey-1);
@@ -1158,9 +1158,6 @@ Products Page
   .sort-buttons-wrapper {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-  }
-  #selected-mileage-value {
-    display: block !important;
   }
 }
 /*
