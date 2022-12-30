@@ -15,6 +15,7 @@ import {
   calculateAveragePrice,
 } from "./layout/screens/products/filter.js";
 import { handleTheme } from "./layout/theme.js";
+import { handleSidebar } from "./layout/menu.js";
 
 // ==================
 // Frontend
@@ -58,3 +59,6 @@ calculateAveragePrice();
 
 // Theme
 handleTheme();
+
+// Menu
+handleSidebar();
