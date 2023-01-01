@@ -6,6 +6,7 @@ function handleTheme() {
   const currentTheme = localStorage.getItem("theme");
   if (currentTheme) {
     document.body.classList.add(currentTheme);
+    document.body.setAttribute("data-bs-theme", "dark");
     themePicker.checked = true;
     if (sunIcon) {
       sunIcon.style.color = "hsl(209, 28%, 39%)";
@@ -24,11 +25,13 @@ function handleTheme() {
   themePicker.addEventListener("click", (e) => {
     if (document.body.classList.contains("dark-theme")) {
       document.body.classList.remove("dark-theme");
+      document.body.removeAttribute("data-bs-theme");
       localStorage.removeItem("theme");
       sunIcon.style.color = "hsl(42, 78%, 60%)";
       moonIcon.style.color = "hsl(209, 28%, 39%)";
     } else {
       document.body.classList.add("dark-theme");
+      document.body.setAttribute("data-bs-theme", "dark");
       localStorage.setItem("theme", "dark-theme");
       sunIcon.style.color = "hsl(209, 28%, 39%)";
       moonIcon.style.color = "hsl(43, 72%, 37%)";

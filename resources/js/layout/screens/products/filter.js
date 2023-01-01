@@ -39,7 +39,11 @@ function filterProducts() {
       }
     }
     const nameText = document.querySelector("#name-choice");
-    nameText.style.borderColor = "hsl(210deg, 31%, 80%)";
+    if (localStorage.getItem("theme")) {
+      nameText.style.borderColor = "hsl(209deg, 28%, 39%)";
+    } else {
+      nameText.style.borderColor = "hsl(210deg, 31%, 80%)";
+    }
     const nameChoice = nameText.value.toLowerCase();
     const numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
     if (numbers.some((number) => nameChoice.includes(number))) {
@@ -48,7 +52,12 @@ function filterProducts() {
       return;
     }
     const descArea = document.querySelector("#description-choice");
-    descArea.style.borderColor = "hsl(210deg, 31%, 80%)";
+    descArea.classList.remove("is-invalid");
+    // if (localStorage.getItem("theme")) {
+    //   descArea.style.borderColor = "hsl(209deg, 28%, 39%)";
+    // } else {
+    //   descArea.style.borderColor = "hsl(210deg, 31%, 80%)";
+    // }
     const descChoice = descArea.value.toLowerCase();
     if (descChoice) {
       const words = descChoice.split(" ");
@@ -60,8 +69,9 @@ function filterProducts() {
         }
       }
       if (error) {
-        descArea.style.borderColor = "#bb2525";
-        alert("Formatul descrierii este invalid");
+        // descArea.style.borderColor = "#bb2525";
+        // alert("Formatul descrierii este invalid");
+        descArea.classList.add("is-invalid");
         return;
       }
     }

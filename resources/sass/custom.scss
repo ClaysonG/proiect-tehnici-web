@@ -1,17 +1,15 @@
 $font-family: "Open Sans", sans-serif;
 
-@use "../../node_modules/bootstrap/scss/bootstrap.scss" with(
-    $primary: hsl(42, 78%, 60%),
-    $secondary: hsl(42, 63%, 48%),
+@use "../../node_modules/bootstrap/scss/bootstrap.scss" with ($primary: hsl(42, 78%, 60%),
+    $secondary: #fff,
     $body-color: hsl(209, 61%, 16%),
-    $grid-breakpoints: (
-        xs: 0,
+    $grid-gutter-width: 0,
+    $grid-breakpoints: (xs: 0,
         sm: 676px,
         md: 800px,
         lg: 992px,
         xl: 1200px,
-        xxl: 1400px
-    ),
+        xxl: 1400px),
     $border-radius: 0.5rem,
     $border-radius-sm: 0.3rem,
     $border-radius-lg: 0.6rem,
@@ -26,5 +24,7 @@ $font-family: "Open Sans", sans-serif;
     $h6-font-size: 0.5rem,
     $font-family-base: $font-family,
     $headings-font-weight: bold,
-    $info: hsl(210, 22%, 49%)
-);
+    $form-range-thumb-width: 1.2rem,
+    $form-range-thumb-bg: hsl(42, 78%, 60%),
+    $form-range-track-bg: hsl(212, 33%, 89%),
+    $info: hsl(210, 22%, 49%));

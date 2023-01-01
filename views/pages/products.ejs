@@ -27,8 +27,8 @@
                         ce cauti?
                     </h2>
                 </div>
-                <div class="filter-container">
-                    <div class="make-filter">
+                <div class="filter-container row">
+                    <div class="make-filter w-100 h-100 col-md-1">
                         <label for="make-choice">marca</label>
                         <select name="make-choice" id="make-choice">
                             <option value="any" id="make-0">oricare</option>
@@ -39,7 +39,7 @@
                                 <% }) %>
                         </select>
                     </div>
-                    <div class="model-filter">
+                    <div class="model-filter w-100 h-100 col-md-1">
                         <label for="model-choice">model</label>
                         <select name="model-choice" id="model-choice">
                             <option value="any" id="model-0">oricare</option>
@@ -50,7 +50,7 @@
                                 <% }) %>
                         </select>
                     </div>
-                    <div class="price-filter">
+                    <div class="price-filter w-100 h-100 col-md-2">
                         <label for="price-choice">interval pret</label>
                         <select name="price-choice" id="price-choice" multiple>
                             <% locals.prices.forEach((price, index)=> { %>
@@ -60,13 +60,13 @@
                                 <% }) %>
                         </select>
                     </div>
-                    <div class="mileage-filter">
+                    <div class="mileage-filter w-100 h-100 col-md-1">
                         <label for="mileage-choice">kilometraj</label>
                         <span id="mileage-min-value">
                             <%= locals.formattedMinMileage %> KM
                         </span>
-                        <input type="range" name="mileage-choice" id="mileage-choice" min="<%= locals.minMileage %>"
-                            max="<%= locals.maxMileage %>" step="1000">
+                        <input class="form-range" type="range" name="mileage-choice" id="mileage-choice"
+                            min="<%= locals.minMileage %>" max="<%= locals.maxMileage %>" step="1000">
                         <span id="mileage-max-value">
                             <%= locals.formattedMaxMileage %> KM
                         </span>
@@ -74,7 +74,7 @@
                             (<%= locals.formattedInitialMileage %> KM)
                         </span>
                     </div>
-                    <div class="fuel-type-filter">
+                    <div class="fuel-type-filter w-100 h-100 col-md-1">
                         <label for="fuel-type-choice">combustibil</label>
                         <input list="fuel-types" name="fuel-type-choice" id="fuel-type-choice" placeholder="Ex: Diesel">
                         <datalist id="fuel-types">
@@ -85,19 +85,19 @@
                                 <% }) %>
                         </datalist>
                     </div>
-                    <div class="body-type-filter">
+                    <div class="body-type-filter w-100 h-100 col-md-2">
                         <label for="body-type-choice">caroserie</label>
-                        <div class="radio-group-container">
+                        <div class="radio-group-container form-check">
                             <div class="body-type-radio-group">
-                                <input type="radio" name="body-type-choice" id="body-type-0" class="body-type-radio"
-                                    value="any" checked>
+                                <input type="radio" name="body-type-choice" id="body-type-0"
+                                    class="body-type-radio form-check-input" value="any" checked>
                                 <label for="body-type-0">oricare</label>
                             </div>
                             <% if (locals.bodyTypes.length> 0 ) { %>
                                 <% locals.bodyTypes.forEach((bodyType)=> { %>
                                     <div class="body-type-radio-group">
                                         <input type="radio" name="body-type-choice" id="body-type-<%= bodyType.id %>"
-                                            class="body-type-radio" value="<%= bodyType.name %>">
+                                            class="body-type-radio form-check-input" value="<%= bodyType.name %>">
                                         <label for="body-type-<%= bodyType.id %>">
                                             <%= bodyType.name %>
                                         </label>
@@ -106,39 +106,59 @@
                                         <% } %>
                         </div>
                     </div>
-                    <div class="name-filter">
+                    <div class="name-filter w-100 h-100 col-md-1">
                         <label for="name-choice">nume anunt</label>
                         <input type="text" name="name-choice" id="name-choice" placeholder="Ex: Volkswagen Golf">
                     </div>
-                    <div class="description-filter">
-                        <label for="description-choice">descriere</label>
-                        <textarea name="description-choice" id="description-choice" cols="30" rows="4"
+                    <div class="description-filter w-100 form-floating col-md-2">
+                        <textarea class="form-control" name="description-choice" id="description-choice"
                             placeholder="Cuvinte cheie, care sa apara (+) sau nu (-) in descriere. Ex: +tractiune +fata -trapa"></textarea>
+                        <label for="description-choice">descriere</label>
                     </div>
-                    <div class="second-hand-filter">
-                        <label for="second-hand-choice">stare</label>
-                        <span>nou</span>
-                        <input type="checkbox" name="second-hand-choice" id="second-hand-choice">
+                    <div class="second-hand-filter h-100 col-md-1">
+                        <span>stare</span>
+                        <input type="checkbox" class="btn-check" name="second-hand-choice" id="second-hand-choice"
+                            autocomplete="off">
+                        <label class="btn btn-outline-primary" for="second-hand-choice">nou</label>
                     </div>
                 </div>
                 <div class="filter-buttons">
-                    <button class="btn filter-btn reset-btn" id="reset-btn">reseteaza filtrele<i
-                            class="fa-solid fa-arrows-rotate"></i></button>
-                    <button class="btn filter-btn" id="search-btn">filtreaza<i class="fa-solid fa-filter"></i></button>
+                    <button
+                        class="bg-secondary rounded-3 border border-2 border-secondary w-100 h-auto button filter-btn reset-btn"
+                        id="reset-btn"><span class="button-text">reseteaza
+                            filtrele</span><!-- <i class="fa-solid fa-arrows-rotate"></i> --><i
+                            class="bi bi-arrow-repeat"></i>
+                    </button>
+                    <button class="bg-primary rounded-3 border border-2 border-primary w-100 h-auto button filter-btn"
+                        id="search-btn"><span
+                            class="button-text">filtreaza</span><!-- <i class="fa-solid fa-filter"></i> --><i
+                            class="bi bi-funnel-fill"></i>
+                    </button>
                 </div>
             </div>
             <div class="sort-buttons-container section-center">
                 <span>sorteaza</span>
                 <div class="sort-buttons-wrapper">
                     <div class="sort-buttons">
-                        <button class="btn filter-btn" id="asc-btn">ascendent<i
-                                class="fa-solid fa-arrow-up-wide-short"></i></button>
-                        <button class="btn filter-btn" id="desc-btn">descendent<i
-                                class="fa-solid fa-arrow-down-wide-short"></i></button>
+                        <button
+                            class="bg-primary rounded-3 border border-2 border-primary w-auto h-auto button filter-btn"
+                            id="asc-btn"><span
+                                class="button-text">ascendent</span><!-- <i class="fa-solid fa-arrow-up-wide-short"></i> --><i
+                                class="bi bi-sort-up"></i>
+                        </button>
+                        <button
+                            class="bg-primary rounded-3 border border-2 border-primary w-auto h-auto button filter-btn"
+                            id="desc-btn"><span
+                                class="button-text">descendent</span><!-- <i class="fa-solid fa-arrow-down-wide-short"></i> --><i
+                                class="bi bi-sort-down"></i>
+                        </button>
                     </div>
                     <div class="calc-button">
-                        <button class="btn filter-btn reset-btn" id="calc-btn">calculeaza pret mediu<i
-                                class="fa-solid fa-calculator"></i></button>
+                        <button
+                            class="bg-secondary rounded-3 border border-2 border-secondary w-100 h-auto button filter-btn reset-btn"
+                            id="calc-btn"><span class="button-text">calculeaza pret mediu</span>
+                            <!-- <i class="fa-solid fa-calculator"></i> --><i class="bi bi-calculator-fill"></i>
+                        </button>
                     </div>
                 </div>
             </div>

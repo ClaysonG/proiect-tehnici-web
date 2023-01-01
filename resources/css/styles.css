@@ -95,8 +95,30 @@ body {
   border-color: hsl(209, 28%, 39%);
 }
 
+.dark-theme #mileage-choice {
+  background: unset;
+  border-color: unset;
+}
+
 .dark-theme ::placeholder {
   color: #000;
+}
+
+/* bootstrap dark mode */
+[data-bs-theme="dark"] .btn-outline-primary {
+  --bs-btn-color: hsl(43, 72%, 37%);
+  --bs-btn-border-color: hsl(43, 72%, 37%);
+  --bs-btn-hover-bg: hsl(43, 72%, 37%);
+  --bs-btn-hover-border-color: hsl(43, 72%, 37%);
+  --bs-btn-active-bg: hsl(43, 72%, 37%);
+  --bs-btn-active-border-color: hsl(43, 72%, 37%);
+  --bs-btn-disabled-color: hsl(43, 72%, 37%);
+  --bs-btn-disabled-border-color: hsl(43, 72%, 37%);
+}
+
+[data-bs-theme="dark"] .form-check-input:checked {
+  background-color: hsl(43, 72%, 37%);
+  border-color: hsl(43, 72%, 37%);
 }
 
 ::placeholder {
@@ -196,10 +218,11 @@ p {
 
 /* global classes */
 
-.btn {
+.button {
   text-transform: uppercase;
-  background: var(--clr-primary-5);
-  color: var(--clr-primary-1);
+  background: var(--clr-primary-5) !important;
+  border-color: var(--clr-primary-5) !important;
+  color: var(--clr-primary-1) !important;
   padding: 0.375rem 0.75rem;
   letter-spacing: var(--spacing);
   display: inline-block;
@@ -213,10 +236,10 @@ p {
   border-radius: var(--radius);
 }
 
-.btn:hover {
+.button:hover {
   color: var(--clr-primary-1);
-  background: var(--clr-primary-7);
-  border-color: var(--clr-primary-7);
+  background: var(--clr-primary-7) !important;
+  border-color: var(--clr-primary-7) !important;
 }
 
 .section {
