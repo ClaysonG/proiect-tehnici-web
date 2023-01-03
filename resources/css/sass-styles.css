@@ -1236,8 +1236,7 @@ Product Page
 .product-page-center .product-img-container .fa-heart {
   cursor: pointer;
 }
-.product-page-center .product-page-info-title,
-.product-page-center .product-page-description-title {
+.product-page-center .product-page-info-title {
   text-align: center;
   font-weight: bold;
   font-size: 1.25rem;
@@ -1264,6 +1263,14 @@ Product Page
 }
 .product-page-center .product-page-description .product-page-description-title {
   text-transform: capitalize;
+}
+
+.accordion-button {
+  text-transform: capitalize;
+}
+
+.accordion-body {
+  text-transform: none;
 }
 
 @media screen and (min-width: 676px) {

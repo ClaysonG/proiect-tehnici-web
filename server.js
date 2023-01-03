@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const port = 8080;
 
+const path = require("path");
 const ejs = require("ejs");
 const url = require("url");
 
@@ -56,6 +57,12 @@ client.query("SELECT DISTINCT category FROM products", (err, res) => {
 });
 
 app.set("view engine", "ejs");
+
+// Bootstrap
+app.use(
+  "/js",
+  express.static(path.join(__dirname, "node_modules/bootstrap/dist/js"))
+);
 
 app.use("/resources", express.static("resources"));
 
@@ -119,6 +126,12 @@ app.get("/product/:id", async (req, res) => {
     }
     product.created_at = convertDate(product.created_at);
     const productName = product.name;
+    const d = new Date();
+    // 1 day
+    d.setTime(d.getTime() + 24 * 60 * 60 * 1000);
+    res.cookie("last-seen-product", `${id}`, {
+      expires: d,
+    });
     return res
       .status(200)
       .render("pages/product", { product, title: productName });

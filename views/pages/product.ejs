@@ -12,7 +12,7 @@
         <%- include('../fragments/header'); %>
     </header>
     <main>
-        <section class="section product-page">
+        <section class="section product-page" data-product-id="<%= product.id %>">
             <div class="section-title product-page-title">
                 <h1>
                     <%= locals.title %>
@@ -192,12 +192,20 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="product-page-description">
-                        <div class="product-page-description-title">
-                            <span>descriere</span>
-                            <div class="underline"></div>
+                    <div class="product-page-description accordion" id="descriptionAccordion">
+                        <div class="product-page-description-title accordion-item">
+                            <h2 class="accordion-header" id="descriptionHeading">
+                                <button id="descAccBtn" class="accordion-button collapsed" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#collapseDescription"
+                                    aria-expanded="false" aria-controls="collapseDescription">descriere</button>
+                            </h2>
+                            <div id="collapseDescription" class="accordion-collapse collapse"
+                                aria-labelledby="descriptionHeading" data-bs-parent="#descriptionAccordion">
+                                <div class="accordion-body">
+                                    <%= product.description %>
+                                </div>
+                            </div>
                         </div>
-                        <%= product.description %>
                     </div>
                 </div>
             </div>

@@ -121,6 +121,16 @@ body {
   border-color: hsl(43, 72%, 37%);
 }
 
+[data-bs-theme="dark"] .accordion {
+  --bs-accordion-color: hsl(209, 61%, 16%);
+  --bs-accordion-bg: hsl(210, 22%, 70%);
+  --bs-accordion-border-color: hsl(210, 22%, 70%);
+  --bs-accordion-btn-bg: hsl(210, 22%, 70%);
+  --bs-accordion-btn-focus-border-color: hsl(43, 72%, 37%);
+  --bs-accordion-active-color: hsl(43, 72%, 37%);
+  --bs-accordion-active-bg: hsl(209, 61%, 23%);
+}
+
 ::placeholder {
   font-size: 0.8rem;
 }
@@ -429,6 +439,14 @@ input:checked + .slider:before {
 
 .moon-icon {
   transform: translate(0.6rem, -0.5rem);
+}
+
+.dynamic-link {
+  color: var(--clr-primary-5);
+}
+
+.dynamic-link:hover {
+  color: var(--clr-primary-4);
 }
 
 /*
