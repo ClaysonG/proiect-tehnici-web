@@ -2,11 +2,12 @@
 // select links
 const scrollLinks = document.querySelectorAll(".scroll-link");
 const backToTopBtn = document.getElementById("backToTopBtn");
+const navThemeSwitch = document.querySelector("#nav-theme-switch");
 
 function smoothScroll() {
   scrollLinks.forEach((link) => {
     link.addEventListener("click", (e) => {
-      e.preventDefault();
+      // e.preventDefault();
 
       // server
       const id = e.target.getAttribute("href").slice(1).substring(1);
@@ -46,9 +47,21 @@ function backToTop() {
   });
 }
 
-function handleScrollToTopBtn() {
+function showNavThemeSwitch() {
+  if (
+    document.body.scrollTop > 100 ||
+    document.documentElement.scrollTop > 100
+  ) {
+    navThemeSwitch.style.opacity = 0;
+  } else {
+    navThemeSwitch.style.opacity = 1;
+  }
+}
+
+function handleScroll() {
   window.onscroll = function () {
     showScrollToTopBtn();
+    showNavThemeSwitch();
   };
 
   backToTopBtn.addEventListener("click", function () {
@@ -56,4 +69,4 @@ function handleScrollToTopBtn() {
   });
 }
 
-export { smoothScroll, handleScrollToTopBtn };
+export { smoothScroll, handleScroll };

@@ -1,6 +1,6 @@
 import { addNavbarAltColor } from "./layout/navbar.js";
 import { showSideBar, closeSideBar } from "./layout/sidebar.js";
-import { smoothScroll, handleScrollToTopBtn } from "./layout/scroll.js";
+import { smoothScroll, handleScroll } from "./layout/scroll.js";
 import { addDetailsAnimation } from "./layout/details.js";
 import { setFooterDate } from "./layout/date.js";
 import {
@@ -18,7 +18,7 @@ import {
   calculateAveragePrice,
 } from "./layout/screens/products/filter.js";
 import { handleTheme } from "./layout/theme.js";
-import { handleSidebar } from "./layout/menu.js";
+import { handleSidebar, handleSidebarSubMenus } from "./layout/menu.js";
 import { handleProductDescriptionAccordion } from "./layout/screens/product/accordion.js";
 import { showCookieDisclaimer } from "./layout/disclaimer.js";
 import { deleteCookie, deleteAllCookies } from "./cookies.js";
@@ -36,7 +36,7 @@ closeSideBar();
 
 // Scroll
 smoothScroll();
-handleScrollToTopBtn();
+handleScroll();
 
 // Details
 addDetailsAnimation();
@@ -69,6 +69,7 @@ handleTheme();
 
 // Menu
 handleSidebar();
+handleSidebarSubMenus();
 
 // Product
 handleProductDescriptionAccordion();

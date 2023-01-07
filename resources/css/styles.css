@@ -373,6 +373,11 @@ figure {
 
 /* Switch */
 
+.switch-container {
+  opacity: 1;
+  transition: var(--transition);
+}
+
 .switch {
   position: relative;
   display: inline-block;
@@ -1417,6 +1422,8 @@ Footer
   text-transform: capitalize;
   color: var(--clr-grey-5);
   transition: var(--transition);
+  display: inline-block;
+  height: 3rem;
 }
 
 .footer-link:hover {
@@ -1435,14 +1442,14 @@ Footer
 
 .footer-sub-links {
   text-align: start;
-  margin-top: 1rem;
+  /* margin-top: 1rem; */
   color: var(--clr-grey-10);
   list-style-type: disc;
 }
 
 .footer-links li {
   padding-left: 0;
-  margin-left: 1rem;
+  margin: 0 0.5rem;
   text-align: start;
 }
 

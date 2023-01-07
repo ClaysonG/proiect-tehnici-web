@@ -231,8 +231,6 @@ Sidebar
   height: 100%;
   background: var(--clr-grey-10);
   z-index: 1000;
-  display: grid;
-  place-items: center;
   transition: all 0.3s linear;
   transform: translateX(-100%);
 }
@@ -241,27 +239,41 @@ Sidebar
   top: 2rem;
   left: 2rem;
 }
+.sidebar #link-container {
+  margin-top: 40%;
+}
+.sidebar .sidebar-social-icons {
+  position: absolute;
+  bottom: 3rem;
+  left: 0;
+  right: 0;
+  width: unset;
+  margin: 0;
+}
 
 .show-sidebar {
   transform: translateX(0);
 }
 
+.sidebar-sub-links {
+  display: none;
+  text-align: left;
+  margin-left: 2rem;
+  transform-origin: top;
+}
+
 .sidebar-links {
-  position: relative;
-  text-align: center;
-  margin-top: 4rem;
+  text-align: left;
+  margin-left: 2rem;
 }
 .sidebar-links a {
-  font-size: 2rem;
+  font-size: 1.8rem;
   text-transform: capitalize;
   transition: all 0.3s linear;
   color: var(--clr-grey-5);
   letter-spacing: 0.25rem;
   display: inline-block;
   margin-bottom: 1.5rem;
-}
-.sidebar-links a:hover {
-  color: var(--clr-primary-5);
 }
 .sidebar-links .sub-links {
   visibility: visible;

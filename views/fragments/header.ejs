@@ -84,35 +84,38 @@
             </li>
         </ul>
     </div>
-    <!-- <div class="switch-container">
+    <div id="nav-theme-switch" class="switch-container">
         <i class="fa-solid fa-sun switch-icon sun-icon"></i>
         <label class="switch">
-            <input type="checkbox" id="theme-picker">
+            <input type="checkbox" class="theme-picker">
             <span class="slider round"></span>
         </label>
         <i class="fa-solid fa-moon switch-icon moon-icon"></i>
-    </div> -->
+    </div>
 </nav>
 <!-- end of navbar -->
 <!-- sidebar -->
 <aside class="sidebar" id="sidebar">
-    <div>
+    <div id="link-container">
         <button class="close-btn" id="close-btn">
             <i class="fas fa-times"></i>
         </button>
         <div class="switch-container">
             <i class="fa-solid fa-sun switch-icon sun-icon"></i>
             <label class="switch">
-                <input type="checkbox" id="theme-picker">
+                <input type="checkbox" class="theme-picker">
                 <span class="slider round"></span>
             </label>
             <i class="fa-solid fa-moon switch-icon moon-icon"></i>
         </div>
         <!-- sidebar links -->
         <ul class="sidebar-links">
-            <li>
-                <a href="/" id="sidebar-home-link">pagina principala</a>
-                <% if (locals.home) { %>
+            <li id="sidebar-home-list-item">
+                <a href="/" id="sidebar-home-link">pagina principala
+                    <i id="sidebar-home-down" class="fa-solid fa-caret-down"></i>
+                    <i id="sidebar-home-up" class="fa-solid fa-caret-up"></i>
+                </a>
+                <!-- <% if (locals.home) { %>
                     <ul class="sub-links home-links">
                         <li>
                             <a href="/#search" class="scroll-link sidebar-home-sub-link">cautare</a>
@@ -129,11 +132,30 @@
                             <a href="/#news" class="scroll-link sidebar-home-sub-link">noutati</a>
                         </li>
                     </ul>
-                    <% } %>
+                    <% } %> -->
+                <ul id="sidebar-home-links" class="sub-links sidebar-sub-links home-links">
+                    <li>
+                        <a href="/#search" class="scroll-link sidebar-home-sub-link">cautare</a>
+                    </li>
+                    <li>
+                        <a href="/#about" class="scroll-link sidebar-home-sub-link">despre
+                            noi</a>
+                    </li>
+                    <li>
+                        <a href="/#products" class="scroll-link sidebar-home-sub-link">anunturi
+                            populare</a>
+                    </li>
+                    <li>
+                        <a href="/#news" class="scroll-link sidebar-home-sub-link">noutati</a>
+                    </li>
+                </ul>
             </li>
-            <li>
-                <a href="/products" id="sidebar-products-link">anunturi</a>
-                <ul class="sub-links products-links">
+            <li id="sidebar-products-list-item">
+                <a href="/products" id="sidebar-products-link">anunturi
+                    <i id="sidebar-products-down" class="fa-solid fa-caret-down"></i>
+                    <i id="sidebar-products-up" class="fa-solid fa-caret-up"></i>
+                </a>
+                <ul id="sidebar-products-links" class="sub-links sidebar-sub-links products-links">
                     <% locals.categories.forEach((category)=>{%>
                         <li>
                             <a href="/products?category=<%= category %> ">
@@ -146,12 +168,15 @@
                     </li> -->
                 </ul>
             </li>
-            <li>
+            <li id="sidebar-about-list-item">
                 <a href="/about">despre noi</a>
             </li>
-            <li>
-                <a href="/account" id="sidebar-account-link">contul meu</a>
-                <ul class="sub-links account-links">
+            <li id="sidebar-account-list-item">
+                <a href="/account" id="sidebar-account-link">contul meu
+                    <i id="sidebar-account-down" class="fa-solid fa-caret-down"></i>
+                    <i id="sidebar-account-up" class="fa-solid fa-caret-up"></i>
+                </a>
+                <ul id="sidebar-account-links" class="sub-links sidebar-sub-links account-links">
                     <li>
                         <a href="/favorites">anunturi salvate</a>
                     </li>
@@ -165,7 +190,7 @@
             </li>
         </ul>
         <!-- social icons -->
-        <ul class="social-icons">
+        <ul class="social-icons sidebar-social-icons">
             <li>
                 <a href="https://www.facebook.com" class="social-icon" target="_blank">
                     <i class="fab fa-facebook"></i>
