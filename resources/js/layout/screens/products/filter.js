@@ -359,10 +359,209 @@ function calculateAveragePrice() {
   });
 }
 
+function filter() {
+  if (!filterBtn) {
+    return;
+  }
+  const noResults = document.querySelector(".no-results");
+  noResults.style.display = "none";
+  // Validate data
+  const makeSelect = document.querySelector("#make-choice");
+  const makeChoice =
+    makeSelect.options[makeSelect.selectedIndex].value.toLowerCase();
+  const modelSelect = document.querySelector("#model-choice");
+  const modelChoice =
+    modelSelect.options[modelSelect.selectedIndex].value.toLowerCase();
+  const priceMultiSelect = document.querySelector("#price-choice");
+  const priceChoice = [];
+  for (let option of priceMultiSelect.options) {
+    if (option.selected) {
+      priceChoice.push(option.value);
+    }
+  }
+  const mileageRange = document.querySelector("#mileage-choice");
+  const mileageMin = mileageRange.min;
+  const mileageChoice = mileageRange.value;
+  const fuelTypeList = document.querySelector("#fuel-type-choice");
+  const fuelTypeChoice = fuelTypeList.value.toLowerCase();
+  const bodyTypeRadios = document.querySelectorAll(".body-type-radio");
+  let bodyTypeChoice;
+  for (let radio of bodyTypeRadios) {
+    if (radio.checked) {
+      bodyTypeChoice = radio.value.toLowerCase();
+      break;
+    }
+  }
+  const nameText = document.querySelector("#name-choice");
+  if (localStorage.getItem("theme")) {
+    nameText.style.borderColor = "hsl(209deg, 28%, 39%)";
+  } else {
+    nameText.style.borderColor = "hsl(210deg, 31%, 80%)";
+  }
+  const nameChoice = nameText.value.toLowerCase();
+  const numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+  if (numbers.some((number) => nameChoice.includes(number))) {
+    nameText.style.borderColor = "#bb2525";
+    alert("Numele nu poate contine cifre");
+    return;
+  }
+  const descArea = document.querySelector("#description-choice");
+  descArea.classList.remove("is-invalid");
+  // if (localStorage.getItem("theme")) {
+  //   descArea.style.borderColor = "hsl(209deg, 28%, 39%)";
+  // } else {
+  //   descArea.style.borderColor = "hsl(210deg, 31%, 80%)";
+  // }
+  const descChoice = descArea.value.toLowerCase();
+  if (descChoice) {
+    const words = descChoice.split(" ");
+    let error = false;
+    for (let word of words) {
+      if (word[0] !== "+" && word[0] !== "-") {
+        error = true;
+        break;
+      }
+    }
+    if (error) {
+      // descArea.style.borderColor = "#bb2525";
+      // alert("Formatul descrierii este invalid");
+      descArea.classList.add("is-invalid");
+      return;
+    }
+  }
+  const secondHandCheck = document.querySelector("#second-hand-choice");
+  const secondHandChoice = secondHandCheck.checked;
+  const products = document.querySelectorAll(".product-card");
+  let removedItems = 0;
+  products.forEach((product) => {
+    let makeCondition = true;
+    let modelCondition = true;
+    let fuelTypeCondition = true;
+    let nameCondition = true;
+    let mileageCondition = true;
+    let bodyTypeCondition = true;
+    let priceCondition = true;
+    let descriptionCondition = true;
+    let secondHandCondition = true;
+    product.style.display = "none";
+    const productMake = product.dataset.productMake.toLowerCase();
+    const productModel = product.dataset.productModel.toLowerCase();
+    const productFuelType = product.dataset.productFuelType.toLowerCase();
+    const productName = product.dataset.productName.toLowerCase();
+    const productMileage = product.dataset.productMileage;
+    const productBodyType = product.dataset.productBodyType.toLowerCase();
+    const productPrice = product.dataset.productPrice;
+    const productDescription = product.dataset.productDescription.toLowerCase();
+    const isProductSecondHand = product.dataset.productSecondHand;
+    if (makeChoice !== "any" && makeChoice !== productMake) {
+      makeCondition = false;
+    }
+    if (modelChoice !== "any" && modelChoice !== productModel) {
+      modelCondition = false;
+    }
+    if (fuelTypeChoice && fuelTypeChoice !== productFuelType) {
+      fuelTypeCondition = false;
+    }
+    if (nameChoice && !productName.includes(nameChoice)) {
+      nameCondition = false;
+    }
+    if (
+      Number(productMileage) < Number(mileageMin) ||
+      Number(productMileage) > Number(mileageChoice)
+    ) {
+      mileageCondition = false;
+    }
+    if (bodyTypeChoice !== "any" && bodyTypeChoice !== productBodyType) {
+      bodyTypeCondition = false;
+    }
+    if (priceChoice.length > 0) {
+      let isInAnyRange = false;
+      for (let priceRange of priceChoice) {
+        const values = priceRange.split("-");
+        const minPrice = Number(values[0]);
+        const maxPrice = Number(values[1]);
+        if (
+          Number(productPrice) >= minPrice &&
+          Number(productPrice) <= maxPrice
+        ) {
+          isInAnyRange = true;
+          break;
+        }
+      }
+      if (!isInAnyRange) {
+        priceCondition = false;
+      }
+    }
+    if (descChoice) {
+      const choiceWords = descChoice.split(" ");
+      for (let word of choiceWords) {
+        let include = true;
+        if (word[0] === "-") {
+          include = false;
+        }
+        word = word.slice(1);
+        if (
+          (productDescription.includes(word) && !include) ||
+          (!productDescription.includes(word) && include)
+        ) {
+          descriptionCondition = false;
+          break;
+        }
+      }
+    }
+    // secondHandChoice === true --> new car
+    if (secondHandChoice && isProductSecondHand === "true") {
+      secondHandCondition = false;
+    }
+    if (
+      makeCondition &&
+      modelCondition &&
+      fuelTypeCondition &&
+      nameCondition &&
+      mileageCondition &&
+      bodyTypeCondition &&
+      priceCondition &&
+      descriptionCondition &&
+      secondHandCondition
+    ) {
+      product.style.display = "block";
+    } else {
+      removedItems++;
+    }
+  });
+  if (removedItems === products.length) {
+    noResults.style.display = "block";
+  }
+}
+
+function handleFilterOnInputChange() {
+  const makeSelect = document.querySelector("#make-choice");
+  makeSelect.onchange = filter;
+  const modelSelect = document.querySelector("#model-choice");
+  modelSelect.onchange = filter;
+  const priceMultiSelect = document.querySelector("#price-choice");
+  priceMultiSelect.onchange = filter;
+  const mileageRange = document.querySelector("#mileage-choice");
+  mileageRange.onchange = filter;
+  const fuelTypeList = document.querySelector("#fuel-type-choice");
+  fuelTypeList.onchange = filter;
+  const bodyTypeRadios = document.querySelectorAll(".body-type-radio");
+  bodyTypeRadios.forEach((bodyType) => {
+    bodyType.onchange = filter;
+  });
+  const nameText = document.querySelector("#name-choice");
+  nameText.onchange = filter;
+  const descArea = document.querySelector("#description-choice");
+  descArea.onchange = filter;
+  const secondHandCheck = document.querySelector("#second-hand-choice");
+  secondHandCheck.onchange = filter;
+}
+
 export {
   filterProducts,
   resetFilters,
   sortAscending,
   sortDescending,
   calculateAveragePrice,
+  handleFilterOnInputChange,
 };

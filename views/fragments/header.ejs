@@ -16,20 +16,22 @@
         <!-- nav links -->
         <ul class="nav-links">
             <li id="home-link">
-                <a href="/">pagina principala
-                    <% if(locals.home) { %>
+                <a id="nav-home-link" href="/">pagina principala
+                    <!-- <% if(locals.home) { %>
                         <i class="fa-solid fa-caret-down"></i>
                         <i class="fa-solid fa-caret-up"></i>
-                        <% } %>
+                        <% } %> -->
+                    <i class="fa-solid fa-caret-down"></i>
+                    <i class="fa-solid fa-caret-up"></i>
                 </a>
-                <% if(locals.home) { %>
+                <!-- <% if(locals.home) { %>
                     <ul class="sub-links home-links">
                         <li>
                             <a href="/#search" class="scroll-link">cautare</a>
                         </li>
-                        <!-- <li>
+                        <li>
                             <a href="/#about" class="scroll-link">despre noi</a>
-                        </li> -->
+                        </li>
                         <li>
                             <a href="/#products" class="scroll-link">anunturi populare</a>
                         </li>
@@ -37,10 +39,24 @@
                             <a href="/#news" class="scroll-link">noutati</a>
                         </li>
                     </ul>
-                    <% } %>
+                    <% } %> -->
+                <ul class="sub-links home-links">
+                    <li>
+                        <a href="/#search" class="scroll-link">cautare</a>
+                    </li>
+                    <li>
+                        <a href="/#about" class="scroll-link">despre noi</a>
+                    </li>
+                    <li>
+                        <a href="/#products" class="scroll-link">anunturi populare</a>
+                    </li>
+                    <li>
+                        <a href="/#news" class="scroll-link">noutati</a>
+                    </li>
+                </ul>
             </li>
             <li id="products-link">
-                <a href="/products">anunturi
+                <a id="nav-products-link" href="/products">anunturi
                     <% if (locals.categories) { %>
                         <i class="fa-solid fa-caret-down"></i>
                         <i class="fa-solid fa-caret-up"></i>
@@ -63,10 +79,10 @@
                 </ul>
             </li>
             <li>
-                <a href="/about">despre noi</a>
+                <a id="nav-about-link" href="/about">despre noi</a>
             </li>
             <li id="account-link">
-                <a href="/account">contul meu
+                <a id="nav-account-link" href="/account">contul meu
                     <i class="fa-solid fa-caret-down"></i>
                     <i class="fa-solid fa-caret-up"></i>
                 </a>
@@ -169,7 +185,7 @@
                 </ul>
             </li>
             <li id="sidebar-about-list-item">
-                <a href="/about">despre noi</a>
+                <a id="sidebar-about-link" href="/about">despre noi</a>
             </li>
             <li id="sidebar-account-list-item">
                 <a href="/account" id="sidebar-account-link">contul meu

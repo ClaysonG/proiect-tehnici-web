@@ -112,4 +112,44 @@ function handleSidebarSubMenus() {
   });
 }
 
-export { handleSidebar, handleSidebarSubMenus };
+function handleCurrentPageLink() {
+  // Home
+  const navHomeLink = document.querySelector("#nav-home-link");
+  const sidebarHomeLink = document.querySelector("#sidebar-home-link");
+  // Products
+  const navProductsLink = document.querySelector("#nav-products-link");
+  const sidebarProductsLink = document.querySelector("#sidebar-products-link");
+  // About
+  const navAboutLink = document.querySelector("#nav-about-link");
+  const sidebarAboutLink = document.querySelector("#sidebar-about-link");
+  // Account
+  const navAccountLink = document.querySelector("#nav-account-link");
+  const sidebarAccountLink = document.querySelector("#sidebar-account-link");
+
+  window.addEventListener("load", (e) => {
+    switch (window.location.pathname) {
+      case "/": {
+        navHomeLink.style.color = "var(--clr-primary-5)";
+        sidebarHomeLink.style.color = "var(--clr-primary-5)";
+        break;
+      }
+      case "/products": {
+        navProductsLink.style.color = "var(--clr-primary-5)";
+        sidebarProductsLink.style.color = "var(--clr-primary-5)";
+        break;
+      }
+      case "/about": {
+        navAboutLink.style.color = "var(--clr-primary-5)";
+        sidebarAboutLink.style.color = "var(--clr-primary-5)";
+        break;
+      }
+      case "/account": {
+        navAccountLink.style.color = "var(--clr-primary-5)";
+        sidebarAccountLink.style.color = "var(--clr-primary-5)";
+        break;
+      }
+    }
+  });
+}
+
+export { handleSidebar, handleSidebarSubMenus, handleCurrentPageLink };

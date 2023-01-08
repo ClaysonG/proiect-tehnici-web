@@ -16,9 +16,14 @@ import {
   sortAscending,
   sortDescending,
   calculateAveragePrice,
+  handleFilterOnInputChange,
 } from "./layout/screens/products/filter.js";
 import { handleTheme } from "./layout/theme.js";
-import { handleSidebar, handleSidebarSubMenus } from "./layout/menu.js";
+import {
+  handleSidebar,
+  handleSidebarSubMenus,
+  handleCurrentPageLink,
+} from "./layout/menu.js";
 import { handleProductDescriptionAccordion } from "./layout/screens/product/accordion.js";
 import { showCookieDisclaimer } from "./layout/disclaimer.js";
 import { deleteCookie, deleteAllCookies } from "./cookies.js";
@@ -63,6 +68,7 @@ resetFilters();
 sortAscending();
 sortDescending();
 calculateAveragePrice();
+handleFilterOnInputChange();
 
 // Theme
 handleTheme();
@@ -70,6 +76,7 @@ handleTheme();
 // Menu
 handleSidebar();
 handleSidebarSubMenus();
+handleCurrentPageLink();
 
 // Product
 handleProductDescriptionAccordion();
