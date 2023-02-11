@@ -1,0 +1,22 @@
+<% if(!locals.user) { %>
+    <form id="login-form" method="post" class="date" action="/login" enctype="multipart/form-data">
+        <div class="login-inputs">
+            <div class="name-filter">
+                <label>
+                    Username:
+                </label>
+                <input type="text" name="username" id="input-username" value="" required pattern="[A-Za-z0-9]+">
+            </div>
+            <div class="name-filter">
+                <label>
+                    Parola:
+                </label>
+                <input id="password" type="password" required name="password" value="">
+            </div>
+        </div>
+        <div class="login-btn-container"><input class="button login-btn" type="submit" value="Logare"></div>
+    </form>
+    <%- locals.loginError %>
+        <% } else {%>
+            <%- locals.loginSuccess %>
+                <% } %>

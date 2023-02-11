@@ -82,21 +82,28 @@
                 <a id="nav-about-link" href="/about">despre noi</a>
             </li>
             <li id="account-link">
-                <a id="nav-account-link" href="/account">contul meu
-                    <i class="fa-solid fa-caret-down"></i>
-                    <i class="fa-solid fa-caret-up"></i>
-                </a>
-                <ul class="sub-links account-links">
-                    <li>
-                        <a href="/favorites">anunturi salvate</a>
-                    </li>
-                    <li>
-                        <a href="/add-product">adauga anunt</a>
-                    </li>
-                    <li>
-                        <a href="/messages">mesaje</a>
-                    </li>
-                </ul>
+                <% if(!locals.user) { %>
+                    <a id="nav-account-link" href="/loginUser">login</a>
+                    <% } else { %>
+                        <a id="nav-account-link" href="/profile">contul meu
+                            <i class="fa-solid fa-caret-down"></i>
+                            <i class="fa-solid fa-caret-up"></i>
+                        </a>
+                        <ul class="sub-links account-links">
+                            <li>
+                                <a href="/favorites">anunturi salvate</a>
+                            </li>
+                            <li>
+                                <a href="/add-product">adauga anunt</a>
+                            </li>
+                            <li>
+                                <a href="/messages">mesaje</a>
+                            </li>
+                            <li>
+                                <a href="/logout">logout</a>
+                            </li>
+                        </ul>
+                        <% } %>
             </li>
         </ul>
     </div>
@@ -188,21 +195,28 @@
                 <a id="sidebar-about-link" href="/about">despre noi</a>
             </li>
             <li id="sidebar-account-list-item">
-                <a href="/account" id="sidebar-account-link">contul meu
-                    <i id="sidebar-account-down" class="fa-solid fa-caret-down"></i>
-                    <i id="sidebar-account-up" class="fa-solid fa-caret-up"></i>
-                </a>
-                <ul id="sidebar-account-links" class="sub-links sidebar-sub-links account-links">
-                    <li>
-                        <a href="/favorites">anunturi salvate</a>
-                    </li>
-                    <li>
-                        <a href="/add-product">adauga anunt</a>
-                    </li>
-                    <li>
-                        <a href="/messages">mesaje</a>
-                    </li>
-                </ul>
+                <% if(!locals.user) { %>
+                    <a href="/loginUser" id="sidebar-account-link">login</a>
+                    <% } else { %>
+                        <a href="/profile" id="sidebar-account-link">contul meu
+                            <i id="sidebar-account-down" class="fa-solid fa-caret-down"></i>
+                            <i id="sidebar-account-up" class="fa-solid fa-caret-up"></i>
+                        </a>
+                        <ul id="sidebar-account-links" class="sub-links sidebar-sub-links account-links">
+                            <li>
+                                <a href="/favorites">anunturi salvate</a>
+                            </li>
+                            <li>
+                                <a href="/add-product">adauga anunt</a>
+                            </li>
+                            <li>
+                                <a href="/messages">mesaje</a>
+                            </li>
+                            <li>
+                                <a href="/logout">logout</a>
+                            </li>
+                        </ul>
+                        <% } %>
             </li>
         </ul>
         <!-- social icons -->

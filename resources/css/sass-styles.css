@@ -1299,3 +1299,103 @@ Product Page
     height: 30rem;
   }
 }
+/*
+========================= 
+Signup Page
+=========================
+*/
+.signup {
+  min-height: 100vh;
+}
+.signup .section-title {
+  margin-top: 3rem;
+}
+
+.signup-center input {
+  font-size: 0.8rem;
+}
+.signup-center .filter-buttons {
+  margin-top: 1rem;
+}
+.signup-center .filter-buttons input {
+  display: block;
+  width: 100%;
+}
+
+.signup-success,
+.signup-error {
+  font-size: 2rem;
+}
+
+.signup-error {
+  color: #bb2525;
+}
+
+@media screen and (min-width: 676px) {
+  .signup-inputs {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 1rem;
+  }
+}
+@media screen and (min-width: 992px) {
+  .signup-inputs {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+/*
+========================= 
+Confirmation Page
+=========================
+*/
+.confirmation {
+  min-height: 100vh;
+}
+
+.confirmation-center {
+  font-size: 2rem;
+}
+
+/*
+========================= 
+Logout Page
+=========================
+*/
+.logout {
+  min-height: 100vh;
+}
+
+.logout-center {
+  margin-top: 4rem;
+  font-size: 2rem;
+}
+
+/*
+========================= 
+Login Page
+=========================
+*/
+.login-btn {
+  width: 50%;
+  display: block !important;
+  margin: 1rem auto !important;
+}
+
+@media screen and (min-width: 992px) {
+  .login-inputs {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 1rem;
+  }
+}
+/*
+========================= 
+Profile Page
+=========================
+*/
+.profile-image {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  margin: 1 auto;
+}

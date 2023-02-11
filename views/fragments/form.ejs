@@ -1,0 +1,82 @@
+<form id="signup-form" method="post" action="<%= locals.action %>" enctype="multipart/form-data">
+    <div class="signup-inputs">
+        <div class="name-filter">
+            <label>
+                Username:
+            </label>
+            <input type="text" name="username" id="input-username" value="user<%= Math.floor(Math.random()*100000) %>"
+                required pattern="[A-Za-z0-9]+">
+        </div>
+        <div class="name-filter">
+            <label>
+                Nume:
+            </label>
+            <input type="text" name="lastname" id="input-lastname" value="Popescu" required>
+        </div>
+        <div class="name-filter">
+            <label>
+                Prenume:
+            </label>
+            <input type="text" name="firstname" id="input-firstname" value="Stefan" required>
+        </div>
+        <div class="name-filter">
+            <label>
+                Parola:
+            </label>
+            <input id="password" type="password" required name="password" value="">
+        </div>
+        <div id="password-repeat" class="name-filter">
+            <label id="password-repeat-label">
+                Reintroduceti parola:
+            </label>
+            <input id="rpassword" required type="password" name="rpassword" value="">
+        </div>
+        <div class="name-filter">
+            <label>
+                Email:
+            </label>
+            <input type="text" name="email" id="input-email" required value="stefanpopescu@xyz.com" size="50">
+        </div>
+        <div>
+            <label>
+                Data nasterii:
+            </label>
+            <input class="custom-date-input" type="date" name="birth-date" id="input-birth-date">
+        </div>
+        <div class="name-filter">
+            <label>
+                Culoare text chat:
+            </label>
+            <select name="chat-color" id="select-color">
+                <option value="red" selected>rosu</option>
+                <option value="green">verde</option>
+                <option value="blue">albastru</option>
+            </select>
+        </div>
+        <div class="body-type-filter w-100 h-100 col-md-2">
+            <label>Preferinta tema:</label>
+            <div class="radio-group-container form-check">
+                <div class="body-type-radio-group">
+                    <label>light</label>
+                    <input type="radio" name="site-theme" id="site-theme-light"
+                        class="site-theme-radio form-check-input" value="light" checked>
+                </div>
+                <div class="body-type-radio-group">
+                    <label>dark</label>
+                    <input type="radio" name="site-theme" id="site-theme-dark" class="site-theme-radio form-check-input"
+                        value="dark">
+                </div>
+            </div>
+        </div>
+        <div>
+            <label>
+                Poza:
+            </label>
+            <input class="custom-file-input" type="file" name="image">
+        </div>
+    </div>
+    <div class="filter-buttons">
+        <input class="button" type="submit" value="Trimite">
+        <input class="button" type="reset" value="Reseteaza">
+    </div>
+</form>

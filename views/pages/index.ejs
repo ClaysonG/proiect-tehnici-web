@@ -640,8 +640,8 @@
                         <span>Numar total de vizionari: 10.000</span>
                     </li>
                     <!-- <li>
-                        <span>Durata medie a unei sesiuni: 3 min</span>
-                    </li> -->
+                    <span>Durata medie a unei sesiuni: 3 min</span>
+                </li> -->
                 </ul>
             </div>
         </section>
@@ -682,9 +682,16 @@
             <!-- end of section title -->
             <%- include('../fragments/gallery') %>
         </section>
-        <!-- end of gallery -->
-        <!-- floating button (back to top) -->
-        <button id="backToTopBtn" title="Inapoi Sus"><i class="fa-solid fa-arrow-up"></i></button>
+        <% if (locals?.user?.last_login){ %>
+            <% let start=new Date(locals.user.last_login) %>
+                <% let end=new Date() %>
+                    <% let diff=(end - start) / (1000 * 60) %>
+                        <%- `Ultima logare: Acum ${Math.round(diff)} minute`%>
+                            <% } %>
+                                <!-- end of gallery -->
+                                <!-- floating button (back to top) -->
+                                <button id="backToTopBtn" title="Inapoi Sus"><i
+                                        class="fa-solid fa-arrow-up"></i></button>
     </main>
     <footer class="footer">
         <%- include('../fragments/footer') %>

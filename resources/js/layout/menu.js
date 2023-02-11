@@ -87,29 +87,33 @@ function handleSidebarSubMenus() {
     sidebarProductsDown.style.cssText = "display: inline !important";
   });
 
-  sidebarAccountDown.addEventListener("click", (e) => {
-    e.preventDefault();
-    sidebarAccountLinks.style.display = "block";
-    sidebarAccountUp.style.cssText = "display: inline !important";
-    sidebarAccountDown.style.cssText = "display: none !important";
-    // if (sidebarHomeLinks.style.display === "block") {
-    //   sidebarHomeLinks.style.display = "none";
-    //   sidebarHomeUp.style.cssText = "display: none !important";
-    //   sidebarHomeDown.style.cssText = "display: inline !important";
-    // }
-    // if (sidebarProductsLinks.style.display === "block") {
-    //   sidebarProductsLinks.style.display = "none";
-    //   sidebarProductsUp.style.cssText = "display: none !important";
-    //   sidebarProductsDown.style.cssText = "display: inline !important";
-    // }
-  });
+  if (sidebarAccountDown) {
+    sidebarAccountDown.addEventListener("click", (e) => {
+      e.preventDefault();
+      sidebarAccountLinks.style.display = "block";
+      sidebarAccountUp.style.cssText = "display: inline !important";
+      sidebarAccountDown.style.cssText = "display: none !important";
+      // if (sidebarHomeLinks.style.display === "block") {
+      //   sidebarHomeLinks.style.display = "none";
+      //   sidebarHomeUp.style.cssText = "display: none !important";
+      //   sidebarHomeDown.style.cssText = "display: inline !important";
+      // }
+      // if (sidebarProductsLinks.style.display === "block") {
+      //   sidebarProductsLinks.style.display = "none";
+      //   sidebarProductsUp.style.cssText = "display: none !important";
+      //   sidebarProductsDown.style.cssText = "display: inline !important";
+      // }
+    });
+  }
 
-  sidebarAccountUp.addEventListener("click", (e) => {
-    e.preventDefault();
-    sidebarAccountLinks.style.display = "none";
-    sidebarAccountUp.style.cssText = "display: none !important";
-    sidebarAccountDown.style.cssText = "display: inline !important";
-  });
+  if (sidebarAccountUp) {
+    sidebarAccountUp.addEventListener("click", (e) => {
+      e.preventDefault();
+      sidebarAccountLinks.style.display = "none";
+      sidebarAccountUp.style.cssText = "display: none !important";
+      sidebarAccountDown.style.cssText = "display: inline !important";
+    });
+  }
 }
 
 function handleCurrentPageLink() {

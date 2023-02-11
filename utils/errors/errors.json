@@ -16,5 +16,17 @@
         "image": "/resources/images/500-img.jpg",
         "header": "eroare 500",
         "info": "<p>In limbaj trivial, asta inseamna ca serverul nostru a intalnit o eroare nemaivazuta si s-a fastacit. Echipa noastra tehnica a fost deja anuntata si lucreaza la remedierea situatiei.</p> <p>Intre timp, incearca sa accesezi <a href='/'>prima pagina</a> a site-ului sau sa cauti ceea ce te intereseaza direct in <a href='/produse'>pagina de anunturi</a></p>"
+    },
+    "dataValidationError": {
+        "title": "Date gresite",
+        "image": "/resources/images/500-img.jpg",
+        "header": "date invalide",
+        "info": "<p>Se pare ca datele introduse nu sunt bune, te rugam sa verifici corectitudinea lor si sa mai incerci odata.</p>"
+    },
+    "unauthenticatedUserError": {
+        "title": "Utilizator nelogat",
+        "image": "/resources/images/403-img.jpg",
+        "header": "Eroare logare",
+        "info": "<p>Pentru a accesa aceasta pagina trebuie sa fii logat in contul tau. Poti face asta <a href='/login'>aici</a>, sau daca nu ai cont il poti face <a href='/signup'>aici</a>.</p>"
     }
 }

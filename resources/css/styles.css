@@ -454,6 +454,37 @@ input:checked + .slider:before {
   color: var(--clr-primary-4);
 }
 
+.custom-file-input {
+  width: 100%;
+  color: transparent;
+  border-radius: var(--radius);
+}
+.custom-file-input::-webkit-file-upload-button {
+  visibility: hidden;
+}
+
+.custom-file-input::before {
+  content: "Selecteaza poza";
+  color: fieldtext;
+  display: inline-block;
+  border: 2px solid var(--clr-grey-8);
+  border-radius: var(--radius);
+  padding: 0.5rem 0.2rem;
+  outline: none;
+  white-space: nowrap;
+  cursor: pointer;
+  font-size: 0.875rem;
+  width: 100%;
+}
+
+.custom-date-input {
+  width: 100%;
+  border: 2px solid var(--clr-grey-8);
+  border-radius: var(--radius);
+  padding: 0.5rem 0.2rem;
+  cursor: pointer;
+}
+
 /*
 ========================= 
 Navbar 

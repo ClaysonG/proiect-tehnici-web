@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+    <title>Profil</title>
+    <%- include("../fragments/head") %>
+        <% if(locals.user) { %>
+            <script>
+                window.addEventListener("DOMContentLoaded", function () {
+                    document.getElementById("input-username").value = "<%= locals.user.user_name %>";
+                    document.getElementById("input-username").readOnly = true;
+                    document.getElementById("input-lastname").value = "<%= locals.user.last_name %>";
+                    document.getElementById("input-firstname").value = "<%= locals.user.first_name %>";
+                    document.getElementById("input-email").value = "<%= locals.user.email %>";
+                    document.getElementById("input-birth-date").value = "<%= locals.user.birth_date %>";
+                    let options = document.getElementById("select-color").options
+                    for (let opt of options)
+                        if (opt.value == "<%= locals.user.chat_color %>")
+                            opt.selected = true;
+                    const siteThemeRadios = document.querySelectorAll(".site-theme-radio");
+                    for (let radio of siteThemeRadios) {
+                        if (radio.value == "<%= locals.user.site_theme %>")
+                            radio.checked = true;
+                    }
+                });
+            </script>
+            <% } %>
+</head>
+
+<body>
+    <header>
+        <%- include("../fragments/header") %>
+    </header>
+    <main>
+        <% if(locals.user) { %>
+            <section class="section signup">
+                <div class="section-title products-page-title">
+                    <h1>Profil</h1>
+                    <div class="underline"></div>
+                </div>
+                <div class="section-center">
+                    <img class="profile-image" src="<%- locals.user.user_image%>"
+                        alt="nu ati incarcat poza de profil" />
+                </div>
+                <div class="section-center signup-center filter-section">
+                    <%- include("../fragments/form", {action:"/profile"}) %>
+                </div>
+                <div class="section-center">
+                    <% if(locals.message) { %>
+                        <div class="signup-success"><%- locals.message+"<br />"%>
+                        </div>
+                        <% } %>
+                            <% if(locals.err) { %>
+                                <div class="signup-error">
+                                    <%- locals.err %>
+                                </div>
+                                <% } %>
+                </div>
+            </section>
+            <!-- floating button (back to top) -->
+            <button id="backToTopBtn" title="Inapoi Sus"><i class="fa-solid fa-arrow-up"></i></button>
+            <% }%>
+    </main>
+    <footer class="footer">
+        <%- include("../fragments/footer") %>
+    </footer>
+    <script type="module" src="/resources/js/app.js"></script>
+</body>
+
+</html>

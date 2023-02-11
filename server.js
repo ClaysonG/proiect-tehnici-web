@@ -6,10 +6,20 @@ const path = require("path");
 const ejs = require("ejs");
 const url = require("url");
 
+const formidable = require("formidable");
+
+const { User } = require("./models/user");
+
 // Errors
 // const { error403, error404 } = require("./utils/render-params");
 const errorJSON = require("./utils/errors/errors.json");
-const { error403, error404, error500 } = errorJSON;
+const {
+  error403,
+  error404,
+  error500,
+  dataValidationError,
+  unauthenticatedUserError,
+} = errorJSON;
 
 // Gallery
 const {
@@ -19,6 +29,9 @@ const {
 
 // Date
 const { convertDate } = require("./utils/date/date");
+
+// Cookies
+const { parseCookies } = require("./utils/cookies/cookie");
 
 // Compile SASS
 const sass = require("sass");
@@ -32,16 +45,26 @@ const scss = sass.compile(__dirname + "/resources/sass/styles.scss", {
 });
 fs.writeFileSync(__dirname + "/resources/css/sass-styles.css", scss.css);
 
+// Create upload folders
+folders = ["temp", "uploaded_photos"];
+for (let folder of folders) {
+  let folderPath = path.join(__dirname, folder);
+  if (!fs.existsSync(folderPath)) fs.mkdirSync(folderPath);
+}
+
 // Postgres
-const { Client } = require("pg");
-const client = new Client({
-  database: "anunturi_auto",
-  user: "anunturi_auto",
-  password: "anunturi_auto",
-  host: "localhost",
-  port: 5432,
-});
-client.connect();
+const AccessDB = require("./models/accessDB");
+const DBInstance = AccessDB.getInstance({ init: "local" });
+const client = DBInstance.getClient();
+// const { Client } = require("pg");
+// const client = new Client({
+//   database: "anunturi_auto",
+//   user: "anunturi_auto",
+//   password: "anunturi_auto",
+//   host: "localhost",
+//   port: 5432,
+// });
+// client.connect();
 
 // Get categories from ENUM
 let categories = [];
@@ -65,11 +88,23 @@ app.use(
 );
 
 app.use("/resources", express.static("resources"));
+app.use("/uploaded_photos", express.static(__dirname + "/uploaded_photos"));
+
+// Session
+const session = require("express-session");
+app.use(
+  session({
+    secret: "abcdefg",
+    resave: true,
+    saveUninitialized: false,
+  })
+);
 
 app.all("*", (req, res, next) => {
   req.user = {};
   req.user.ip = req.header("x-forwarded-for") || req.socket.remoteAddress;
   res.locals.categories = categories;
+  res.locals.user = req.session.user;
   next();
 });
 
@@ -79,11 +114,259 @@ app.all("*.ejs", (req, res) => {
   });
 });
 
-app.get(["/", "/home", "/index"], async (req, res) => {
+app.get(["/", "/home", "/index", "/login"], async (req, res) => {
   return res.status(200).render("pages/index", {
     home: true,
     ip: req.user.ip,
     galleryPhotos: await getGalleryPhotos(new Date().getMinutes()),
+  });
+});
+
+app.post("/signup", function (req, res) {
+  let userName;
+
+  let form = new formidable.IncomingForm();
+  form.parse(req, function (err, textFields, fileFields) {
+    let error = "";
+
+    let newUser = new User();
+    try {
+      newUser.setUserName = textFields.username;
+      newUser.setLastName = textFields.lastname;
+      newUser.setFirstName = textFields.firstname;
+      newUser.userImage = fileFields.image.originalFilename;
+      newUser.birthDate = textFields["birth-date"];
+      newUser.email = textFields.email;
+      newUser.rpassword = textFields.rpassword;
+      newUser.setPassword = textFields.password;
+      newUser.siteTheme = textFields["site-theme"];
+      newUser.chatColor = textFields["chat-color"];
+      User.getUserByUserName(
+        textFields.username,
+        {},
+        async function (user, params, e) {
+          const userName = await User.generateUserName();
+          if (e === -1) {
+            newUser.saveUser();
+          } else {
+            error += `Username-ul este deja luat. Sugestie: ${userName}`;
+          }
+
+          if (!error) {
+            res.render("pages/signup", {
+              response: "Inregistrare efectuata cu succes!",
+            });
+          } else {
+            res.render("pages/signup", { err: error });
+          }
+        }
+      );
+    } catch (e) {
+      error += e.message;
+      res.render("pages/signup", { err: error });
+    }
+  });
+
+  form.on("field", function (name, value) {
+    if (name == "username") userName = value;
+  });
+
+  form.on("fileBegin", function (name, file) {
+    let userFolder = path.join(__dirname, "uploaded_photos", userName);
+    if (!fs.existsSync(userFolder)) {
+      fs.mkdirSync(userFolder);
+    }
+    file.filepath = path.join(userFolder, file.originalFilename);
+  });
+
+  form.on("file", function (name, file) {});
+});
+
+app.get("/code/:userName/:token", async (req, res) => {
+  try {
+    User.getUserByUserName(
+      req.params.userName,
+      { res, token: req.params.token },
+      function (user, params) {
+        AccessDB.getInstance().update(
+          {
+            table: "users",
+            fields: ["verified_mail"],
+            values: [true],
+            andConditions: [`code='${params.token}'`],
+          },
+          function (err, resUpdate) {
+            if (err || resUpdate.rowCount === 0) {
+              console.log(err);
+              return res
+                .status(500)
+                .render("pages/error", { ...dataValidationError, categories });
+            } else {
+              return res.status(200).render("pages/confirm");
+            }
+          }
+        );
+      }
+    );
+  } catch (error) {
+    console.log(error);
+    return res.status(500).render("pages/error", { ...error500, categories });
+  }
+});
+
+app.get("/loginUser", async (req, res) => {
+  return res.status(200).render("pages/signup", { login: true });
+});
+
+app.post("/login", async (req, res) => {
+  let userName;
+  let form = new formidable.IncomingForm();
+  form.parse(req, function (err, textFields, fileFields) {
+    User.getUserByUserName(
+      textFields.username,
+      {
+        req,
+        res,
+        password: textFields.password,
+      },
+      async (user, params) => {
+        let encryptedPassword = User.encryptPassword(
+          params.password,
+          user.salt_key
+        );
+        if (user.password === encryptedPassword && user.verified_mail) {
+          user.user_image = path.join(
+            "/uploaded_photos",
+            user.user_name,
+            user.user_image
+          );
+          params.req.session.user = user;
+          AccessDB.getInstance().update(
+            {
+              table: "users",
+              fields: ["last_login"],
+              values: [`${new Date().toISOString()}`],
+              andConditions: [`user_name='${user.user_name}'`],
+            },
+            function (err, resUpdate) {
+              if (err || resUpdate.rowCount === 0) {
+                console.log(err);
+              }
+            }
+          );
+          params.req.session.loginSuccess = "Ai fost logat cu succes";
+          params.res.redirect("/index");
+        } else {
+          params.res.render("pages/signup", {
+            login: true,
+            err: "Date logare incorecte sau nu a fost confirmat mail-ul!",
+          });
+        }
+      }
+    );
+  });
+});
+
+app.get("/logout", function (req, res) {
+  req.session.destroy();
+  res.locals.user = null;
+  return res.render("pages/logout");
+});
+
+app.get("/profile", async (req, res) => {
+  if (!req.session.user) {
+    return res.status(400).render("pages/error", {
+      ...unauthenticatedUserError,
+    });
+  }
+  return res.status(200).render("pages/profile");
+});
+
+app.post("/profile", function (req, res) {
+  if (!req.session.user) {
+    return res.status(400).render("pages/error", {
+      ...unauthenticatedUserError,
+    });
+  }
+  let form = new formidable.IncomingForm();
+
+  form.parse(req, function (err, textFields, fileFields) {
+    var encryptedPassword = User.encryptPassword(textFields.password);
+    let fields = [];
+    let values = [];
+    if (textFields.lastname) {
+      fields.push("last_name");
+      values.push(textFields.lastname);
+    }
+    if (textFields.firstname) {
+      fields.push("first_name");
+      values.push(textFields.firstname);
+    }
+    if (textFields.email) {
+      fields.push("email");
+      values.push(textFields.email);
+    }
+    if (textFields["chat-color"]) {
+      fields.push("chat_color");
+      values.push(textFields["chat-color"]);
+    }
+    if (textFields["site-theme"]) {
+      fields.push("site_theme");
+      values.push(textFields["site-theme"]);
+    }
+    if (fileFields.image) {
+      fields.push("user_image");
+      values.push(fileFields.image.originalFilename);
+    }
+    if (textFields.password === textFields.rpassword) {
+      fields.push("password");
+      values.push(User.encryptPassword(textFields.rpassword));
+    }
+    AccessDB.getInstance().update(
+      {
+        table: "users",
+        fields,
+        values,
+        andConditions: [
+          `password='${encryptedPassword}'`,
+          `user_name='${req.session.user.user_name}'`,
+        ],
+      },
+      function (err, updateRes) {
+        if (err) {
+          console.log(err);
+          return res
+            .status(500)
+            .render("pages/error", { ...error500, categories });
+        }
+
+        if (updateRes.rowCount == 0) {
+          return res.render("pages/profile", {
+            err: "Update-ul nu s-a realizat. Verificati parola introdusa.",
+          });
+        } else {
+          req.session.user.last_name = textFields.lastname;
+          req.session.user.first_name = textFields.firstname;
+          req.session.user.email = textFields.email;
+          req.session.user.chat_color = textFields.chat_color;
+          res.locals.user = req.session.user;
+        }
+
+        res.render("pages/profile", {
+          message: "Update-ul s-a realizat cu succes.",
+        });
+      }
+    );
+  });
+
+  form.on("fileBegin", function (name, file) {
+    console.log(name, file);
+    let userFolder = path.join(__dirname, "uploaded_photos", userName);
+    if (!fs.existsSync(userFolder)) {
+      fs.mkdirSync(userFolder);
+    }
+    // TODO: console log
+    file.filepath = path.join(userFolder, file.originalFilename);
   });
 });
 
@@ -126,12 +409,16 @@ app.get("/product/:id", async (req, res) => {
     }
     product.created_at = convertDate(product.created_at);
     const productName = product.name;
-    const d = new Date();
-    // 1 day
-    d.setTime(d.getTime() + 24 * 60 * 60 * 1000);
-    res.cookie("last-seen-product", `${id}`, {
-      expires: d,
-    });
+    const cookies = parseCookies(req);
+    const hasAcceptedCookies = cookies["cookies-accepted"] == "true";
+    if (hasAcceptedCookies) {
+      const d = new Date();
+      // 1 day
+      d.setTime(d.getTime() + 24 * 60 * 60 * 1000);
+      res.cookie("last-seen-product", `${id}`, {
+        expires: d,
+      });
+    }
     return res
       .status(200)
       .render("pages/product", { product, title: productName });

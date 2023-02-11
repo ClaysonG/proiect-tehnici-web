@@ -535,6 +535,9 @@ function filter() {
 }
 
 function handleFilterOnInputChange() {
+  if (!filterBtn) {
+    return;
+  }
   const makeSelect = document.querySelector("#make-choice");
   makeSelect.onchange = filter;
   const modelSelect = document.querySelector("#model-choice");
